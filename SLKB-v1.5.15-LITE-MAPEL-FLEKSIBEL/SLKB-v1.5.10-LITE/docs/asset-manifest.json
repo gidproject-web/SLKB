@@ -1,0 +1,403 @@
+{
+  "project": "Snake & Ladder: Knowledge Battle",
+  "counts": {
+    "board": 2,
+    "snakes": 7,
+    "ladders": 8,
+    "players": 6,
+    "dice": 6,
+    "ui": 10
+  },
+  "items": [
+    {
+      "path": "assets/board/board-master.png",
+      "width": 4096,
+      "height": 4096,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 67598,
+      "sha256": "e3bfb452d0aa0d3f7a6267d621625cf79574906a75612e02d487e805fc001bb0",
+      "source": "Master Board presisi V4 (kosong, 10x10)"
+    },
+    {
+      "path": "assets/board/board-numbered.png",
+      "width": 4096,
+      "height": 4096,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 351436,
+      "sha256": "d61c357c40533bae279f05c8dc74def43e7521846e9bf2b2c271d6df352c08c2",
+      "source": "Master Board presisi V4 (nomor zigzag)"
+    },
+    {
+      "path": "assets/dice/dice-01.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1449042,
+      "sha256": "d25f186f90ee138731ae540efc278018a162d336327f2f7caa011f87b5bf0128",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/dice/dice-02.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1473662,
+      "sha256": "480e9d9dec1f27231b90baef062efce15895047890b58562ca35833f84d422c3",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/dice/dice-03.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1479295,
+      "sha256": "0b1ff4eb2976b67fba3a588590e587ca83a7ca9e9bbb40cf0375930be546c2e9",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/dice/dice-04.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1438056,
+      "sha256": "e08efa7ce5ea85117460d45b219279081fb301f2a4d308dda249af8a978b69a9",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/dice/dice-05.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1503178,
+      "sha256": "906a6cdf2bac3550219064242e24e7302c93ee805114044a0d22a42c0a368940",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/dice/dice-06.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1713243,
+      "sha256": "e0d140f8409306ff7e9991bc08f3cce4db1e1551cd2f1be73b97afecf86d26bf",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ladders/ladder-01.png",
+      "width": 936,
+      "height": 1081,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1202198,
+      "sha256": "b26bda9d50e2add8cb018772527b5c866087d4a502108429cfae9c47f4f39da5",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-02.png",
+      "width": 817,
+      "height": 1080,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1056737,
+      "sha256": "0ff29584afe9159777b07fc8b7c54a62781c2b69a12e7cd75b16b8800f21906c",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-03.png",
+      "width": 865,
+      "height": 1078,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1147819,
+      "sha256": "41490d93af15ec7b5b44944e2db16f7b3f06b275477a5468dbc4d9b29d6652db",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-04.png",
+      "width": 768,
+      "height": 1200,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 820386,
+      "sha256": "ae83d23a68e3ba62991b096d7a557f4fae7e4e9bcae8b986947f04af0bdc912c",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-05.png",
+      "width": 741,
+      "height": 1186,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 660583,
+      "sha256": "6f079a44d3775028f76f1dc0be6c1bcc114370dfe87b490823afda31f0b86a3a",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-06.png",
+      "width": 918,
+      "height": 1093,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1019917,
+      "sha256": "6f39a11930a45cfc520477395a27ae058f5c2ba8bd622bd945e6efd15631d6c8",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-07.png",
+      "width": 855,
+      "height": 1087,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 823980,
+      "sha256": "bdabf274b953de38fa84ab7cc971f21dcf10db9faee30e5c7285d749aa9f4b45",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ladders/ladder-08.png",
+      "width": 876,
+      "height": 1094,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 883518,
+      "sha256": "6d3f94e3ef4f2dbe901f850f841ad84b6b67d39b97e752bfb11b4037408c0484",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/players/player-01.png",
+      "width": 1295,
+      "height": 1214,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1057085,
+      "sha256": "d7d93cc4f6571b46a2def801faebf65aeea46451748b314dd9b0260fb059199f",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/players/player-02.png",
+      "width": 1295,
+      "height": 1215,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1059296,
+      "sha256": "04cd26c653ce4ea984addffa535975b8664927c4897deeb4e912d264d1e32258",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/players/player-03.png",
+      "width": 1295,
+      "height": 1215,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1059939,
+      "sha256": "6655520516c78561711abe960babb1edf21e7f910ecba504d8237b99471e883e",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/players/player-04.png",
+      "width": 1295,
+      "height": 1215,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1006916,
+      "sha256": "3b4001580baa7807c3f1bbdc7e4a0426796f38eaa0cb90cd31fd8e168c4ea420",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/players/player-05.png",
+      "width": 1295,
+      "height": 1215,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1083750,
+      "sha256": "e8e502dee38bff7cb02a9afa4054e20caeb9e3da5ed34032380eceed87bd047d",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/players/player-06.png",
+      "width": 1295,
+      "height": 1215,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1016090,
+      "sha256": "47c2846f72d367e8e93b33acd352b6ba9982f5c829c059892433ef88fe1b54cb",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/snakes/snake-01.png",
+      "width": 984,
+      "height": 953,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1402551,
+      "sha256": "5492b6822e50d75eb9d3d8f39f0dcea269ea67757ed93b10b22acfb861b29058",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-02.png",
+      "width": 966,
+      "height": 962,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1129688,
+      "sha256": "a08a23f39a110d82c4b9ae4816036ea2bf3b78dd97e598c58b29fab78015e399",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-03.png",
+      "width": 962,
+      "height": 958,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1206082,
+      "sha256": "6c98318aca9c34b1163a7dd79fd6af22e49d378e432e4e07a545a111dfd836cd",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-04.png",
+      "width": 809,
+      "height": 956,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1011891,
+      "sha256": "a601f9f51f5187b7f162df9b916c1a366e940688efd8d542346e569b92626b8b",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-05.png",
+      "width": 956,
+      "height": 962,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1144092,
+      "sha256": "3009a98f99ae24db8750a16032f03ffdc3577b70a22d027039e6ec01970867ae",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-06.png",
+      "width": 954,
+      "height": 962,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1112319,
+      "sha256": "6d244ad888a73f878ec4929c59ee7df56556f091bd5633b92292cf0fc1640ebe",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/snakes/snake-07.png",
+      "width": 981,
+      "height": 962,
+      "mode": "RGBA",
+      "has_transparency": true,
+      "size_bytes": 1129279,
+      "sha256": "4715b5fe8ca59655a1970c04bb1ccc97e3b89ba7ac09f823d3e901c8cd80ce31",
+      "source": "Aset pembersihan transparansi tahap 4 (perlu QA tepi objek)"
+    },
+    {
+      "path": "assets/ui/ui-01-menu-utama.png",
+      "width": 1670,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2400760,
+      "sha256": "b059ee4a38677753b84ef596896494df229db5c2060ac56d5b0a285efa7e8edb",
+      "source": "UI 01 tersimpan dari versi terakhir dengan Info Pengembang"
+    },
+    {
+      "path": "assets/ui/ui-02-pengaturan-tim.png",
+      "width": 1671,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2286661,
+      "sha256": "7082079b617ddbf9f27043896f3374b794d3ba9853da0f0e410cd6e45a19c257",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-03-scoreboard.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2309787,
+      "sha256": "cf10529ab0585346cc308383950ddc90a43c9bc13a641c8b299469fb2f8d2118",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-04-panel-soal.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2421179,
+      "sha256": "0631210b29e9526457bee6ff20064c39b45dd03fe73057c09a17716805270b4b",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-05-hasil-permainan.png",
+      "width": 1671,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2394085,
+      "sha256": "25c759ac42363598f16caa94e49826557dd50aa944b2f3636c529326e2d26444",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-06-game-arena.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2403180,
+      "sha256": "4f042ba0106091f9247fb37c7a820edfd94f42bbb48d7f554f942fd51790068e",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-07-bank-soal.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2275355,
+      "sha256": "934a295c74796d14dfe72440e0d0df0af51ece17f7264633a61c3a1dc8bd9ef9",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-08-panduan.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2497845,
+      "sha256": "38e7c5000005e65ddae3f9a03d3a783b7abecf65e4903ccfdf15ba39b4f63e19",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-09-pengaturan.png",
+      "width": 1671,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2304321,
+      "sha256": "1e74ee26d458928d49e5ca82c6228dfec2a0e6cb4d5e0bd508e910280f3e82d7",
+      "source": "ZIP terbaru dari pengguna"
+    },
+    {
+      "path": "assets/ui/ui-10-info-pengembang.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "has_transparency": false,
+      "size_bytes": 2259482,
+      "sha256": "9233bd771a1310e8a1b897f7f0c0a2944691cfed38fd9fc911b4bff33ed0e68c",
+      "source": "ZIP terbaru dari pengguna"
+    }
+  ]
+}

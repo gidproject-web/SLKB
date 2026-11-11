@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#442077">
+<meta name="description" content="Snake & Ladder Knowledge Battle - game edukasi 2–6 tim karya GID Creative Studio.">
+<title>Snake & Ladder: Knowledge Battle • GID Creative Studio</title>
+<link rel="stylesheet" href="css/style.css?v=1.5.12">
+</head>
+<body>
+<div class="app-backdrop"></div>
+<header class="topbar">
+  <button class="brand" data-view="menu" aria-label="Kembali ke menu utama"><span class="brand-monogram">GID</span><span><strong>SNAKE & LADDER</strong><small>KNOWLEDGE BATTLE</small></span></button>
+  <div class="top-actions"><span class="demo-pill" title="Versi aplikasi">VERSI 1.5.14</span><button class="icon-btn" id="muteBtn" title="Aktif/nonaktif suara efek" aria-label="Suara efek">🔊</button><button class="icon-btn" id="fullscreenBtn" title="Layar penuh" aria-label="Layar penuh">⛶</button></div>
+</header>
+<main class="main" id="main">
+  <section id="view-menu" class="view menu-view" aria-label="Menu utama">
+    <div class="hero">
+      <div class="hero-crown">♛</div>
+      <h1><span>SNAKE & LADDER</span><em>KNOWLEDGE BATTLE</em></h1>
+      <div class="subtitle">Game Edukasi Pengetahuan • 2–6 Tim</div>
+      <div class="menu-buttons">
+        <button class="glossy primary xl" data-view="setup">▶ &nbsp; Mulai Bermain</button>
+        <button class="glossy secondary" data-view="help">📖 &nbsp; Panduan</button>
+        <button class="glossy secondary" data-view="settings">⚙ &nbsp; Pengaturan</button>
+        <button class="glossy secondary" data-view="questions">▤ &nbsp; Bank Soal</button>
+        <button class="glossy blue" data-view="cloud" id="accountMenuBtn">☁ &nbsp; Akun Guru & Cloud</button><button class="glossy secondary" id="menuBuyPremiumBtn">👑 Beli Premium via Lynk.id</button>
+        <button class="glossy blue" data-view="about">ⓘ &nbsp; Info Pengembang</button>
+      </div>
+      <p class="hero-caption">Belajar • Bermain • Berkolaborasi</p>
+    </div>
+  </section>
+
+  <section id="view-setup" class="view" hidden>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PERSIAPAN PERMAINAN</p><h2>👥 Pengaturan Tim</h2></div><button class="back-btn" data-view="menu">← Menu Utama</button></div>
+      <h3>1. Pilih jumlah tim</h3><div class="team-counts" id="teamCounts"></div>
+      <h3>2. Nama tim</h3><div class="team-inputs" id="teamInputs"></div>
+      <div class="setup-two"><div><h3>3. Pilih bank soal</h3><div class="setup-bank-filters">
+<label for="setupLevel">Jenjang<select id="setupLevel"><option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option><option value="Umum">Umum (soal lama)</option></select></label>
+<label for="setupGrade">Kelas<select id="setupGrade"></select></label>
+<label for="subjectSelect">Mata Pelajaran<select id="subjectSelect"></select></label>
+<label for="setupTopic">Materi / Bab<select id="setupTopic"></select></label>
+</div><p id="questionPoolInfo" class="hint"></p></div><div><h3>4. Aturan permainan</h3><p class="rule-summary">🎲 Lempar dadu → lihat hasil → buka soal. ✅ Benar maju, ❌ salah tetap tanpa membuka kunci; 🔁 soal salah diulang untuk tim yang sama. 🎁 Angka 6 benar mendapat bonus; tiga angka 6 berturut-turut: lemparan ketiga hangus. 🐍 Ular turun • 🪜 Tangga naik • 💥 Tabrakan ke START.</p><p class="hint">Jika dadu melewati 100, pion memantul mundur; menang hanya bila berhenti tepat di 100. START adalah area bersama.</p></div></div>
+      <div id="setupStartMessage" class="setup-start-message" role="alert" aria-live="assertive" hidden></div>
+      <div class="panel-actions"><button class="glossy secondary" data-view="questions">▤ Kelola Bank Soal</button><button class="glossy secondary" id="useDemoBankBtn" type="button" hidden>↻ Gunakan Soal Demo</button><button class="glossy primary" id="startGameBtn" type="button">▶ Mulai Pertandingan</button></div>
+    </div>
+  </section>
+
+  <section id="view-game" class="view game-view" hidden>
+    <div class="game-toolbar"><div><p class="eyebrow">ARENA PERMAINAN</p><h2>🏁 Petualangan 100 Kotak</h2></div><div class="game-pills"><span class="pill" id="turnCounter">Giliran 1</span><span class="pill" id="subjectBadge">Bank Soal Demo</span><button class="tiny-btn" id="artToggleBtn" title="Tampilkan/sembunyikan dekorasi ular dan tangga">🐍 Visual: ON</button></div></div>
+    <div class="game-layout">
+      <div class="board-panel">
+        <div class="board-stage">
+          <div class="board-start-dock" aria-label="Area START: pion tim yang belum bergerak">
+            <div class="start-dock-heading">🚩 <span>START</span></div>
+            <div id="startPieces" class="start-pieces" aria-live="polite" aria-label="Pion tim di posisi nol"></div>
+            <div class="start-dock-foot">KOTAK <strong>0</strong><span aria-hidden="true">➜</span></div>
+          </div>
+          <div id="board" class="board" role="group" aria-label="Papan permainan ular tangga, 100 kotak">
+            <div class="board-bg"></div>
+            <div class="board-objects" id="boardObjects"></div>
+            <div class="board-grid" id="boardGrid"></div>
+            <div class="pawn-layer" id="pawnLayer" aria-live="off"></div>
+          </div>
+        </div>
+        <div class="board-footer"><span>🚩 START: pion menunggu di kiri papan</span><span>🏆 FINISH: kotak 100</span></div>
+      </div>
+      <aside class="game-sidebar">
+        <div class="side-card score-card"><h3>🏅 Scoreboard Tim</h3><div id="scoreboardRows" class="score-rows"></div><button class="text-link" data-view="scores">Lihat peringkat lengkap →</button></div>
+        <div class="side-card active-team-card"><div class="eyebrow">GILIRAN SEKARANG</div><div class="active-team" id="activeTeam"></div><div class="bonus-badge" id="bonusBadge" hidden></div></div>
+        <div class="dice-card"><div class="dice-frame"><img id="diceImage" src="assets/optimized/dice/dice-01.webp" alt="Dadu 3D" /><span id="diceNumber" class="dice-number">?</span></div><div class="dice-card-content"><div class="hint">🎲 Lihat hasil dadu terlebih dahulu, lalu buka soal.</div><button class="glossy primary dice-button" id="rollBtn">🎲 Lempar Dadu</button></div></div>
+        <div id="gameStatus" class="game-status" role="status" aria-live="polite">Tekan Lempar Dadu untuk memulai.</div>
+        <div class="game-nav"><button class="glossy secondary sm" data-view="menu">⌂ Menu</button><button class="glossy secondary sm" data-view="help">📖 Aturan</button><button class="glossy danger sm" id="endGameBtn">⚑ Akhiri</button></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-scores" class="view" hidden>
+    <div class="panel medium-panel"><div class="panel-head"><div><p class="eyebrow">STATISTIK</p><h2>🏅 Scoreboard & Posisi</h2></div><button class="back-btn" data-view="game">← Kembali ke Arena</button></div><div id="fullScores"></div><div class="panel-actions"><button class="glossy primary" data-view="game">▶ Lanjut Bermain</button></div></div>
+  </section>
+
+  <section id="view-results" class="view" hidden>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PERTANDINGAN SELESAI</p><h2>🏆 Hasil Permainan</h2></div></div><div id="winnerBanner"></div><div id="podium" class="podium"></div><div id="finalScores"></div><div id="retrySummary" class="retry-summary"></div><div class="panel-actions center"><button class="glossy secondary" id="replayVictoryBtn" type="button" hidden>⭐ Putar Ulang SFX Bintang</button><button class="glossy secondary" data-view="menu">⌂ Menu Utama</button><button class="glossy primary" id="playAgainBtn">↻ Main Lagi</button></div></div>
+  </section>
+
+  <section id="view-questions" class="view" hidden>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PERSIAPAN KONTEN</p><h2>▤ Bank Soal</h2></div><button class="back-btn" id="questionBackBtn">← Kembali</button></div><p class="hint" id="cloudBankInfo">🔒 Bank Soal Premium memerlukan login dan lisensi aktif.</p>
+      <div id="bankPremiumLocked" class="bank-premium-locked" hidden>
+        <div class="bank-premium-lock-icon">🔒</div>
+        <div><h3>Pengelolaan Bank Soal Khusus Premium</h3><p>Mode Demo hanya dapat melihat dan memainkan soal contoh. Tambah soal manual, impor CSV/JSON, ekspor, dan Bank Soal Pribadi tersedia setelah pembelian Lynk.id serta aktivasi akun.</p>
+          <button class="glossy primary sm" type="button" data-view="cloud">👑 Login / Aktivasi Premium</button></div>
+      </div>
+      <p class="hint"><strong>Tersedia bank soal contoh untuk mencoba game.</strong> Fitur kelola soal dan impor CSV/JSON hanya bagi akun Premium/Admin. Format: A–C untuk SD kelas 1–3; A–D untuk kelas 4–12.</p>
+      <details class="bank-guide" id="bankPremiumGuide"><summary>📘 Panduan lengkap: isi Excel/CSV dan impor bank soal</summary>
+      <ol>
+      <li><strong>Pilih jenjang, kelas, dan mata pelajaran pada filter Bank Soal.</strong> Nama mapel mengikuti katalog game; contoh: <strong>PAI &amp; Budi Pekerti</strong>, bukan nama yang diketik bebas.</li>
+      <li><strong>Unduh 📗 Template Excel</strong> untuk mengisi soal dengan mudah. Buka sheet <strong>SOAL_IMPOR</strong>; 1 baris = 1 pertanyaan. Pilih jenjang, kelas, dan mapel pada dropdown. Jika mapel belum tersedia, <strong>ketik nama mata pelajaran baru langsung di kolom subject</strong>, lalu pilih Ya/Lanjutkan ketika Excel menampilkan peringatan. Contoh mapel bawaan baru: <strong>Prakarya dan Kewirausahaan</strong>.</li>
+      <li>Isi <code>topic</code> (Bab/Materi), <code>question</code>, <code>option_a</code> sampai <code>option_d</code>, <code>answer</code> (A/B/C/D), dan <code>explanation</code>. Untuk <strong>SD kelas 1–3</strong> cukup pilihan A–C; <code>option_d</code> dikosongkan. <code>id</code> boleh kosong.</li>
+      <li><strong>Konversi Excel menjadi CSV:</strong> buka sheet <strong>SOAL_IMPOR</strong>, pilih <strong>File → Simpan Sebagai → CSV UTF-8 (Comma delimited) (*.csv)</strong>; jika Excel mengingatkan bahwa hanya sheet aktif yang disimpan, klik <strong>OK/Ya</strong>. Jangan ekspor sheet PANDUAN atau DAFTAR_MAPEL.</li>
+      <li><strong>Impor:</strong> masuk akun Premium/Admin → Bank Soal → klik <strong>⬆ Impor CSV / JSON</strong> → pilih file <code>.csv</code> → tunggu notifikasi jumlah soal berhasil diimpor. JSON tetap didukung.</li>
+      <li><strong>Cek hasil:</strong> filter jenjang, kelas, mapel, dan materi; periksa jumlah serta contoh soal. Setelah itu pilih kategori yang sama di Pengaturan Tim dan mulai bermain.</li>
+      </ol><p><strong>Penting:</strong> Excel <code>.xlsx</code> belum diimpor langsung. Gunakan CSV UTF-8 agar offline dan ringan. Jangan mengubah judul kolom template, jangan menyisakan contoh soal, serta simpan cadangan file Excel asli. Mapel baru boleh diketik sendiri di Excel; saat impor game menampilkan konfirmasi dan akan membuatnya sebagai kategori baru. Gunakan penulisan yang konsisten.</p></details>
+      <p class="hint"><strong>📝 Alur mudah guru:</strong> 📗 Unduh Excel → isi 1 baris per soal + pilih/ketik mapel → simpan sheet SOAL_IMPOR sebagai <strong>CSV UTF-8</strong> → <strong>⬆ Impor CSV/JSON</strong>. <strong>CSV bisa langsung diimpor; .xlsx harus dikonversi.</strong> <a href="templates/PANDUAN-IMPOR-CSV.txt" download>Unduh panduan teks</a>.</p>
+      <div class="question-toolbar question-filter-toolbar"><label>Jenjang<select id="bankLevel"><option value="all">Semua Jenjang</option><option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option><option value="Umum">Umum / Lama</option></select></label><label>Kelas<select id="bankGrade"></select></label><label>Mata Pelajaran<select id="bankFilter"></select></label><label>Materi<select id="bankTopic"></select></label><span id="bankCount" class="pill"></span><button class="glossy blue sm" id="downloadTopicTemplateBtn" title="Unduh JSON yang mengikuti pilihan jenjang, kelas, dan mapel; bisa untuk semua pengguna">📄 Template Materi Ini</button><button class="glossy blue sm" id="downloadCsvTemplateBtn" type="button">📊 Template CSV</button><a class="glossy blue sm" href="templates/template-bank-soal-guruupgradeid.xlsx" download="template-bank-soal-guruupgradeid.xlsx" title="Isi di Excel, lalu Simpan Sebagai CSV UTF-8 untuk impor">📗 Template Excel</a><div id="bankPremiumTools" class="bank-premium-tools" hidden><button class="glossy secondary sm" id="exportBankBtn">⬇ Ekspor JSON</button><button class="glossy secondary sm" id="exportLocalBankBtn" title="Cadangkan hanya soal buatan lokal untuk impor ke cloud">⬇ Ekspor Soal Lokal</button><label class="glossy secondary sm file-trigger" for="importBankInput">⬆ Impor CSV / JSON</label><input type="file" accept=".csv,text/csv,application/json,.json" id="importBankInput" hidden><label class="glossy blue sm file-trigger" for="importCloudInput" id="importCloudLabel" hidden>☁ Impor CSV / JSON Pribadi</label><input type="file" accept=".csv,text/csv,application/json,.json" id="importCloudInput" hidden><button class="glossy blue sm" type="button" id="refreshCloudBankBtn">↻ Refresh Cloud</button></div></div>
+      <div class="bank-layout" id="bankLayout"><div><div class="bank-list" id="bankList"></div></div><div class="form-card" id="bankEditorPanel" hidden><h3>✏ Tambah Soal Baru</h3><label class="save-target-label" for="saveTarget">Simpan soal ke<select id="saveTarget"><option value="local">💻 Browser Lokal (offline)</option><option value="cloud">☁ Bank Soal Pribadi (sinkron perangkat)</option></select></label><p class="hint">Soal Cloud hanya terlihat oleh Anda sampai disetujui admin untuk Bank Bersama.</p><form id="addQuestionForm"><div class="form-school-grid"><label for="newLevel">Jenjang<select id="newLevel" required><option value="SD">SD</option><option value="SMP">SMP</option><option value="SMA">SMA</option></select></label><label for="newGrade">Kelas<select id="newGrade" required></select></label></div><label for="newSubject">Mata pelajaran</label><select id="newSubject" required></select><input id="newSubjectOther" maxlength="60" placeholder="Nama mapel lain" hidden><label for="newTopic">Bab / materi</label><input id="newTopic" maxlength="60" placeholder="Mis. Akhlak"><label for="newQuestion">Pertanyaan</label><textarea id="newQuestion" rows="3" minlength="5" maxlength="600" required placeholder="Tuliskan pertanyaan di sini"></textarea><div class="choice-input-grid"><label>A<input id="newA" required maxlength="200"></label><label>B<input id="newB" required maxlength="200"></label><label>C<input id="newC" required maxlength="200"></label><label>D<input id="newD" required maxlength="200"></label></div><p id="choiceCountHint" class="hint">Kelas 1–3: 3 pilihan A–C.</p><label for="newAnswer">Kunci jawaban</label><select id="newAnswer"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select><label for="newExplanation">Umpan balik / pembahasan (opsional)</label><textarea id="newExplanation" rows="2" maxlength="400"></textarea><button class="glossy primary block" type="submit" id="saveQuestionBtn">+ Simpan Soal</button><button class="back-btn block" type="button" id="cancelEditBtn" hidden>Batal Edit</button></form></div></div>
+      <div id="bankPagination" class="bank-pagination" hidden>
+        <label for="bankPageSize">Soal per halaman
+          <select id="bankPageSize"><option value="25" selected>25</option><option value="50">50</option></select>
+        </label>
+        <button class="back-btn" type="button" id="bankPrevBtn">← Sebelumnya</button>
+        <span id="bankPageInfo" aria-live="polite">Halaman 1 dari 1</span>
+        <button class="back-btn" type="button" id="bankNextBtn">Berikutnya →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- V1.5.10: master IDs collision protection and dynamic downloadable template. -->
+  <section id="view-cloud" class="view account-view" hidden>
+    <div class="panel wide-panel account-page"><div class="panel-head"><div><p class="eyebrow">AKUN & LISENSI ONLINE</p><h2>☁ Masuk ke Snake & Ladder</h2></div><button class="back-btn" data-view="menu">← Menu</button></div>
+      <div class="account-intro"><div class="account-symbol">🔐</div><div><h3>Satu akun, akses sesuai lisensi</h3><p>Admin menuju Dashboard Pengelola. Guru menuju Ruang Guru; fitur Premium terbuka setelah aktivasi pembelian di Lynk.id.</p></div></div>
+      <div class="cloud-status" id="cloudConnectionStatus" role="status">Memeriksa konfigurasi Supabase…</div>
+      <div class="cloud-layout"><div class="form-card auth-card" id="cloudAuthPanel">
+        <div class="auth-tabs" role="tablist" aria-label="Pilihan akses akun guru">
+          <button id="authTabLogin" type="button" class="auth-tab active" role="tab" aria-selected="true">🔓 Masuk</button>
+          <button id="authTabRegister" type="button" class="auth-tab" role="tab" aria-selected="false">📝 Daftar Akun</button>
+        </div>
+        <form id="cloudLoginForm" class="auth-form" novalidate>
+          <h3>Selamat Datang Kembali</h3><p class="hint">Masuk dengan akun Guru atau Admin yang sudah terdaftar.</p>
+          <label for="cloudEmail">Email</label><input id="cloudEmail" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="nama@email.com">
+          <label for="cloudPassword">Kata sandi</label><div class="auth-password-row"><input id="cloudPassword" type="password" autocomplete="current-password" required placeholder="Masukkan kata sandi"><button type="button" class="auth-eye" data-toggle-password="cloudPassword" aria-label="Tampilkan kata sandi">Lihat</button></div>
+          <button class="glossy primary block" id="cloudLoginBtn" type="submit">🔓 Masuk ke Akun</button>
+          <button class="auth-link" type="button" id="authForgotLink">Lupa kata sandi?</button>
+        </form>
+        <form id="cloudRegisterForm" class="auth-form" novalidate hidden>
+          <h3>Buat Akun Guru</h3><p class="hint">Pendaftaran gratis. Akses Premium hanya aktif setelah pembelian Lynk.id diverifikasi Admin.</p>
+          <label for="cloudDisplayName">Nama lengkap</label><input id="cloudDisplayName" autocomplete="name" maxlength="90" required placeholder="Nama lengkap guru">
+          <label for="cloudRegisterEmail">Email aktif</label><input id="cloudRegisterEmail" type="email" autocomplete="email" inputmode="email" required placeholder="nama@email.com">
+          <label for="cloudRegisterPassword">Buat kata sandi</label><div class="auth-password-row"><input id="cloudRegisterPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="Minimal 8 karakter, huruf dan angka"><button type="button" class="auth-eye" data-toggle-password="cloudRegisterPassword" aria-label="Tampilkan kata sandi">Lihat</button></div>
+          <label for="cloudRegisterConfirm">Konfirmasi kata sandi</label><div class="auth-password-row"><input id="cloudRegisterConfirm" type="password" autocomplete="new-password" required minlength="8" placeholder="Ulangi kata sandi"><button type="button" class="auth-eye" data-toggle-password="cloudRegisterConfirm" aria-label="Tampilkan kata sandi">Lihat</button></div>
+          <p class="auth-guidance">🔐 Gunakan email yang dapat Anda akses untuk verifikasi dan pemulihan akun. Jangan pernah membagikan kata sandi.</p>
+          <button class="glossy primary block" id="cloudRegisterBtn" type="submit">📝 Daftar Akun Guru</button>
+        </form>
+        <form id="cloudForgotForm" class="auth-form" novalidate hidden>
+          <h3>🔑 Lupa Kata Sandi?</h3><p class="hint">Masukkan email yang digunakan saat mendaftar. Jika akun terdaftar, instruksi reset akan dikirim ke email.</p>
+          <label for="cloudForgotEmail">Alamat email</label><input id="cloudForgotEmail" type="email" autocomplete="email" required placeholder="nama@email.com">
+          <p class="auth-guidance" id="authRecoveryDeviceHint">📱 Gunakan tautan reset pada perangkat yang dapat membuka halaman game ini.</p>
+          <button class="glossy primary block" id="cloudForgotBtn" type="submit">📩 Kirim Tautan Reset</button>
+          <div class="auth-recovery-sent" id="authRecoverySentBox" hidden role="status" aria-live="polite"><strong>📨 Permintaan dikirim</strong><p>Jika email terdaftar, tautan akan masuk ke Inbox atau Spam. Buka tautan pada perangkat yang bisa mengakses halaman game, lalu buat password baru.</p><p>Jangan membagikan tautan pemulihan atau token yang ada di alamat browser.</p></div>
+          <button type="button" class="auth-link" id="authBackLogin">← Kembali ke Masuk</button>
+        </form>
+        <form id="cloudResetForm" class="auth-form" novalidate hidden>
+          <h3>🔐 Buat Kata Sandi Baru</h3><p class="hint">Tautan pemulihan telah diverifikasi. Gunakan password baru minimal 8 karakter dengan huruf dan angka. Setelah berhasil, masuk ulang menggunakan password baru.</p>
+          <label for="cloudNewPassword">Kata sandi baru</label><div class="auth-password-row"><input id="cloudNewPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="Minimal 8 karakter, huruf dan angka"><button type="button" class="auth-eye" data-toggle-password="cloudNewPassword" aria-label="Tampilkan kata sandi">Lihat</button></div>
+          <label for="cloudNewPasswordConfirm">Konfirmasi kata sandi baru</label><div class="auth-password-row"><input id="cloudNewPasswordConfirm" type="password" autocomplete="new-password" required minlength="8" placeholder="Ulangi kata sandi baru"><button type="button" class="auth-eye" data-toggle-password="cloudNewPasswordConfirm" aria-label="Tampilkan kata sandi">Lihat</button></div>
+          <button class="glossy primary block" id="cloudResetBtn" type="submit">✓ Simpan Kata Sandi Baru</button>
+        </form>
+        <div class="auth-confirm-box" id="authVerifyBox" hidden><h3>📨 Periksa Email Anda</h3><p>Jika sistem mengirimkan verifikasi, buka inbox atau folder spam dan klik tautan konfirmasi. Setelah terverifikasi, kembali untuk Masuk.</p><div class="auth-verify-buttons"><button class="glossy secondary sm" type="button" id="authResendBtn">Kirim Ulang Email Verifikasi</button><button class="glossy primary sm" type="button" id="authVerifiedLoginBtn">Sudah Verifikasi? Masuk</button></div></div>
+        <p id="authMessage" class="auth-message" role="status" aria-live="polite" hidden></p>
+      </div></div>
+      <div class="account-purchase"><p>Belum Premium? Beli dari halaman resmi, kemudian ajukan nomor transaksi di Ruang Guru.</p><button id="buyPremiumBtn" class="glossy primary">👑 Beli Premium di Lynk.id</button></div>
+      <p class="notice">🎮 Mode Demo dapat dimainkan tanpa login. Soal Master Premium tidak disimpan di file game publik.</p>
+    </div>
+  </section>
+
+  <section id="view-teacher" class="view account-view" hidden>
+    <div class="panel wide-panel dashboard-page"><div class="panel-head"><div><p class="eyebrow">GID CREATIVE STUDIO • AKUN GURU</p><h2>🎓 Ruang Guru</h2></div><button class="back-btn" data-view="menu">← Menu</button></div>
+      <div id="cloudLoggedIn" class="dashboard-teacher-content" hidden>
+        <div class="dashboard-hero teacher-hero"><div><span class="dashboard-eyebrow">SELAMAT DATANG</span><h3 id="cloudAccountName">Akun Guru</h3><p>Kelola pembelajaran dan Bank Soal sesuai status lisensi akun Anda.</p></div><div class="dashboard-hero-icon">📘</div></div>
+        <div class="dashboard-license" id="teacherLicenseBadge" role="status">Status lisensi</div>
+        <p class="teacher-license-note" id="teacherLicenseDescription" aria-live="polite">Status akan diperiksa setelah sinkronisasi.</p>
+        <p id="teacherCloudSyncWarning" class="notice" role="status" hidden></p>
+        <div class="dashboard-stat-grid teacher-stat-grid">
+          <div class="dashboard-stat"><span>📝 Soal pribadi</span><strong id="teacherPrivateCount">0</strong><small>Soal milik akun Anda</small></div>
+          <div class="dashboard-stat"><span>📨 Pengajuan soal</span><strong id="teacherSubmittedCount">0</strong><small>Menunggu peninjauan</small></div>
+          <div class="dashboard-stat"><span>📚 Bank Bersama</span><strong id="teacherSharedCount">0</strong><small>Soal disetujui admin</small></div>
+          <div class="dashboard-stat"><span>👑 Soal Master</span><strong id="teacherMasterCount">0</strong><small>Sesuai lisensi akun</small></div>
+        </div>
+        <div class="dashboard-action-grid">
+          <button class="dashboard-action" type="button" data-view="setup"><span>🎲</span><strong>Mulai Bermain</strong><small>Pilih tim dan materi</small></button>
+          <button class="dashboard-action" type="button" data-view="questions"><span>📚</span><strong>Bank Soal</strong><small>Lihat atau kelola soal</small></button>
+          <button class="dashboard-action" type="button" id="cloudRefreshBtn"><span>🔄</span><strong>Sinkronkan</strong><small>Ambil pembaruan terbaru</small></button>
+        </div>
+        <div class="form-card dashboard-activation" id="activationForm" hidden><h3>🛍️ Aktivasi Premium via Lynk.id</h3><p>Setelah transaksi selesai, masukkan nomor pesanan. Admin memverifikasi pembayaran secara manual sebelum membuka lisensi.</p><label for="activationOrderRef">Nomor pesanan Lynk.id</label><input id="activationOrderRef" maxlength="100" placeholder="Nomor transaksi dari Lynk.id"><div class="panel-actions"><button class="glossy primary" id="cloudActivationRequestBtn">Kirim Pengajuan Aktivasi</button><button class="glossy secondary" type="button" id="teacherBuyBtn">Beli Premium</button></div></div>
+        <p id="cloudActivationPendingCount" class="hint"></p><p id="cloudStats" class="hint dashboard-account-detail"></p>
+        <div class="dashboard-bottom-actions"><button class="back-btn" id="cloudLogoutBtn">Keluar Akun</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-admin" class="view account-view" hidden>
+    <div class="panel wide-panel dashboard-page"><div class="panel-head"><div><p class="eyebrow">GID CREATIVE STUDIO • PENGELOLA SISTEM</p><h2>🛡️ Dashboard Admin</h2></div><button class="back-btn" data-view="menu">← Menu</button></div>
+      <p id="adminCloudSyncWarning" class="notice" role="status" hidden></p>
+      <div class="dashboard-hero admin-hero"><div><span class="dashboard-eyebrow">AKSES PENGELOLA</span><h3 id="adminAccountName">Admin</h3><p>Verifikasi pembelian, tinjau kontribusi guru, dan kelola Master Premium.</p></div><div class="dashboard-hero-icon">👑</div></div>
+      <div class="dashboard-stat-grid">
+        <div class="dashboard-stat"><span>🧾 Menunggu aktivasi</span><strong id="adminPendingActivationCount">0</strong><small>Transaksi untuk diverifikasi</small></div>
+        <div class="dashboard-stat"><span>📨 Pengajuan soal</span><strong id="adminPendingQuestionCount">0</strong><small>Perlu ditinjau</small></div>
+        <div class="dashboard-stat"><span>👑 Master Premium</span><strong id="adminMasterQuestionCount">0</strong><small>Soal premium tersedia</small></div>
+        <div class="dashboard-stat"><span>📚 Bank Bersama</span><strong id="adminApprovedQuestionCount">0</strong><small>Kontribusi yang disetujui</small></div>
+      </div>
+      <div class="dashboard-action-grid dashboard-action-grid-admin">
+        <button class="dashboard-action" type="button" data-view="setup"><span>🎮</span><strong>Uji Permainan</strong><small>Masuk ke arena</small></button>
+        <button class="dashboard-action" type="button" data-view="questions"><span>📘</span><strong>Bank Soal</strong><small>Lihat seluruh soal yang diizinkan</small></button>
+        <button class="dashboard-action" type="button" id="adminRefreshBtn"><span>🔄</span><strong>Sinkronkan Data</strong><small>Perbarui seluruh antrean</small></button>
+        <button class="dashboard-action" type="button" data-view="monitor"><span>📊</span><strong>Monitoring Kelengkapan</strong><small>Target materi & progres Master</small></button>
+      </div>
+      <div class="admin-sections">
+        <div class="form-card cloud-moderation admin-work-panel" id="cloudAdminPanel" hidden>
+          <div class="admin-panel-heading"><span>🧾</span><div><h3>Verifikasi Pembelian Lynk.id</h3><p class="hint">Cocokkan nomor pesanan dengan transaksi berhasil di dashboard Lynk.id sebelum aktivasi.</p></div></div><div id="cloudActivationQueue"></div>
+          <div class="admin-section-divider"></div>
+          <div class="admin-panel-heading"><span>📨</span><div><h3>Persetujuan Bank Soal Bersama</h3><p class="hint">Periksa materi, opsi, kunci, dan kesesuaian jawaban sebelum menyetujui kontribusi guru.</p></div></div><div id="cloudPendingList"></div>
+        </div>
+        <div class="form-card admin-work-panel" id="cloudAdminImportBlock" hidden><div class="admin-panel-heading"><span>👑</span><div><h3>Impor Master Bank Soal Premium</h3><p class="hint">Pilih CSV atau JSON dari paket ADMIN PRIVATE. File premium jangan ditempatkan dalam folder publik game.</p></div></div><label class="glossy blue sm file-trigger" for="cloudMasterImportInput">⬆ Impor Master CSV / JSON</label><input type="file" id="cloudMasterImportInput" accept=".csv,text/csv,.json,application/json" hidden><p class="hint">V1.5.10: ID kosong dibuat unik per materi + nomor soal. Impor ulang materi yang sama memperbarui; materi baru menambah. Jika ID lama bentrok dengan materi lain, impor ditolak demi keamanan.</p></div>
+      </div>
+      <div class="notice">🔐 Panel ini hanya untuk akun dengan peran <strong>admin</strong> yang diverifikasi dari Supabase. Pembatasan akses data tetap dilindungi kebijakan RLS, bukan hanya tampilan.</div>
+      <div class="dashboard-bottom-actions"><button class="back-btn" id="adminLogoutBtn">Keluar Admin</button></div>
+    </div>
+  </section>
+
+  <!-- V1.5.12 — ADMIN ONLY: Katalog target + laporan kelengkapan Bank Master -->
+  <section id="view-monitor" class="view" hidden>
+    <div class="panel wide-panel monitor-page">
+      <div class="panel-head">
+        <div><p class="eyebrow">GID CREATIVE STUDIO • PANEL ADMIN</p><h2>📊 Monitoring Kelengkapan Bank Master</h2></div>
+        <button class="back-btn" type="button" data-view="admin">← Dashboard Admin</button>
+      </div>
+      <p class="hint">Pantau target materi yang sudah maupun belum mempunyai soal. Angka diambil dari Supabase tanpa mengunduh isi/kunci soal.</p>
+      <div id="monitorNotice" class="notice monitor-notice" role="status">Memuat informasi...</div>
+      <div class="monitor-stats" aria-live="polite">
+        <div><small>Materi dalam filter</small><strong id="monitorStatMaterials">—</strong></div>
+        <div><small>Total soal</small><strong id="monitorStatQuestions">—</strong></div>
+        <div><small>Belum ada soal</small><strong id="monitorStatMissing">—</strong></div>
+        <div><small>Dalam proses</small><strong id="monitorStatPartial">—</strong></div>
+        <div><small>Target tercapai</small><strong id="monitorStatReady">—</strong></div>
+        <div><small>Terverifikasi</small><strong id="monitorStatVerified">—</strong></div>
+      </div>
+      <div class="monitor-filters form-card">
+        <div class="monitor-filter-grid">
+          <label>Jenjang<select id="monitorLevelFilter"><option value="">Semua Jenjang</option><option>SD</option><option>SMP</option><option>SMA</option></select></label>
+          <label>Kelas<select id="monitorGradeFilter"><option value="">Semua Kelas</option></select></label>
+          <label>Mata Pelajaran<select id="monitorSubjectFilter"><option value="">Semua Mapel</option></select></label>
+          <label>Status<select id="monitorStatusFilter"><option value="">Semua Status</option><option value="missing">Belum tersedia</option><option value="partial">Dalam proses</option><option value="ready">Target tercapai</option><option value="verified">Terverifikasi</option><option value="uncatalogued">Belum masuk katalog</option></select></label>
+        </div>
+        <div class="monitor-toolbar">
+          <button class="glossy blue sm" type="button" id="monitorRefreshBtn">↻ Refresh Monitoring</button>
+          <button class="glossy secondary sm" type="button" id="monitorExportCsvBtn">↓ Ekspor Rekap CSV</button>
+          <label class="monitor-page-size-label">Tampilkan<select id="monitorPageSize"><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label>
+        </div>
+      </div>
+      <div class="monitor-table-scroller" tabindex="0" aria-label="Tabel kelengkapan materi; geser mendatar bila perlu">
+        <table class="monitor-table"><thead><tr>
+          <th>Jenjang / Kelas</th><th>Mata Pelajaran</th><th>Materi</th><th>Soal / Target</th><th>Status</th><th>Tindakan Admin</th>
+        </tr></thead><tbody id="monitorRows"><tr><td colspan="6">Klik Refresh Monitoring.</td></tr></tbody></table>
+      </div>
+      <div class="monitor-pagination">
+        <button type="button" class="back-btn" id="monitorPrevBtn">← Sebelumnya</button>
+        <span id="monitorPageInfo" aria-live="polite">Halaman 1</span>
+        <button type="button" class="back-btn" id="monitorNextBtn">Berikutnya →</button>
+      </div>
+      <div class="monitor-editor-grid">
+        <div class="form-card monitor-management">
+          <h3>📚 Katalog Materi Target</h3>
+          <p class="hint">Langkah pertama: daftarkan materi yang sudah ada di Supabase. Materi yang belum pernah diunggah harus ditambahkan agar terlihat sebagai <b>Belum tersedia</b>.</p>
+          <div class="monitor-toolbar">
+            <button class="glossy blue sm" type="button" id="monitorSeedBtn">☁ Daftarkan Materi dari Master</button>
+            <button class="glossy secondary sm" type="button" id="monitorTemplateBtn">↓ Template Katalog JSON</button>
+            <label for="monitorImportInput" class="glossy secondary sm file-trigger">↑ Impor Katalog JSON</label>
+            <input type="file" id="monitorImportInput" accept=".json,application/json" hidden>
+          </div>
+          <p class="hint">Pendaftaran otomatis hanya membaca judul materi yang sudah ada. Katalog lengkap semua jenjang/mapel perlu dilengkapi berdasarkan kurikulum/ATP masing-masing.</p>
+        </div>
+        <div class="form-card monitor-management">
+          <h3>➕ Tambah Materi yang Belum Ada</h3>
+          <form id="monitorAddForm">
+            <div class="monitor-add-grid">
+              <label>Jenjang<select id="monitorAddLevel" required><option>SD</option><option>SMP</option><option>SMA</option></select></label>
+              <label>Kelas<select id="monitorAddGrade" required></select></label>
+            </div>
+            <label>Mata Pelajaran<input id="monitorAddSubject" type="text" list="monitorSubjectSuggestions" maxlength="60" required placeholder="Mis. PAI & Budi Pekerti"></label>
+            <datalist id="monitorSubjectSuggestions"></datalist>
+            <label>Nama Materi / Bab<input id="monitorAddTopic" type="text" maxlength="100" required placeholder="Sesuai ATP / daftar materi"></label>
+            <div class="monitor-add-grid">
+              <label>Target Soal<input id="monitorAddTarget" type="number" min="1" max="1000" value="50" required></label>
+              <label>Catatan (opsional)<input id="monitorAddNotes" type="text" maxlength="500" placeholder="Rencana atau catatan kualitas"></label>
+            </div>
+            <button class="glossy primary sm" type="submit" id="monitorAddBtn">+ Simpan ke Katalog</button>
+          </form>
+        </div>
+      </div>
+      <p class="notice">🔐 Monitoring dan pengaturan katalog hanya tersedia bagi Admin. <b>Target tercapai</b> menandakan jumlah soal cukup; <b>Terverifikasi</b> hanya diberikan setelah peninjauan kualitas manual. Menghapus item dari katalog <b>tidak</b> menghapus soal Master.</p>
+    </div>
+  </section>
+
+  <section id="view-help" class="view" hidden>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PANDUAN GURU & SISWA</p><h2>📖 Cara Bermain</h2></div><button class="back-btn" id="helpBackBtn">← Kembali</button></div>
+      <div class="how-grid"><div><b>01</b><h3>Bentuk Tim</h3><p>Pilih 2–6 tim, lalu masukkan nama masing-masing.</p></div><div><b>02</b><h3>Pilih Bank Soal</h3><p>Gunakan soal DEMO atau kelola soal sendiri di Bank Soal.</p></div><div><b>03</b><h3>Lempar Dadu</h3><p>Dadu berputar, hasil tampak jelas, lalu klik Lanjut ke Soal.</p></div><div><b>04</b><h3>Jawab Soal</h3><p>Benar: maju sesuai dadu. Salah: tetap, kunci tidak dibuka, lalu soal berikutnya berbeda selama bank belum habis. Jika 6 dan benar, boleh lempar lagi.</p></div><div><b>05</b><h3>Ular & Tangga</h3><p>Berhenti di pangkal tangga: naik. Berhenti di kepala ular: turun.</p></div><div><b>06</b><h3>Tabrakan & Menang</h3><p>Bidak lama pada kotak akhir yang sama kembali START. Lewat 100 memantul mundur; menang bila berhenti tepat di 100.</p></div></div>
+      <div class="notice">📌 <strong>Aturan angka 6:</strong> enam pertama dan kedua memberi lempar tambahan hanya jika jawabannya benar. Jika muncul enam lagi untuk ketiga kalinya secara berturut-turut, lemparan ketiga hangus, tidak ada soal atau gerakan, dan giliran berpindah. Langkah dari dua lemparan sebelumnya tetap berlaku. <strong>Aturan lain:</strong> tabrakan diperiksa setelah ular/tangga; START boleh ditempati bersama; melewati 100 memantul mundur.</div><div class="panel-actions"><button class="glossy primary" id="helpProceedBtn">Mengerti</button></div>
+    </div>
+  </section>
+
+  <section id="view-settings" class="view" hidden>
+    <div class="panel medium-panel"><div class="panel-head"><div><p class="eyebrow">PERSONALISASI</p><h2>⚙ Pengaturan</h2></div><button class="back-btn" data-view="menu">← Kembali</button></div>
+    <div class="setting-row"><div><strong>🎵 Musik Latar</strong><p>BGM pilihan Anda diputar berulang, terpisah dari efek jawaban.</p></div><input type="checkbox" id="musicToggle" class="switch"></div>
+    <div class="setting-row bgm-volume-row"><div><strong>🎚 Volume BGM</strong><p>Geser untuk menyesuaikan musik. Tekan Simpan Pengaturan agar volume tersimpan.</p></div><div class="bgm-volume-controls"><input id="bgmVolume" type="range" min="0" max="100" step="1" value="20" aria-label="Volume musik latar, 0 sampai 100 persen"><output id="bgmVolumeValue" for="bgmVolume">20%</output></div></div>
+    <div class="setting-row"><div><strong>🔊 Efek Suara (SFX)</strong><p>Efek Benar, Salah, Dadu, Klik, dan Kemenangan.</p></div><input type="checkbox" id="sfxToggle" class="switch"></div>
+    <div class="setting-row audio-preview-setting"><div><strong>🎧 Tes Semua Efek Suara</strong><p>Uji suara sebelum bermain; efek uji dapat terdengar meskipun SFX OFF.</p></div><div class="audio-preview-buttons"><button class="glossy secondary" id="previewCorrectBtn" type="button">✓ Benar</button><button class="glossy secondary" id="previewWrongBtn" type="button">✕ Salah</button><button class="glossy secondary" id="previewDiceBtn" type="button">🎲 Dadu</button><button class="glossy secondary" id="previewClickBtn" type="button">👆 Klik</button><button class="glossy secondary" id="previewVictoryBtn" type="button">🏆 Menang</button></div></div>
+    <div class="setting-row"><div><strong>🐍 Ilustrasi Ular & Tangga</strong><p>Lapisan gambar dekorasi di atas papan presisi.</p></div><input type="checkbox" id="artToggle" class="switch"></div>
+    <div class="setting-row"><div><strong>🔀 Acak Urutan Soal</strong><p>Acak soal dan posisi pilihan jawaban. Soal tidak berulang sampai seluruh bank habis.</p></div><input type="checkbox" id="shuffleToggle" class="switch"></div>
+    <div class="setting-row"><div><strong>📚 Soal per Siklus</strong><p>Jumlah soal per kelompok pengambilan. Soal tidak berulang sebelum seluruh bank habis.</p></div><select id="cycleSizeSelect"><option value="5">5 soal</option><option value="10">10 soal</option><option value="15">15 soal</option><option value="20">20 soal</option><option value="50">50 soal</option><option value="100">100 soal</option><option value="0">Semua soal</option></select></div>
+    <div class="setting-row"><div><strong>⏱ Waktu Menjawab</strong><p>Jika waktu habis, jawaban dianggap salah.</p></div><select id="timerSelect"><option value="0">Tanpa batas</option><option value="20">20 detik</option><option value="30">30 detik</option><option value="45">45 detik</option><option value="60">60 detik</option></select></div>
+    <div class="panel-actions"><button class="glossy secondary" id="resetSettingsBtn">↻ Pengaturan Awal</button><button class="glossy primary" id="saveSettingsBtn">✓ Simpan Pengaturan</button></div></div>
+  </section>
+
+  <section id="view-about" class="view" hidden>
+    <div class="panel medium-panel"><div class="panel-head"><div><p class="eyebrow">GID CREATIVE STUDIO</p><h2>ⓘ Info Pengembang</h2></div><button class="back-btn" data-view="menu">← Kembali</button></div>
+      <div class="about-layout"><div class="about-photo"><img src="assets/optimized/developer-portrait.webp" alt="Potret pengembang Ika Lathifah dengan rompi" loading="lazy"></div><div><h2>Ika Lathifah, S.Pd.I., M.Pd.</h2><p>Guru Pendidikan Agama Islam dan Budi Pekerti<br><strong>SMA Negeri 4 Lubuklinggau</strong></p><p>Dikembangkan untuk mendukung pembelajaran aktif, kolaboratif, dan menyenangkan.</p><div class="social-links"><a href="https://www.tiktok.com/@guruupgradeid" target="_blank" rel="noopener noreferrer">♫ TikTok</a><a href="https://www.facebook.com/search/top?q=Ika%20Lathifah" target="_blank" rel="noopener noreferrer" title="Cari akun Facebook Ika Lathifah">f Facebook · Ika Lathifah</a><a href="https://www.youtube.com/@guruupgradeid" target="_blank" rel="noopener noreferrer">▶ YouTube</a><a href="https://www.instagram.com/guruupgradeid/" target="_blank" rel="noopener noreferrer">◎ Instagram</a><a href="https://www.guruupgradeid.com" target="_blank" rel="noopener noreferrer" title="Website GuruUpgradeID">🌐 Website · guruupgradeid.com</a></div><p class="hint">Facebook: Ika Lathifah. Tautan sementara menuju pencarian nama karena URL profil langsung belum tersedia. Website: www.guruupgradeid.com.</p></div></div>
+      <div class="panel-actions center"><button class="glossy primary" data-view="menu">⌂ Kembali ke Menu</button></div>
+    </div>
+  </section>
+</main>
+
+<div id="diceRevealOverlay" class="modal-overlay" hidden>
+  <div class="dice-reveal-modal" role="dialog" aria-modal="true" aria-labelledby="diceRevealHeading">
+    <div class="eyebrow" id="diceRevealTeam">GILIRAN TIM</div>
+    <h2 id="diceRevealHeading">🎲 Hasil Lemparan Dadu</h2>
+    <div class="reveal-dice"><img id="revealDiceImage" src="assets/optimized/dice/dice-01.webp" alt="Hasil dadu pada sisi atas"><strong id="revealDiceNumber">1</strong></div>
+    <p id="revealDiceMessage">Lihat hasil dadu sebelum membuka soal.</p>
+    <button class="glossy primary" id="diceRevealContinueBtn">📚 Lanjut ke Soal</button>
+  </div>
+</div>
+<div id="quizOverlay" class="modal-overlay" hidden>
+  <div class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
+    <div class="quiz-heading"><span class="eyebrow" id="quizTeam">Tim Aktif</span><h2 id="quizHeading">📚 Tantangan Pengetahuan</h2><span id="quizTime" class="timer-chip">⏱ 30 dtk</span></div>
+    <div class="quiz-metadata"><span id="quizSubject">Materi</span><span id="quizDice">🎲 Dadu: 1</span><span id="quizSeq">Soal ke-1</span></div>
+    <p id="quizText" class="quiz-text"></p><div class="answer-grid" id="quizAnswers"></div>
+    <div id="quizFeedback" class="quiz-feedback" hidden></div>
+    <div class="quiz-actions"><button class="glossy primary" id="quizSubmitBtn" disabled>✓ Cek Jawaban</button><button class="glossy primary" id="quizContinueBtn" hidden>▶ Lanjut Giliran</button></div>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<footer>© 2026 GID Creative Studio • @guruupgradeid — Belajar • Berkarya • Berbagi • Menginspirasi</footer>
+<script src="config/cloud-config.js"></script><script src="config/store-config.js"></script><script src="js/cloud.js?v=1.5.12a"></script>
+<script src="js/audio.js"></script><script src="js/rules.js"></script><script src="js/retry.js"></script><script src="js/catalog.js"></script><script src="js/questions.js"></script><script src="js/questions-expanded.js"></script><script src="js/app.js?v=1.5.14-panduan-mapel"></script>
+</body>
+</html>

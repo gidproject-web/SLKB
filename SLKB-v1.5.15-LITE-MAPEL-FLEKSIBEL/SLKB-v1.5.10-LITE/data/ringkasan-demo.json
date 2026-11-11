@@ -1,0 +1,70 @@
+{
+  "total": 426,
+  "per_jenjang": {
+    "SD": 162,
+    "SMP": 110,
+    "SMA": 154
+  },
+  "per_kelas": {
+    "SD": {
+      "1": 24,
+      "2": 24,
+      "3": 24,
+      "4": 42,
+      "5": 24,
+      "6": 24
+    },
+    "SMP": {
+      "7": 50,
+      "8": 30,
+      "9": 30
+    },
+    "SMA": {
+      "10": 60,
+      "11": 49,
+      "12": 45
+    }
+  },
+  "per_mapel": {
+    "SD": {
+      "PAI & Budi Pekerti": 22,
+      "Pendidikan Pancasila": 20,
+      "Bahasa Indonesia": 21,
+      "Matematika": 22,
+      "IPAS": 21,
+      "Bahasa Inggris": 20,
+      "PJOK": 18,
+      "Seni Budaya": 18
+    },
+    "SMP": {
+      "PAI & Budi Pekerti": 13,
+      "Pendidikan Pancasila": 9,
+      "Bahasa Indonesia": 12,
+      "Matematika": 13,
+      "IPA": 12,
+      "IPS": 11,
+      "Bahasa Inggris": 11,
+      "Informatika": 11,
+      "PJOK": 9,
+      "Seni Budaya": 9
+    },
+    "SMA": {
+      "PAI & Budi Pekerti": 16,
+      "Pendidikan Pancasila": 9,
+      "Bahasa Indonesia": 12,
+      "Matematika": 12,
+      "Bahasa Inggris": 10,
+      "Biologi": 11,
+      "Fisika": 9,
+      "Kimia": 9,
+      "Sejarah": 10,
+      "Geografi": 10,
+      "Ekonomi": 9,
+      "Sosiologi": 9,
+      "Informatika": 10,
+      "PJOK": 9,
+      "Seni Budaya": 9
+    }
+  },
+  "catatan": "426 soal DEMO untuk pembelajaran latihan awal; belum divalidasi terhadap semua CP/ATP; beberapa konsep berulang di kelas berbeda."
+}

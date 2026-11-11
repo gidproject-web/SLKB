@@ -1,0 +1,1446 @@
+{
+  "version": "1.3",
+  "level": "SMP",
+  "questions": [
+    {
+      "id": "demo-v13-smp-7-01-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Al-Qur’an",
+      "question": "Al-Qur’an merupakan kitab suci yang diturunkan kepada Nabi …",
+      "choices": [
+        "Daud a.s.",
+        "Muhammad saw.",
+        "Musa a.s.",
+        "Isa a.s."
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Muhammad saw.."
+    },
+    {
+      "id": "demo-v13-smp-7-01-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Perilaku tabayyun ketika menerima kabar berarti …",
+      "choices": [
+        "Memeriksa kebenaran informasi",
+        "Langsung menyebarkan",
+        "Mencela pembawa kabar",
+        "Mengubah isi kabar"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Memeriksa kebenaran informasi."
+    },
+    {
+      "id": "demo-v13-smp-7-01-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Ibadah",
+      "question": "Salat berjamaah dipimpin oleh seorang …",
+      "choices": [
+        "Khatib wajib",
+        "Muazin yang tidak menjadi imam",
+        "Petugas kebersihan",
+        "Imam"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Imam."
+    },
+    {
+      "id": "demo-v13-smp-7-02-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Keberagaman",
+      "question": "Toleransi dalam masyarakat majemuk berarti …",
+      "choices": [
+        "Menghormati perbedaan",
+        "Memaksakan keyakinan",
+        "Melarang dialog",
+        "Menyebar prasangka"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Menghormati perbedaan."
+    },
+    {
+      "id": "demo-v13-smp-7-02-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Konstitusi",
+      "question": "Konstitusi tertulis Indonesia adalah …",
+      "choices": [
+        "Piagam Jakarta sebagai konstitusi",
+        "Kitab Undang-Undang Hukum Perdata",
+        "Peraturan sekolah",
+        "UUD Negara Republik Indonesia Tahun 1945"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: UUD Negara Republik Indonesia Tahun 1945."
+    },
+    {
+      "id": "demo-v13-smp-7-02-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Demokrasi",
+      "question": "Pemilihan ketua kelas melalui pemungutan suara mencerminkan prinsip …",
+      "choices": [
+        "Pemaksaan",
+        "Intimidasi",
+        "Demokrasi",
+        "Diskriminasi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Demokrasi."
+    },
+    {
+      "id": "demo-v13-smp-7-03-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Eksplanasi",
+      "question": "Teks eksplanasi menjelaskan …",
+      "choices": [
+        "Daftar belanja",
+        "Jadwal pelajaran",
+        "Nama-nama tokoh fiksi",
+        "Proses terjadinya peristiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Proses terjadinya peristiwa."
+    },
+    {
+      "id": "demo-v13-smp-7-03-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Deskripsi",
+      "question": "Tujuan teks deskripsi adalah …",
+      "choices": [
+        "Membuktikan hasil eksperimen",
+        "Menulis dialog drama",
+        "Menggambarkan objek secara rinci",
+        "Memberi petunjuk langkah"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menggambarkan objek secara rinci."
+    },
+    {
+      "id": "demo-v13-smp-7-03-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Prosedur",
+      "question": "Teks prosedur berisi …",
+      "choices": [
+        "Opini tanpa urutan",
+        "Langkah-langkah melakukan sesuatu",
+        "Riwayat tokoh",
+        "Puisi berima"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Langkah-langkah melakukan sesuatu."
+    },
+    {
+      "id": "demo-v13-smp-7-04-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Matematika",
+      "topic": "Bilangan Bulat",
+      "question": "Hasil dari −5 + 8 adalah …",
+      "choices": [
+        "13",
+        "−13",
+        "3",
+        "−3"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: 3."
+    },
+    {
+      "id": "demo-v13-smp-7-04-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Matematika",
+      "topic": "Aljabar",
+      "question": "Jika x + 7 = 12, nilai x adalah …",
+      "choices": [
+        "19",
+        "5",
+        "4",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 5."
+    },
+    {
+      "id": "demo-v13-smp-7-04-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Matematika",
+      "topic": "Persentase",
+      "question": "25% dari 80 adalah …",
+      "choices": [
+        "20",
+        "15",
+        "25",
+        "40"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 20."
+    },
+    {
+      "id": "demo-v13-smp-7-05-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPA",
+      "topic": "Ekosistem",
+      "question": "Organisme yang menguraikan sisa makhluk hidup disebut …",
+      "choices": [
+        "Predator",
+        "Pengurai",
+        "Produsen primer",
+        "Konsumen puncak"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pengurai."
+    },
+    {
+      "id": "demo-v13-smp-7-05-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPA",
+      "topic": "Biologi",
+      "question": "Proses pembuatan makanan pada tumbuhan hijau disebut …",
+      "choices": [
+        "Fotosintesis",
+        "Respirasi anaerob",
+        "Kondensasi",
+        "Evaporasi"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Fotosintesis."
+    },
+    {
+      "id": "demo-v13-smp-7-05-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPA",
+      "topic": "Fisika",
+      "question": "Satuan SI untuk gaya adalah …",
+      "choices": [
+        "Joule",
+        "Watt",
+        "Kelvin",
+        "Newton"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Newton."
+    },
+    {
+      "id": "demo-v13-smp-7-06-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPS",
+      "topic": "Sosiologi",
+      "question": "Interaksi sosial terjadi ketika individu atau kelompok …",
+      "choices": [
+        "Saling berhubungan dan memengaruhi",
+        "Tidak pernah berkomunikasi",
+        "Selalu hidup sendiri",
+        "Tidak mengenal norma"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Saling berhubungan dan memengaruhi."
+    },
+    {
+      "id": "demo-v13-smp-7-06-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPS",
+      "topic": "Geografi",
+      "question": "Garis khayal 0° lintang disebut …",
+      "choices": [
+        "Meridian utama",
+        "Garis tanggal internasional",
+        "Garis bujur 180°",
+        "Khatulistiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Khatulistiwa."
+    },
+    {
+      "id": "demo-v13-smp-7-06-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "IPS",
+      "topic": "Ekonomi",
+      "question": "Kegiatan menggunakan barang atau jasa untuk memenuhi kebutuhan disebut …",
+      "choices": [
+        "Distribusi",
+        "Investasi",
+        "Konsumsi",
+        "Produksi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Konsumsi."
+    },
+    {
+      "id": "demo-v13-smp-7-07-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Inggris",
+      "topic": "Greeting",
+      "question": "Ungkapan untuk meminta maaf adalah …",
+      "choices": [
+        "Congratulations",
+        "Good morning",
+        "Nice to meet you",
+        "I am sorry"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: I am sorry."
+    },
+    {
+      "id": "demo-v13-smp-7-07-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Inggris",
+      "topic": "Simple Present",
+      "question": "Kalimat “She … to school every day” dilengkapi dengan …",
+      "choices": [
+        "Going",
+        "Gone",
+        "Goes",
+        "Go"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Goes."
+    },
+    {
+      "id": "demo-v13-smp-7-07-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Bahasa Inggris",
+      "topic": "Vocabulary",
+      "question": "Arti kata “environment” adalah …",
+      "choices": [
+        "Perjalanan",
+        "Lingkungan",
+        "Perpustakaan",
+        "Rumah sakit"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Lingkungan."
+    },
+    {
+      "id": "demo-v13-smp-7-08-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Informatika",
+      "topic": "Data",
+      "question": "Contoh data numerik adalah …",
+      "choices": [
+        "Nama sekolah",
+        "Judul buku",
+        "Jumlah siswa di kelas",
+        "Warna favorit"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Jumlah siswa di kelas."
+    },
+    {
+      "id": "demo-v13-smp-7-08-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Informatika",
+      "topic": "Algoritma",
+      "question": "Algoritma adalah …",
+      "choices": [
+        "Sistem bilangan",
+        "Urutan langkah logis menyelesaikan masalah",
+        "Perangkat keras komputer",
+        "Jenis virus"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Urutan langkah logis menyelesaikan masalah."
+    },
+    {
+      "id": "demo-v13-smp-7-08-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Informatika",
+      "topic": "Keamanan Digital",
+      "question": "Contoh kata sandi yang kuat adalah …",
+      "choices": [
+        "Kombinasi karakter panjang dan unik",
+        "123456",
+        "Nama sendiri saja",
+        "Tanggal lahir saja"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Kombinasi karakter panjang dan unik."
+    },
+    {
+      "id": "demo-v13-smp-7-09-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PJOK",
+      "topic": "Pola Hidup Sehat",
+      "question": "Waktu tidur yang cukup mendukung …",
+      "choices": [
+        "Dehidrasi",
+        "Pemulihan dan konsentrasi",
+        "Peningkatan risiko sakit",
+        "Kemampuan belajar menurun"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pemulihan dan konsentrasi."
+    },
+    {
+      "id": "demo-v13-smp-7-09-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PJOK",
+      "topic": "Kebugaran",
+      "question": "Latihan lari jarak sedang dapat membantu meningkatkan …",
+      "choices": [
+        "Daya tahan jantung-paru",
+        "Kebutaan",
+        "Cedera otomatis",
+        "Kelelahan permanen"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Daya tahan jantung-paru."
+    },
+    {
+      "id": "demo-v13-smp-7-09-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "PJOK",
+      "topic": "Permainan Bola",
+      "question": "Dalam bola voli, maksimal sentuhan tim sebelum mengembalikan bola umumnya …",
+      "choices": [
+        "Satu kali",
+        "Lima kali",
+        "Tujuh kali",
+        "Tiga kali"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Tiga kali."
+    },
+    {
+      "id": "demo-v13-smp-7-10-01",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Seni Budaya",
+      "topic": "Teater",
+      "question": "Orang yang memerankan tokoh dalam pertunjukan teater disebut …",
+      "choices": [
+        "Aktor",
+        "Dirigen",
+        "Kurator",
+        "Koreografer"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Aktor."
+    },
+    {
+      "id": "demo-v13-smp-7-10-02",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Seni Budaya",
+      "topic": "Musik",
+      "question": "Pola ketukan teratur dalam musik disebut …",
+      "choices": [
+        "Tekstur",
+        "Perspektif",
+        "Proporsi",
+        "Irama"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Irama."
+    },
+    {
+      "id": "demo-v13-smp-7-10-03",
+      "level": "SMP",
+      "grade": 7,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Gambar yang menampilkan kesan jarak dan kedalaman menggunakan prinsip …",
+      "choices": [
+        "Tempo",
+        "Intonasi",
+        "Perspektif",
+        "Kontras audio"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Perspektif."
+    },
+    {
+      "id": "demo-v13-smp-8-01-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Perilaku tabayyun ketika menerima kabar berarti …",
+      "choices": [
+        "Memeriksa kebenaran informasi",
+        "Langsung menyebarkan",
+        "Mencela pembawa kabar",
+        "Mengubah isi kabar"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Memeriksa kebenaran informasi."
+    },
+    {
+      "id": "demo-v13-smp-8-01-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Ibadah",
+      "question": "Salat berjamaah dipimpin oleh seorang …",
+      "choices": [
+        "Khatib wajib",
+        "Muazin yang tidak menjadi imam",
+        "Petugas kebersihan",
+        "Imam"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Imam."
+    },
+    {
+      "id": "demo-v13-smp-8-01-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Sikap tawaduk berarti …",
+      "choices": [
+        "Iri hati",
+        "Menghina orang",
+        "Rendah hati",
+        "Sombong"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Rendah hati."
+    },
+    {
+      "id": "demo-v13-smp-8-02-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Konstitusi",
+      "question": "Konstitusi tertulis Indonesia adalah …",
+      "choices": [
+        "Piagam Jakarta sebagai konstitusi",
+        "Kitab Undang-Undang Hukum Perdata",
+        "Peraturan sekolah",
+        "UUD Negara Republik Indonesia Tahun 1945"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: UUD Negara Republik Indonesia Tahun 1945."
+    },
+    {
+      "id": "demo-v13-smp-8-02-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Demokrasi",
+      "question": "Pemilihan ketua kelas melalui pemungutan suara mencerminkan prinsip …",
+      "choices": [
+        "Pemaksaan",
+        "Intimidasi",
+        "Demokrasi",
+        "Diskriminasi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Demokrasi."
+    },
+    {
+      "id": "demo-v13-smp-8-02-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Kewarganegaraan",
+      "question": "Contoh pelaksanaan hak siswa di sekolah adalah …",
+      "choices": [
+        "Mengejek teman",
+        "Memperoleh pembelajaran",
+        "Merusak fasilitas",
+        "Mengabaikan peraturan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Memperoleh pembelajaran."
+    },
+    {
+      "id": "demo-v13-smp-8-03-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Deskripsi",
+      "question": "Tujuan teks deskripsi adalah …",
+      "choices": [
+        "Membuktikan hasil eksperimen",
+        "Menulis dialog drama",
+        "Menggambarkan objek secara rinci",
+        "Memberi petunjuk langkah"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menggambarkan objek secara rinci."
+    },
+    {
+      "id": "demo-v13-smp-8-03-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Prosedur",
+      "question": "Teks prosedur berisi …",
+      "choices": [
+        "Opini tanpa urutan",
+        "Langkah-langkah melakukan sesuatu",
+        "Riwayat tokoh",
+        "Puisi berima"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Langkah-langkah melakukan sesuatu."
+    },
+    {
+      "id": "demo-v13-smp-8-03-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Indonesia",
+      "topic": "Kebahasaan",
+      "question": "Kata hubung “karena” menyatakan hubungan …",
+      "choices": [
+        "Sebab",
+        "Perbandingan",
+        "Pilihan",
+        "Penegasan waktu"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Sebab."
+    },
+    {
+      "id": "demo-v13-smp-8-04-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Matematika",
+      "topic": "Aljabar",
+      "question": "Jika x + 7 = 12, nilai x adalah …",
+      "choices": [
+        "19",
+        "5",
+        "4",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 5."
+    },
+    {
+      "id": "demo-v13-smp-8-04-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Matematika",
+      "topic": "Persentase",
+      "question": "25% dari 80 adalah …",
+      "choices": [
+        "20",
+        "15",
+        "25",
+        "40"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 20."
+    },
+    {
+      "id": "demo-v13-smp-8-04-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Matematika",
+      "topic": "Bangun Ruang",
+      "question": "Volume kubus bersisi 3 cm adalah …",
+      "choices": [
+        "9 cm³",
+        "18 cm³",
+        "81 cm³",
+        "27 cm³"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 27 cm³."
+    },
+    {
+      "id": "demo-v13-smp-8-05-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPA",
+      "topic": "Biologi",
+      "question": "Proses pembuatan makanan pada tumbuhan hijau disebut …",
+      "choices": [
+        "Fotosintesis",
+        "Respirasi anaerob",
+        "Kondensasi",
+        "Evaporasi"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Fotosintesis."
+    },
+    {
+      "id": "demo-v13-smp-8-05-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPA",
+      "topic": "Fisika",
+      "question": "Satuan SI untuk gaya adalah …",
+      "choices": [
+        "Joule",
+        "Watt",
+        "Kelvin",
+        "Newton"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Newton."
+    },
+    {
+      "id": "demo-v13-smp-8-05-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPA",
+      "topic": "Kimia",
+      "question": "Air murni tersusun dari unsur …",
+      "choices": [
+        "Helium dan neon",
+        "Besi dan tembaga",
+        "Hidrogen dan oksigen",
+        "Karbon dan nitrogen"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Hidrogen dan oksigen."
+    },
+    {
+      "id": "demo-v13-smp-8-06-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPS",
+      "topic": "Geografi",
+      "question": "Garis khayal 0° lintang disebut …",
+      "choices": [
+        "Meridian utama",
+        "Garis tanggal internasional",
+        "Garis bujur 180°",
+        "Khatulistiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Khatulistiwa."
+    },
+    {
+      "id": "demo-v13-smp-8-06-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPS",
+      "topic": "Ekonomi",
+      "question": "Kegiatan menggunakan barang atau jasa untuk memenuhi kebutuhan disebut …",
+      "choices": [
+        "Distribusi",
+        "Investasi",
+        "Konsumsi",
+        "Produksi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Konsumsi."
+    },
+    {
+      "id": "demo-v13-smp-8-06-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "IPS",
+      "topic": "Sejarah",
+      "question": "Proklamasi kemerdekaan Indonesia berlangsung pada …",
+      "choices": [
+        "28 Oktober 1928",
+        "17 Agustus 1945",
+        "17 Agustus 1940",
+        "1 Juni 1945"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 17 Agustus 1945."
+    },
+    {
+      "id": "demo-v13-smp-8-07-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Inggris",
+      "topic": "Simple Present",
+      "question": "Kalimat “She … to school every day” dilengkapi dengan …",
+      "choices": [
+        "Going",
+        "Gone",
+        "Goes",
+        "Go"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Goes."
+    },
+    {
+      "id": "demo-v13-smp-8-07-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Inggris",
+      "topic": "Vocabulary",
+      "question": "Arti kata “environment” adalah …",
+      "choices": [
+        "Perjalanan",
+        "Lingkungan",
+        "Perpustakaan",
+        "Rumah sakit"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Lingkungan."
+    },
+    {
+      "id": "demo-v13-smp-8-07-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Bahasa Inggris",
+      "topic": "Past Tense",
+      "question": "Bentuk lampau dari “eat” adalah …",
+      "choices": [
+        "Ate",
+        "Eated",
+        "Eaten sebagai bentuk lampau sederhana",
+        "Eating"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Ate."
+    },
+    {
+      "id": "demo-v13-smp-8-08-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Informatika",
+      "topic": "Algoritma",
+      "question": "Algoritma adalah …",
+      "choices": [
+        "Sistem bilangan",
+        "Urutan langkah logis menyelesaikan masalah",
+        "Perangkat keras komputer",
+        "Jenis virus"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Urutan langkah logis menyelesaikan masalah."
+    },
+    {
+      "id": "demo-v13-smp-8-08-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Informatika",
+      "topic": "Keamanan Digital",
+      "question": "Contoh kata sandi yang kuat adalah …",
+      "choices": [
+        "Kombinasi karakter panjang dan unik",
+        "123456",
+        "Nama sendiri saja",
+        "Tanggal lahir saja"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Kombinasi karakter panjang dan unik."
+    },
+    {
+      "id": "demo-v13-smp-8-08-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Informatika",
+      "topic": "Internet",
+      "question": "Alamat situs web biasanya diakses melalui …",
+      "choices": [
+        "Kalkulator",
+        "Editor gambar offline",
+        "Perekam suara",
+        "Peramban (browser)"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Peramban (browser)."
+    },
+    {
+      "id": "demo-v13-smp-8-09-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PJOK",
+      "topic": "Kebugaran",
+      "question": "Latihan lari jarak sedang dapat membantu meningkatkan …",
+      "choices": [
+        "Daya tahan jantung-paru",
+        "Kebutaan",
+        "Cedera otomatis",
+        "Kelelahan permanen"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Daya tahan jantung-paru."
+    },
+    {
+      "id": "demo-v13-smp-8-09-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PJOK",
+      "topic": "Permainan Bola",
+      "question": "Dalam bola voli, maksimal sentuhan tim sebelum mengembalikan bola umumnya …",
+      "choices": [
+        "Satu kali",
+        "Lima kali",
+        "Tujuh kali",
+        "Tiga kali"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Tiga kali."
+    },
+    {
+      "id": "demo-v13-smp-8-09-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "PJOK",
+      "topic": "Kesehatan",
+      "question": "Sebelum aktivitas berat, pemanasan bermanfaat untuk …",
+      "choices": [
+        "Mencegah semua cedera tanpa kecuali",
+        "Menggantikan latihan inti",
+        "Mempersiapkan otot dan sendi",
+        "Menghilangkan kebutuhan tidur"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Mempersiapkan otot dan sendi."
+    },
+    {
+      "id": "demo-v13-smp-8-10-01",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Seni Budaya",
+      "topic": "Musik",
+      "question": "Pola ketukan teratur dalam musik disebut …",
+      "choices": [
+        "Tekstur",
+        "Perspektif",
+        "Proporsi",
+        "Irama"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Irama."
+    },
+    {
+      "id": "demo-v13-smp-8-10-02",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Gambar yang menampilkan kesan jarak dan kedalaman menggunakan prinsip …",
+      "choices": [
+        "Tempo",
+        "Intonasi",
+        "Perspektif",
+        "Kontras audio"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Perspektif."
+    },
+    {
+      "id": "demo-v13-smp-8-10-03",
+      "level": "SMP",
+      "grade": 8,
+      "subject": "Seni Budaya",
+      "topic": "Tari",
+      "question": "Susunan arah perpindahan penari di atas panggung disebut …",
+      "choices": [
+        "Tempo",
+        "Pola lantai",
+        "Nada dasar",
+        "Bait"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pola lantai."
+    },
+    {
+      "id": "demo-v13-smp-9-01-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Ibadah",
+      "question": "Salat berjamaah dipimpin oleh seorang …",
+      "choices": [
+        "Khatib wajib",
+        "Muazin yang tidak menjadi imam",
+        "Petugas kebersihan",
+        "Imam"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Imam."
+    },
+    {
+      "id": "demo-v13-smp-9-01-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Sikap tawaduk berarti …",
+      "choices": [
+        "Iri hati",
+        "Menghina orang",
+        "Rendah hati",
+        "Sombong"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Rendah hati."
+    },
+    {
+      "id": "demo-v13-smp-9-01-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Al-Qur’an",
+      "question": "Al-Qur’an merupakan kitab suci yang diturunkan kepada Nabi …",
+      "choices": [
+        "Daud a.s.",
+        "Muhammad saw.",
+        "Musa a.s.",
+        "Isa a.s."
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Muhammad saw.."
+    },
+    {
+      "id": "demo-v13-smp-9-02-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Demokrasi",
+      "question": "Pemilihan ketua kelas melalui pemungutan suara mencerminkan prinsip …",
+      "choices": [
+        "Pemaksaan",
+        "Intimidasi",
+        "Demokrasi",
+        "Diskriminasi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Demokrasi."
+    },
+    {
+      "id": "demo-v13-smp-9-02-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Kewarganegaraan",
+      "question": "Contoh pelaksanaan hak siswa di sekolah adalah …",
+      "choices": [
+        "Mengejek teman",
+        "Memperoleh pembelajaran",
+        "Merusak fasilitas",
+        "Mengabaikan peraturan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Memperoleh pembelajaran."
+    },
+    {
+      "id": "demo-v13-smp-9-02-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Keberagaman",
+      "question": "Toleransi dalam masyarakat majemuk berarti …",
+      "choices": [
+        "Menghormati perbedaan",
+        "Memaksakan keyakinan",
+        "Melarang dialog",
+        "Menyebar prasangka"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Menghormati perbedaan."
+    },
+    {
+      "id": "demo-v13-smp-9-03-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Prosedur",
+      "question": "Teks prosedur berisi …",
+      "choices": [
+        "Opini tanpa urutan",
+        "Langkah-langkah melakukan sesuatu",
+        "Riwayat tokoh",
+        "Puisi berima"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Langkah-langkah melakukan sesuatu."
+    },
+    {
+      "id": "demo-v13-smp-9-03-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Indonesia",
+      "topic": "Kebahasaan",
+      "question": "Kata hubung “karena” menyatakan hubungan …",
+      "choices": [
+        "Sebab",
+        "Perbandingan",
+        "Pilihan",
+        "Penegasan waktu"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Sebab."
+    },
+    {
+      "id": "demo-v13-smp-9-03-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Eksplanasi",
+      "question": "Teks eksplanasi menjelaskan …",
+      "choices": [
+        "Daftar belanja",
+        "Jadwal pelajaran",
+        "Nama-nama tokoh fiksi",
+        "Proses terjadinya peristiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Proses terjadinya peristiwa."
+    },
+    {
+      "id": "demo-v13-smp-9-04-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Matematika",
+      "topic": "Persentase",
+      "question": "25% dari 80 adalah …",
+      "choices": [
+        "20",
+        "15",
+        "25",
+        "40"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 20."
+    },
+    {
+      "id": "demo-v13-smp-9-04-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Matematika",
+      "topic": "Bangun Ruang",
+      "question": "Volume kubus bersisi 3 cm adalah …",
+      "choices": [
+        "9 cm³",
+        "18 cm³",
+        "81 cm³",
+        "27 cm³"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 27 cm³."
+    },
+    {
+      "id": "demo-v13-smp-9-04-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Matematika",
+      "topic": "Bilangan Bulat",
+      "question": "Hasil dari −5 + 8 adalah …",
+      "choices": [
+        "13",
+        "−13",
+        "3",
+        "−3"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: 3."
+    },
+    {
+      "id": "demo-v13-smp-9-05-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPA",
+      "topic": "Fisika",
+      "question": "Satuan SI untuk gaya adalah …",
+      "choices": [
+        "Joule",
+        "Watt",
+        "Kelvin",
+        "Newton"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Newton."
+    },
+    {
+      "id": "demo-v13-smp-9-05-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPA",
+      "topic": "Kimia",
+      "question": "Air murni tersusun dari unsur …",
+      "choices": [
+        "Helium dan neon",
+        "Besi dan tembaga",
+        "Hidrogen dan oksigen",
+        "Karbon dan nitrogen"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Hidrogen dan oksigen."
+    },
+    {
+      "id": "demo-v13-smp-9-05-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPA",
+      "topic": "Ekosistem",
+      "question": "Organisme yang menguraikan sisa makhluk hidup disebut …",
+      "choices": [
+        "Predator",
+        "Pengurai",
+        "Produsen primer",
+        "Konsumen puncak"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pengurai."
+    },
+    {
+      "id": "demo-v13-smp-9-06-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPS",
+      "topic": "Ekonomi",
+      "question": "Kegiatan menggunakan barang atau jasa untuk memenuhi kebutuhan disebut …",
+      "choices": [
+        "Distribusi",
+        "Investasi",
+        "Konsumsi",
+        "Produksi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Konsumsi."
+    },
+    {
+      "id": "demo-v13-smp-9-06-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPS",
+      "topic": "Sejarah",
+      "question": "Proklamasi kemerdekaan Indonesia berlangsung pada …",
+      "choices": [
+        "28 Oktober 1928",
+        "17 Agustus 1945",
+        "17 Agustus 1940",
+        "1 Juni 1945"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 17 Agustus 1945."
+    },
+    {
+      "id": "demo-v13-smp-9-06-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "IPS",
+      "topic": "Sosiologi",
+      "question": "Interaksi sosial terjadi ketika individu atau kelompok …",
+      "choices": [
+        "Saling berhubungan dan memengaruhi",
+        "Tidak pernah berkomunikasi",
+        "Selalu hidup sendiri",
+        "Tidak mengenal norma"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Saling berhubungan dan memengaruhi."
+    },
+    {
+      "id": "demo-v13-smp-9-07-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Inggris",
+      "topic": "Vocabulary",
+      "question": "Arti kata “environment” adalah …",
+      "choices": [
+        "Perjalanan",
+        "Lingkungan",
+        "Perpustakaan",
+        "Rumah sakit"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Lingkungan."
+    },
+    {
+      "id": "demo-v13-smp-9-07-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Inggris",
+      "topic": "Past Tense",
+      "question": "Bentuk lampau dari “eat” adalah …",
+      "choices": [
+        "Ate",
+        "Eated",
+        "Eaten sebagai bentuk lampau sederhana",
+        "Eating"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Ate."
+    },
+    {
+      "id": "demo-v13-smp-9-07-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Bahasa Inggris",
+      "topic": "Greeting",
+      "question": "Ungkapan untuk meminta maaf adalah …",
+      "choices": [
+        "Congratulations",
+        "Good morning",
+        "Nice to meet you",
+        "I am sorry"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: I am sorry."
+    },
+    {
+      "id": "demo-v13-smp-9-08-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Informatika",
+      "topic": "Keamanan Digital",
+      "question": "Contoh kata sandi yang kuat adalah …",
+      "choices": [
+        "Kombinasi karakter panjang dan unik",
+        "123456",
+        "Nama sendiri saja",
+        "Tanggal lahir saja"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Kombinasi karakter panjang dan unik."
+    },
+    {
+      "id": "demo-v13-smp-9-08-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Informatika",
+      "topic": "Internet",
+      "question": "Alamat situs web biasanya diakses melalui …",
+      "choices": [
+        "Kalkulator",
+        "Editor gambar offline",
+        "Perekam suara",
+        "Peramban (browser)"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Peramban (browser)."
+    },
+    {
+      "id": "demo-v13-smp-9-08-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Informatika",
+      "topic": "Data",
+      "question": "Contoh data numerik adalah …",
+      "choices": [
+        "Nama sekolah",
+        "Judul buku",
+        "Jumlah siswa di kelas",
+        "Warna favorit"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Jumlah siswa di kelas."
+    },
+    {
+      "id": "demo-v13-smp-9-09-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PJOK",
+      "topic": "Permainan Bola",
+      "question": "Dalam bola voli, maksimal sentuhan tim sebelum mengembalikan bola umumnya …",
+      "choices": [
+        "Satu kali",
+        "Lima kali",
+        "Tujuh kali",
+        "Tiga kali"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Tiga kali."
+    },
+    {
+      "id": "demo-v13-smp-9-09-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PJOK",
+      "topic": "Kesehatan",
+      "question": "Sebelum aktivitas berat, pemanasan bermanfaat untuk …",
+      "choices": [
+        "Mencegah semua cedera tanpa kecuali",
+        "Menggantikan latihan inti",
+        "Mempersiapkan otot dan sendi",
+        "Menghilangkan kebutuhan tidur"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Mempersiapkan otot dan sendi."
+    },
+    {
+      "id": "demo-v13-smp-9-09-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "PJOK",
+      "topic": "Pola Hidup Sehat",
+      "question": "Waktu tidur yang cukup mendukung …",
+      "choices": [
+        "Dehidrasi",
+        "Pemulihan dan konsentrasi",
+        "Peningkatan risiko sakit",
+        "Kemampuan belajar menurun"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pemulihan dan konsentrasi."
+    },
+    {
+      "id": "demo-v13-smp-9-10-01",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Gambar yang menampilkan kesan jarak dan kedalaman menggunakan prinsip …",
+      "choices": [
+        "Tempo",
+        "Intonasi",
+        "Perspektif",
+        "Kontras audio"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Perspektif."
+    },
+    {
+      "id": "demo-v13-smp-9-10-02",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Seni Budaya",
+      "topic": "Tari",
+      "question": "Susunan arah perpindahan penari di atas panggung disebut …",
+      "choices": [
+        "Tempo",
+        "Pola lantai",
+        "Nada dasar",
+        "Bait"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Pola lantai."
+    },
+    {
+      "id": "demo-v13-smp-9-10-03",
+      "level": "SMP",
+      "grade": 9,
+      "subject": "Seni Budaya",
+      "topic": "Teater",
+      "question": "Orang yang memerankan tokoh dalam pertunjukan teater disebut …",
+      "choices": [
+        "Aktor",
+        "Dirigen",
+        "Kurator",
+        "Koreografer"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Aktor."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "questions": [
+    {
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Adab Media Sosial",
+      "question": "Sebelum menyebarkan kabar yang belum jelas, kita sebaiknya …",
+      "choices": [
+        "Memviralkan segera",
+        "Memeriksa kebenarannya",
+        "Menghapus sumbernya",
+        "Menambahkan judul sensasional"
+      ],
+      "answer": "B",
+      "explanation": "Tabayyun berarti memeriksa kebenaran informasi."
+    }
+  ]
+}
