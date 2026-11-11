@@ -1,0 +1,2471 @@
+{
+  "version": "1.3",
+  "info": "Sudah otomatis ada di dalam game; jangan impor ulang paket demo ini.",
+  "level": "SMA",
+  "questions": [
+    {
+      "id": "demo-sma-10-039",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Syu‘abul iman dapat diwujudkan melalui …",
+      "choices": [
+        "Hati, lisan, dan perbuatan",
+        "Penampilan saja",
+        "Kekayaan saja",
+        "Ucapan tanpa tindakan"
+      ],
+      "answer": 0,
+      "explanation": "Cabang iman mencakup keyakinan hati, ucapan, dan perbuatan."
+    },
+    {
+      "id": "demo-sma-10-040",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Contoh berlomba-lomba dalam kebaikan adalah …",
+      "choices": [
+        "Menghambat bantuan orang lain",
+        "Saling mendahului dalam aksi sosial",
+        "Menunda bantuan",
+        "Mengejek teman"
+      ],
+      "answer": 1,
+      "explanation": "Fastabiqul khairat mendorong manusia bersegera dalam kebaikan."
+    },
+    {
+      "id": "demo-sma-10-041",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Etos Kerja",
+      "question": "Sikap bekerja secara sungguh-sungguh dan bertanggung jawab disebut …",
+      "choices": [
+        "Etos kerja baik",
+        "Sombong",
+        "Lalai",
+        "Boros"
+      ],
+      "answer": 0,
+      "explanation": "Etos kerja yang baik ditunjukkan dengan disiplin dan tanggung jawab."
+    },
+    {
+      "id": "demo-sma-10-042",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Persamaan Linear",
+      "question": "Jika 2x + 6 = 18, maka nilai x adalah …",
+      "choices": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": 2,
+      "explanation": "2x = 12 sehingga x = 6."
+    },
+    {
+      "id": "demo-sma-10-043",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Fungsi",
+      "question": "Jika f(x) = x² + 1, maka f(3) = …",
+      "choices": [
+        "6",
+        "9",
+        "10",
+        "12"
+      ],
+      "answer": 2,
+      "explanation": "3² + 1 = 10."
+    },
+    {
+      "id": "demo-sma-10-044",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Peluang",
+      "question": "Peluang muncul angka genap pada dadu standar adalah …",
+      "choices": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "answer": 2,
+      "explanation": "Angka genap adalah 2,4,6: tiga dari enam kemungkinan."
+    },
+    {
+      "id": "demo-sma-10-045",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Eksposisi",
+      "question": "Fungsi argumen dalam teks eksposisi adalah …",
+      "choices": [
+        "Menguatkan pendapat dengan alasan",
+        "Menyembunyikan gagasan",
+        "Mengubah topik secara acak",
+        "Menghilangkan fakta"
+      ],
+      "answer": 0,
+      "explanation": "Argumen menguatkan tesis dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-sma-10-046",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Bahasa",
+      "question": "Kalimat yang menggunakan kata baku adalah …",
+      "choices": [
+        "Saya mengapresiasi karyamu.",
+        "Saya mengapresiasi karyamu bangetz.",
+        "Saya ngapresiasi karyamu.",
+        "Saya aprisiasi karyamu."
+      ],
+      "answer": 0,
+      "explanation": "Mengapresiasi adalah bentuk baku yang sesuai kaidah."
+    },
+    {
+      "id": "demo-sma-10-047",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Literasi",
+      "question": "Informasi dalam teks yang dapat dibuktikan kebenarannya disebut …",
+      "choices": [
+        "Opini",
+        "Fakta",
+        "Prasangka",
+        "Imajinasi"
+      ],
+      "answer": 1,
+      "explanation": "Fakta dapat diverifikasi dengan bukti."
+    },
+    {
+      "id": "demo-sma-10-048",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Biologi",
+      "topic": "Sel",
+      "question": "Organel tempat berlangsungnya respirasi sel aerob adalah …",
+      "choices": [
+        "Ribosom",
+        "Mitokondria",
+        "Nukleus",
+        "Badan Golgi"
+      ],
+      "answer": 1,
+      "explanation": "Mitokondria berperan dalam respirasi aerob dan produksi ATP."
+    },
+    {
+      "id": "demo-sma-10-049",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Biologi",
+      "topic": "Ekosistem",
+      "question": "Organisme pengurai dalam ekosistem contohnya …",
+      "choices": [
+        "Jamur dan bakteri",
+        "Elang dan ular",
+        "Rumput dan padi",
+        "Kupu-kupu dan lebah"
+      ],
+      "answer": 0,
+      "explanation": "Pengurai menguraikan sisa makhluk hidup menjadi zat yang lebih sederhana."
+    },
+    {
+      "id": "demo-sma-10-050",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sejarah",
+      "topic": "Metode Sejarah",
+      "question": "Tahap menguji keaslian sumber dalam penelitian sejarah disebut …",
+      "choices": [
+        "Kritik sumber",
+        "Publikasi",
+        "Reka cerita",
+        "Imajinasi"
+      ],
+      "answer": 0,
+      "explanation": "Kritik sumber digunakan untuk menilai keaslian dan kredibilitas sumber."
+    },
+    {
+      "id": "demo-sma-10-051",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Geografi",
+      "topic": "Peta",
+      "question": "Garis yang menghubungkan lokasi dengan ketinggian sama pada peta disebut …",
+      "choices": [
+        "Isobar",
+        "Isohyet",
+        "Kontur",
+        "Isoterm"
+      ],
+      "answer": 2,
+      "explanation": "Garis kontur menghubungkan titik yang memiliki ketinggian sama."
+    },
+    {
+      "id": "demo-sma-10-052",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Pilih kalimat simple past yang benar.",
+      "choices": [
+        "She visited the museum yesterday.",
+        "She visit the museum yesterday.",
+        "She visits museum yesterday.",
+        "She visiting the museum yesterday."
+      ],
+      "answer": 0,
+      "explanation": "Visited adalah bentuk lampau dari visit."
+    },
+    {
+      "id": "demo-sma-10-053",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Informatika",
+      "topic": "Algoritma",
+      "question": "Struktur yang menjalankan instruksi berulang disebut …",
+      "choices": [
+        "Percabangan",
+        "Perulangan",
+        "Variabel",
+        "Konstanta"
+      ],
+      "answer": 1,
+      "explanation": "Perulangan (loop) menjalankan blok instruksi berulang kali."
+    },
+    {
+      "id": "demo-sma-11-054",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Al-Qur’an & IPTEK",
+      "question": "Q.S. Ali ‘Imran ayat 190–191 mendorong manusia untuk …",
+      "choices": [
+        "Berpikir tentang tanda-tanda kebesaran Allah",
+        "Mengabaikan ciptaan Allah",
+        "Menolak ilmu",
+        "Tidak memperhatikan alam"
+      ],
+      "answer": 0,
+      "explanation": "Ayat tersebut mengajak manusia berzikir dan bertafakur."
+    },
+    {
+      "id": "demo-sma-11-055",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Menepati janji merupakan bentuk perilaku …",
+      "choices": [
+        "Tidak peduli",
+        "Amanah dan bertanggung jawab",
+        "Sombong",
+        "Menghindari kewajiban"
+      ],
+      "answer": 1,
+      "explanation": "Menepati janji adalah bagian dari menjaga amanah."
+    },
+    {
+      "id": "demo-sma-11-056",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Dakwah",
+      "question": "Salah satu prinsip dakwah yang baik adalah …",
+      "choices": [
+        "Memaksa orang lain",
+        "Menghina pendengar",
+        "Menggunakan hikmah dan nasihat baik",
+        "Menyebarkan kebencian"
+      ],
+      "answer": 2,
+      "explanation": "Dakwah dilakukan dengan hikmah dan mauizah hasanah."
+    },
+    {
+      "id": "demo-sma-11-057",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Adab Media Sosial",
+      "question": "Sebelum membagikan berita di media sosial, sebaiknya …",
+      "choices": [
+        "Memeriksa kebenaran sumber",
+        "Segera menyebarkan tanpa membaca",
+        "Menambah judul sensasional",
+        "Menghapus konteks"
+      ],
+      "answer": 0,
+      "explanation": "Tabayyun diperlukan agar tidak menyebarkan informasi keliru."
+    },
+    {
+      "id": "demo-v13-sma-10-01-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Ikhlas dalam beramal berarti …",
+      "choices": [
+        "Memamerkan semua amal",
+        "Mengharap sanjungan",
+        "Melakukan kebaikan karena Allah",
+        "Mencari pujian manusia"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Melakukan kebaikan karena Allah."
+    },
+    {
+      "id": "demo-v13-sma-10-01-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Keimanan",
+      "question": "Salah satu contoh syukur dalam perilaku adalah …",
+      "choices": [
+        "Menyombongkan harta",
+        "Menggunakan nikmat untuk kebaikan",
+        "Menyia-nyiakan makanan",
+        "Merendahkan orang lain"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Menggunakan nikmat untuk kebaikan."
+    },
+    {
+      "id": "demo-v13-sma-10-01-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Sikap menjaga kehormatan orang lain di media sosial ditunjukkan dengan …",
+      "choices": [
+        "Tidak menyebarkan aib dan fitnah",
+        "Menyebar gosip",
+        "Mengunggah data pribadi teman",
+        "Menghina dengan akun anonim"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Tidak menyebarkan aib dan fitnah."
+    },
+    {
+      "id": "demo-v13-sma-10-02-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Pendidikan Pancasila",
+      "topic": "HAM",
+      "question": "Hak asasi manusia berlaku bagi …",
+      "choices": [
+        "Hanya penduduk kota",
+        "Setiap manusia",
+        "Hanya pejabat",
+        "Hanya orang dewasa"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Setiap manusia."
+    },
+    {
+      "id": "demo-v13-sma-10-02-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Bhinneka Tunggal Ika",
+      "question": "Penerapan Bhinneka Tunggal Ika mengutamakan …",
+      "choices": [
+        "Persatuan dalam keberagaman",
+        "Keseragaman seluruh budaya",
+        "Dominasi satu kelompok",
+        "Penolakan perbedaan"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Persatuan dalam keberagaman."
+    },
+    {
+      "id": "demo-v13-sma-10-02-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Konstitusi",
+      "question": "Kedudukan Pancasila dalam sistem ketatanegaraan Indonesia adalah sebagai …",
+      "choices": [
+        "Lembaga legislatif",
+        "Peraturan desa",
+        "Salah satu mata uang",
+        "Dasar negara"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Dasar negara."
+    },
+    {
+      "id": "demo-v13-sma-10-03-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Editorial",
+      "question": "Teks editorial biasanya memuat …",
+      "choices": [
+        "Pandangan redaksi terhadap isu aktual",
+        "Daftar harga produk",
+        "Hasil praktikum tanpa pendapat",
+        "Lirik lagu"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Pandangan redaksi terhadap isu aktual."
+    },
+    {
+      "id": "demo-v13-sma-10-03-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Karya Ilmiah",
+      "question": "Dalam karya ilmiah, sumber rujukan dicantumkan untuk …",
+      "choices": [
+        "Memperpanjang halaman saja",
+        "Menggantikan analisis",
+        "Menghindari penelitian",
+        "Mengakui asal informasi dan memudahkan verifikasi"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Mengakui asal informasi dan memudahkan verifikasi."
+    },
+    {
+      "id": "demo-v13-sma-10-03-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Argumentasi",
+      "question": "Tujuan teks argumentasi adalah …",
+      "choices": [
+        "Menyajikan daftar istilah",
+        "Memberi petunjuk bermain",
+        "Meyakinkan pembaca dengan alasan dan bukti",
+        "Menceritakan tokoh khayalan saja"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Meyakinkan pembaca dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-10-04-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Peluang",
+      "question": "Peluang muncul angka genap pada dadu adil adalah …",
+      "choices": [
+        "1/6",
+        "1/3",
+        "2/3",
+        "1/2"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 1/2."
+    },
+    {
+      "id": "demo-v13-sma-10-04-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Trigonometri",
+      "question": "Nilai sin 30° adalah …",
+      "choices": [
+        "√3/2",
+        "0",
+        "1/2",
+        "1"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: 1/2."
+    },
+    {
+      "id": "demo-v13-sma-10-04-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Matematika",
+      "topic": "Fungsi",
+      "question": "Jika f(x) = 2x + 3, maka f(4) = …",
+      "choices": [
+        "14",
+        "11",
+        "8",
+        "9"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 11."
+    },
+    {
+      "id": "demo-v13-sma-10-05-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Conditional type 1 biasanya memakai pola …",
+      "choices": [
+        "If + present, would + V2",
+        "If + future, will + past",
+        "If + present, will + verb",
+        "If + past, would have + V3"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: If + present, will + verb."
+    },
+    {
+      "id": "demo-v13-sma-10-05-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Inggris",
+      "topic": "Writing",
+      "question": "Bagian penutup surat elektronik formal biasanya memuat …",
+      "choices": [
+        "Judul saja",
+        "Salam penutup dan nama pengirim",
+        "Pertanyaan tanpa alamat",
+        "Slogan acak"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Salam penutup dan nama pengirim."
+    },
+    {
+      "id": "demo-v13-sma-10-05-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Kalimat pasif dari “They write the report” adalah …",
+      "choices": [
+        "The report is written by them.",
+        "The report wrote by them.",
+        "The report writes them.",
+        "They are written the report."
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: The report is written by them.."
+    },
+    {
+      "id": "demo-v13-sma-10-06-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Biologi",
+      "topic": "Sistem Tubuh",
+      "question": "Sel darah merah terutama mengangkut …",
+      "choices": [
+        "Antibodi",
+        "Oksigen",
+        "Hormon pertumbuhan",
+        "Enzim pencernaan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Oksigen."
+    },
+    {
+      "id": "demo-v13-sma-10-06-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Biologi",
+      "topic": "Ekologi",
+      "question": "Aliran energi dalam ekosistem digambarkan melalui …",
+      "choices": [
+        "Rantai dan jaring-jaring makanan",
+        "Diagram batang keuangan",
+        "Grafik suhu saja",
+        "Peta politik"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Rantai dan jaring-jaring makanan."
+    },
+    {
+      "id": "demo-v13-sma-10-06-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Biologi",
+      "topic": "Sel",
+      "question": "Organel tempat utama fotosintesis pada tumbuhan adalah …",
+      "choices": [
+        "Mitokondria",
+        "Ribosom",
+        "Lisosom",
+        "Kloroplas"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Kloroplas."
+    },
+    {
+      "id": "demo-v13-sma-10-07-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Fisika",
+      "topic": "Energi",
+      "question": "Energi kinetik benda bergantung pada …",
+      "choices": [
+        "Massa dan kuadrat kecepatan",
+        "Warna dan suhu ruangan",
+        "Panjang nama benda",
+        "Bentuk wadah saja"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Massa dan kuadrat kecepatan."
+    },
+    {
+      "id": "demo-v13-sma-10-07-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Fisika",
+      "topic": "Listrik",
+      "question": "Arus listrik diukur dalam satuan …",
+      "choices": [
+        "Volt",
+        "Ohm",
+        "Watt",
+        "Ampere"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Ampere."
+    },
+    {
+      "id": "demo-v13-sma-10-07-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Fisika",
+      "topic": "Gerak",
+      "question": "Satuan SI untuk percepatan adalah …",
+      "choices": [
+        "kg",
+        "N/m",
+        "m/s²",
+        "m/s"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: m/s²."
+    },
+    {
+      "id": "demo-v13-sma-10-08-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Kimia",
+      "topic": "Asam Basa",
+      "question": "Larutan dengan pH kurang dari 7 pada 25°C umumnya bersifat …",
+      "choices": [
+        "Basa",
+        "Netral",
+        "Logam",
+        "Asam"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Asam."
+    },
+    {
+      "id": "demo-v13-sma-10-08-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Kimia",
+      "topic": "Ikatan Kimia",
+      "question": "Ikatan ion umumnya terjadi akibat …",
+      "choices": [
+        "Penggabungan proton",
+        "Pembelahan neutron",
+        "Serah-terima elektron",
+        "Berbagi satu inti"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Serah-terima elektron."
+    },
+    {
+      "id": "demo-v13-sma-10-08-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Kimia",
+      "topic": "Struktur Atom",
+      "question": "Partikel atom yang bermuatan negatif disebut …",
+      "choices": [
+        "Nukleon",
+        "Elektron",
+        "Proton",
+        "Neutron"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Elektron."
+    },
+    {
+      "id": "demo-v13-sma-10-09-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sejarah",
+      "topic": "Metodologi Sejarah",
+      "question": "Sumber primer sejarah adalah …",
+      "choices": [
+        "Film fiksi tanpa riset",
+        "Cerita yang tidak bisa diperiksa",
+        "Kesaksian atau dokumen sezaman dengan peristiwa",
+        "Ringkasan buku terbaru saja"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Kesaksian atau dokumen sezaman dengan peristiwa."
+    },
+    {
+      "id": "demo-v13-sma-10-09-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sejarah",
+      "topic": "Sejarah Dunia",
+      "question": "Revolusi Industri awalnya berkembang pesat di …",
+      "choices": [
+        "Australia",
+        "Inggris",
+        "Mesir",
+        "Brasil"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Inggris."
+    },
+    {
+      "id": "demo-v13-sma-10-09-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sejarah",
+      "topic": "Sejarah Indonesia",
+      "question": "Proklamasi Kemerdekaan Indonesia dibacakan pada …",
+      "choices": [
+        "17 Agustus 1945",
+        "28 Oktober 1928",
+        "1 Juni 1945",
+        "10 November 1945"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 17 Agustus 1945."
+    },
+    {
+      "id": "demo-v13-sma-10-10-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Geografi",
+      "topic": "Atmosfer",
+      "question": "Lapisan atmosfer tempat sebagian besar fenomena cuaca adalah …",
+      "choices": [
+        "Termosfer",
+        "Troposfer",
+        "Eksosfer",
+        "Mesosfer"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Troposfer."
+    },
+    {
+      "id": "demo-v13-sma-10-10-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Geografi",
+      "topic": "Lingkungan",
+      "question": "Upaya mengurangi erosi di lahan miring dapat dilakukan dengan …",
+      "choices": [
+        "Terasering dan penutup vegetasi",
+        "Penebangan seluruh pohon",
+        "Pembakaran lahan",
+        "Membiarkan tanah terbuka"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Terasering dan penutup vegetasi."
+    },
+    {
+      "id": "demo-v13-sma-10-10-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Geografi",
+      "topic": "Peta",
+      "question": "Garis lintang digunakan untuk menentukan posisi …",
+      "choices": [
+        "Timur atau barat dari Greenwich saja",
+        "Ketinggian bangunan",
+        "Kedalaman tanah",
+        "Utara atau selatan dari khatulistiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Utara atau selatan dari khatulistiwa."
+    },
+    {
+      "id": "demo-v13-sma-10-11-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Ekonomi",
+      "topic": "Keuangan",
+      "question": "Menabung secara teratur bermanfaat untuk …",
+      "choices": [
+        "Mempersiapkan kebutuhan masa depan",
+        "Menambah utang otomatis",
+        "Menghilangkan semua risiko",
+        "Membelanjakan seluruh uang"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Mempersiapkan kebutuhan masa depan."
+    },
+    {
+      "id": "demo-v13-sma-10-11-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Ekonomi",
+      "topic": "Inflasi",
+      "question": "Inflasi berarti …",
+      "choices": [
+        "Turunnya semua harga sekali",
+        "Peningkatan jumlah penduduk",
+        "Kenaikan produksi saja",
+        "Kenaikan tingkat harga umum secara berkelanjutan"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Kenaikan tingkat harga umum secara berkelanjutan."
+    },
+    {
+      "id": "demo-v13-sma-10-11-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Ekonomi",
+      "topic": "Kelangkaan",
+      "question": "Kelangkaan ekonomi muncul karena …",
+      "choices": [
+        "Tidak ada pilihan",
+        "Semua orang memiliki sumber daya sama",
+        "Kebutuhan tidak terbatas sedangkan sumber daya terbatas",
+        "Semua barang gratis"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Kebutuhan tidak terbatas sedangkan sumber daya terbatas."
+    },
+    {
+      "id": "demo-v13-sma-10-12-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sosiologi",
+      "topic": "Sosialisasi",
+      "question": "Keluarga disebut agen sosialisasi primer karena …",
+      "choices": [
+        "Selalu paling besar",
+        "Hanya ada di kota",
+        "Tidak berhubungan dengan pendidikan",
+        "Tempat awal anak belajar nilai dan norma"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Tempat awal anak belajar nilai dan norma."
+    },
+    {
+      "id": "demo-v13-sma-10-12-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sosiologi",
+      "topic": "Perubahan Sosial",
+      "question": "Contoh perubahan sosial akibat teknologi adalah …",
+      "choices": [
+        "Siklus siang-malam",
+        "Pergantian musim",
+        "Perkembangan komunikasi daring",
+        "Perputaran bumi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Perkembangan komunikasi daring."
+    },
+    {
+      "id": "demo-v13-sma-10-12-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Sosiologi",
+      "topic": "Interaksi Sosial",
+      "question": "Syarat utama terjadinya interaksi sosial meliputi …",
+      "choices": [
+        "Perbedaan warna",
+        "Kontak sosial dan komunikasi",
+        "Uang dan gedung",
+        "Peta dan cuaca"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Kontak sosial dan komunikasi."
+    },
+    {
+      "id": "demo-v13-sma-10-13-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Informatika",
+      "topic": "Keamanan",
+      "question": "Autentikasi dua faktor meningkatkan keamanan dengan …",
+      "choices": [
+        "Menonaktifkan semua perlindungan",
+        "Menggunakan sandi sederhana",
+        "Menambah langkah verifikasi identitas",
+        "Membagikan kata sandi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menambah langkah verifikasi identitas."
+    },
+    {
+      "id": "demo-v13-sma-10-13-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Informatika",
+      "topic": "AI",
+      "question": "Sistem AI dapat menghasilkan jawaban keliru, sehingga hasilnya perlu …",
+      "choices": [
+        "Dihapus tanpa dibaca",
+        "Diperiksa dan diverifikasi",
+        "Diterima selalu",
+        "Dipakai tanpa konteks"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Diperiksa dan diverifikasi."
+    },
+    {
+      "id": "demo-v13-sma-10-13-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Informatika",
+      "topic": "Pemrograman",
+      "question": "Perulangan dalam program digunakan untuk …",
+      "choices": [
+        "Menjalankan instruksi berulang sesuai kondisi",
+        "Menghapus seluruh data selalu",
+        "Mengubah monitor menjadi printer",
+        "Membuat kata sandi lemah"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Menjalankan instruksi berulang sesuai kondisi."
+    },
+    {
+      "id": "demo-v13-sma-10-14-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PJOK",
+      "topic": "Permainan",
+      "question": "Sportivitas saat bertanding ditunjukkan dengan …",
+      "choices": [
+        "Menyakiti lawan",
+        "Menghormati aturan dan lawan",
+        "Mencurangi skor",
+        "Merendahkan wasit"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Menghormati aturan dan lawan."
+    },
+    {
+      "id": "demo-v13-sma-10-14-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PJOK",
+      "topic": "Latihan",
+      "question": "Prinsip progresif dalam latihan berarti …",
+      "choices": [
+        "Meningkatkan beban latihan bertahap",
+        "Selalu latihan maksimal setiap hari",
+        "Menghindari pemanasan",
+        "Tidak pernah beristirahat"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Meningkatkan beban latihan bertahap."
+    },
+    {
+      "id": "demo-v13-sma-10-14-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "PJOK",
+      "topic": "Kebugaran",
+      "question": "VO₂ max berkaitan dengan kemampuan tubuh dalam …",
+      "choices": [
+        "Membedakan warna",
+        "Membuat vitamin",
+        "Menyimpan air di kulit",
+        "Menggunakan oksigen saat aktivitas aerobik"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Menggunakan oksigen saat aktivitas aerobik."
+    },
+    {
+      "id": "demo-v13-sma-10-15-01",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Seni Budaya",
+      "topic": "Teater",
+      "question": "Penataan tempat dan suasana panggung disebut …",
+      "choices": [
+        "Tata pentas",
+        "Tempo lagu",
+        "Kunci nada",
+        "Ilustrasi ilmiah"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Tata pentas."
+    },
+    {
+      "id": "demo-v13-sma-10-15-02",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Seni Budaya",
+      "topic": "Kritik Seni",
+      "question": "Kritik seni yang baik seharusnya …",
+      "choices": [
+        "Hanya mengejek seniman",
+        "Mengabaikan karya",
+        "Menilai tanpa mengamati",
+        "Memberi penilaian dengan alasan dan bukti"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Memberi penilaian dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-10-15-03",
+      "level": "SMA",
+      "grade": 10,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Unsur rupa yang menunjukkan perbedaan terang dan gelap adalah …",
+      "choices": [
+        "Tempo",
+        "Melodi",
+        "Nilai (value)",
+        "Irama"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Nilai (value)."
+    },
+    {
+      "id": "demo-v13-sma-11-01-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Keimanan",
+      "question": "Salah satu contoh syukur dalam perilaku adalah …",
+      "choices": [
+        "Menyombongkan harta",
+        "Menggunakan nikmat untuk kebaikan",
+        "Menyia-nyiakan makanan",
+        "Merendahkan orang lain"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Menggunakan nikmat untuk kebaikan."
+    },
+    {
+      "id": "demo-v13-sma-11-01-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Sikap menjaga kehormatan orang lain di media sosial ditunjukkan dengan …",
+      "choices": [
+        "Tidak menyebarkan aib dan fitnah",
+        "Menyebar gosip",
+        "Mengunggah data pribadi teman",
+        "Menghina dengan akun anonim"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Tidak menyebarkan aib dan fitnah."
+    },
+    {
+      "id": "demo-v13-sma-11-01-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Al-Qur’an",
+      "question": "Dalam Q.S. Ali ‘Imran 190–191, ulul albab diajak …",
+      "choices": [
+        "Mengabaikan alam",
+        "Melarang ilmu pengetahuan",
+        "Mengejek orang berbeda pendapat",
+        "Berzikir dan memikirkan ciptaan Allah"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Berzikir dan memikirkan ciptaan Allah."
+    },
+    {
+      "id": "demo-v13-sma-11-02-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Bhinneka Tunggal Ika",
+      "question": "Penerapan Bhinneka Tunggal Ika mengutamakan …",
+      "choices": [
+        "Persatuan dalam keberagaman",
+        "Keseragaman seluruh budaya",
+        "Dominasi satu kelompok",
+        "Penolakan perbedaan"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Persatuan dalam keberagaman."
+    },
+    {
+      "id": "demo-v13-sma-11-02-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Konstitusi",
+      "question": "Kedudukan Pancasila dalam sistem ketatanegaraan Indonesia adalah sebagai …",
+      "choices": [
+        "Lembaga legislatif",
+        "Peraturan desa",
+        "Salah satu mata uang",
+        "Dasar negara"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Dasar negara."
+    },
+    {
+      "id": "demo-v13-sma-11-02-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Demokrasi",
+      "question": "Salah satu ciri pelaksanaan demokrasi adalah …",
+      "choices": [
+        "Kekuasaan tanpa kontrol",
+        "Larangan berdiskusi",
+        "Partisipasi warga dalam pengambilan keputusan",
+        "Pembatasan semua aspirasi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Partisipasi warga dalam pengambilan keputusan."
+    },
+    {
+      "id": "demo-v13-sma-11-03-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Indonesia",
+      "topic": "Karya Ilmiah",
+      "question": "Dalam karya ilmiah, sumber rujukan dicantumkan untuk …",
+      "choices": [
+        "Memperpanjang halaman saja",
+        "Menggantikan analisis",
+        "Menghindari penelitian",
+        "Mengakui asal informasi dan memudahkan verifikasi"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Mengakui asal informasi dan memudahkan verifikasi."
+    },
+    {
+      "id": "demo-v13-sma-11-03-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Argumentasi",
+      "question": "Tujuan teks argumentasi adalah …",
+      "choices": [
+        "Menyajikan daftar istilah",
+        "Memberi petunjuk bermain",
+        "Meyakinkan pembaca dengan alasan dan bukti",
+        "Menceritakan tokoh khayalan saja"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Meyakinkan pembaca dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-11-03-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Indonesia",
+      "topic": "Literasi Kritis",
+      "question": "Untuk menilai kredibilitas berita, pembaca perlu …",
+      "choices": [
+        "Mengabaikan tanggal",
+        "Memeriksa sumber dan bukti",
+        "Hanya melihat judul",
+        "Langsung membagikan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Memeriksa sumber dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-11-04-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Matematika",
+      "topic": "Trigonometri",
+      "question": "Nilai sin 30° adalah …",
+      "choices": [
+        "√3/2",
+        "0",
+        "1/2",
+        "1"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: 1/2."
+    },
+    {
+      "id": "demo-v13-sma-11-04-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Matematika",
+      "topic": "Fungsi",
+      "question": "Jika f(x) = 2x + 3, maka f(4) = …",
+      "choices": [
+        "14",
+        "11",
+        "8",
+        "9"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 11."
+    },
+    {
+      "id": "demo-v13-sma-11-04-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Matematika",
+      "topic": "Persamaan Kuadrat",
+      "question": "Akar-akar dari x² − 5x + 6 = 0 adalah …",
+      "choices": [
+        "2 dan 3",
+        "1 dan 6",
+        "−2 dan −3",
+        "0 dan 6"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 2 dan 3."
+    },
+    {
+      "id": "demo-v13-sma-11-05-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Inggris",
+      "topic": "Writing",
+      "question": "Bagian penutup surat elektronik formal biasanya memuat …",
+      "choices": [
+        "Judul saja",
+        "Salam penutup dan nama pengirim",
+        "Pertanyaan tanpa alamat",
+        "Slogan acak"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Salam penutup dan nama pengirim."
+    },
+    {
+      "id": "demo-v13-sma-11-05-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Kalimat pasif dari “They write the report” adalah …",
+      "choices": [
+        "The report is written by them.",
+        "The report wrote by them.",
+        "The report writes them.",
+        "They are written the report."
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: The report is written by them.."
+    },
+    {
+      "id": "demo-v13-sma-11-05-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Bahasa Inggris",
+      "topic": "Vocabulary",
+      "question": "Arti kata “sustainable” dalam konteks pembangunan adalah …",
+      "choices": [
+        "Sementara saja",
+        "Berbahaya",
+        "Terbalik",
+        "Berkelanjutan"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Berkelanjutan."
+    },
+    {
+      "id": "demo-v13-sma-11-06-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Biologi",
+      "topic": "Ekologi",
+      "question": "Aliran energi dalam ekosistem digambarkan melalui …",
+      "choices": [
+        "Rantai dan jaring-jaring makanan",
+        "Diagram batang keuangan",
+        "Grafik suhu saja",
+        "Peta politik"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Rantai dan jaring-jaring makanan."
+    },
+    {
+      "id": "demo-v13-sma-11-06-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Biologi",
+      "topic": "Sel",
+      "question": "Organel tempat utama fotosintesis pada tumbuhan adalah …",
+      "choices": [
+        "Mitokondria",
+        "Ribosom",
+        "Lisosom",
+        "Kloroplas"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Kloroplas."
+    },
+    {
+      "id": "demo-v13-sma-11-06-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Biologi",
+      "topic": "Genetika",
+      "question": "Unit pewarisan sifat pada makhluk hidup adalah …",
+      "choices": [
+        "Organ",
+        "Ekosistem",
+        "Gen",
+        "Jaringan"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Gen."
+    },
+    {
+      "id": "demo-v13-sma-11-07-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Fisika",
+      "topic": "Listrik",
+      "question": "Arus listrik diukur dalam satuan …",
+      "choices": [
+        "Volt",
+        "Ohm",
+        "Watt",
+        "Ampere"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Ampere."
+    },
+    {
+      "id": "demo-v13-sma-11-07-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Fisika",
+      "topic": "Gerak",
+      "question": "Satuan SI untuk percepatan adalah …",
+      "choices": [
+        "kg",
+        "N/m",
+        "m/s²",
+        "m/s"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: m/s²."
+    },
+    {
+      "id": "demo-v13-sma-11-07-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Fisika",
+      "topic": "Gaya",
+      "question": "Hukum II Newton dinyatakan dengan persamaan …",
+      "choices": [
+        "v = t/s",
+        "F = ma",
+        "E = mc",
+        "P = VI²"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: F = ma."
+    },
+    {
+      "id": "demo-v13-sma-11-08-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Kimia",
+      "topic": "Ikatan Kimia",
+      "question": "Ikatan ion umumnya terjadi akibat …",
+      "choices": [
+        "Penggabungan proton",
+        "Pembelahan neutron",
+        "Serah-terima elektron",
+        "Berbagi satu inti"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Serah-terima elektron."
+    },
+    {
+      "id": "demo-v13-sma-11-08-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Kimia",
+      "topic": "Struktur Atom",
+      "question": "Partikel atom yang bermuatan negatif disebut …",
+      "choices": [
+        "Nukleon",
+        "Elektron",
+        "Proton",
+        "Neutron"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Elektron."
+    },
+    {
+      "id": "demo-v13-sma-11-08-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Kimia",
+      "topic": "Tabel Periodik",
+      "question": "Nomor atom menunjukkan jumlah … dalam inti atom.",
+      "choices": [
+        "Proton",
+        "Neutron",
+        "Elektron valensi saja",
+        "Ikatan kimia"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Proton."
+    },
+    {
+      "id": "demo-v13-sma-11-09-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sejarah",
+      "topic": "Sejarah Dunia",
+      "question": "Revolusi Industri awalnya berkembang pesat di …",
+      "choices": [
+        "Australia",
+        "Inggris",
+        "Mesir",
+        "Brasil"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Inggris."
+    },
+    {
+      "id": "demo-v13-sma-11-09-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sejarah",
+      "topic": "Sejarah Indonesia",
+      "question": "Proklamasi Kemerdekaan Indonesia dibacakan pada …",
+      "choices": [
+        "17 Agustus 1945",
+        "28 Oktober 1928",
+        "1 Juni 1945",
+        "10 November 1945"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 17 Agustus 1945."
+    },
+    {
+      "id": "demo-v13-sma-11-09-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sejarah",
+      "topic": "Pergerakan Nasional",
+      "question": "Sumpah Pemuda diperingati setiap tanggal …",
+      "choices": [
+        "17 Agustus",
+        "20 Mei",
+        "1 Juni",
+        "28 Oktober"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 28 Oktober."
+    },
+    {
+      "id": "demo-v13-sma-11-10-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Geografi",
+      "topic": "Lingkungan",
+      "question": "Upaya mengurangi erosi di lahan miring dapat dilakukan dengan …",
+      "choices": [
+        "Terasering dan penutup vegetasi",
+        "Penebangan seluruh pohon",
+        "Pembakaran lahan",
+        "Membiarkan tanah terbuka"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Terasering dan penutup vegetasi."
+    },
+    {
+      "id": "demo-v13-sma-11-10-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Geografi",
+      "topic": "Peta",
+      "question": "Garis lintang digunakan untuk menentukan posisi …",
+      "choices": [
+        "Timur atau barat dari Greenwich saja",
+        "Ketinggian bangunan",
+        "Kedalaman tanah",
+        "Utara atau selatan dari khatulistiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Utara atau selatan dari khatulistiwa."
+    },
+    {
+      "id": "demo-v13-sma-11-10-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Geografi",
+      "topic": "Bencana",
+      "question": "Indonesia rawan gempa karena berada dekat pertemuan …",
+      "choices": [
+        "Arus udara saja",
+        "Satu sungai besar",
+        "Lempeng tektonik",
+        "Garis iklim subtropis"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Lempeng tektonik."
+    },
+    {
+      "id": "demo-v13-sma-11-11-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Ekonomi",
+      "topic": "Inflasi",
+      "question": "Inflasi berarti …",
+      "choices": [
+        "Turunnya semua harga sekali",
+        "Peningkatan jumlah penduduk",
+        "Kenaikan produksi saja",
+        "Kenaikan tingkat harga umum secara berkelanjutan"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Kenaikan tingkat harga umum secara berkelanjutan."
+    },
+    {
+      "id": "demo-v13-sma-11-11-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Ekonomi",
+      "topic": "Kelangkaan",
+      "question": "Kelangkaan ekonomi muncul karena …",
+      "choices": [
+        "Tidak ada pilihan",
+        "Semua orang memiliki sumber daya sama",
+        "Kebutuhan tidak terbatas sedangkan sumber daya terbatas",
+        "Semua barang gratis"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Kebutuhan tidak terbatas sedangkan sumber daya terbatas."
+    },
+    {
+      "id": "demo-v13-sma-11-11-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Ekonomi",
+      "topic": "Pasar",
+      "question": "Permintaan barang umumnya menurun ketika harga naik, dengan asumsi faktor lain tetap. Ini disebut …",
+      "choices": [
+        "Depresiasi",
+        "Hukum permintaan",
+        "Hukum penawaran",
+        "Inflasi"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Hukum permintaan."
+    },
+    {
+      "id": "demo-v13-sma-11-12-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sosiologi",
+      "topic": "Perubahan Sosial",
+      "question": "Contoh perubahan sosial akibat teknologi adalah …",
+      "choices": [
+        "Siklus siang-malam",
+        "Pergantian musim",
+        "Perkembangan komunikasi daring",
+        "Perputaran bumi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Perkembangan komunikasi daring."
+    },
+    {
+      "id": "demo-v13-sma-11-12-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sosiologi",
+      "topic": "Interaksi Sosial",
+      "question": "Syarat utama terjadinya interaksi sosial meliputi …",
+      "choices": [
+        "Perbedaan warna",
+        "Kontak sosial dan komunikasi",
+        "Uang dan gedung",
+        "Peta dan cuaca"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Kontak sosial dan komunikasi."
+    },
+    {
+      "id": "demo-v13-sma-11-12-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Sosiologi",
+      "topic": "Norma",
+      "question": "Norma sosial berfungsi untuk …",
+      "choices": [
+        "Mengatur perilaku dalam masyarakat",
+        "Melarang seluruh perubahan",
+        "Menghilangkan keberagaman",
+        "Menggantikan hukum alam"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Mengatur perilaku dalam masyarakat."
+    },
+    {
+      "id": "demo-v13-sma-11-13-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Informatika",
+      "topic": "AI",
+      "question": "Sistem AI dapat menghasilkan jawaban keliru, sehingga hasilnya perlu …",
+      "choices": [
+        "Dihapus tanpa dibaca",
+        "Diperiksa dan diverifikasi",
+        "Diterima selalu",
+        "Dipakai tanpa konteks"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Diperiksa dan diverifikasi."
+    },
+    {
+      "id": "demo-v13-sma-11-13-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Informatika",
+      "topic": "Pemrograman",
+      "question": "Perulangan dalam program digunakan untuk …",
+      "choices": [
+        "Menjalankan instruksi berulang sesuai kondisi",
+        "Menghapus seluruh data selalu",
+        "Mengubah monitor menjadi printer",
+        "Membuat kata sandi lemah"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Menjalankan instruksi berulang sesuai kondisi."
+    },
+    {
+      "id": "demo-v13-sma-11-13-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Informatika",
+      "topic": "Basis Data",
+      "question": "Kunci primer pada tabel basis data berguna untuk …",
+      "choices": [
+        "Memilih warna tabel",
+        "Mengganti nama pengguna",
+        "Membuat data berulang",
+        "Mengidentifikasi setiap baris secara unik"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Mengidentifikasi setiap baris secara unik."
+    },
+    {
+      "id": "demo-v13-sma-11-14-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PJOK",
+      "topic": "Latihan",
+      "question": "Prinsip progresif dalam latihan berarti …",
+      "choices": [
+        "Meningkatkan beban latihan bertahap",
+        "Selalu latihan maksimal setiap hari",
+        "Menghindari pemanasan",
+        "Tidak pernah beristirahat"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Meningkatkan beban latihan bertahap."
+    },
+    {
+      "id": "demo-v13-sma-11-14-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PJOK",
+      "topic": "Kebugaran",
+      "question": "VO₂ max berkaitan dengan kemampuan tubuh dalam …",
+      "choices": [
+        "Membedakan warna",
+        "Membuat vitamin",
+        "Menyimpan air di kulit",
+        "Menggunakan oksigen saat aktivitas aerobik"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Menggunakan oksigen saat aktivitas aerobik."
+    },
+    {
+      "id": "demo-v13-sma-11-14-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "PJOK",
+      "topic": "Kesehatan",
+      "question": "Kebiasaan aktivitas fisik teratur dapat membantu …",
+      "choices": [
+        "Mencegah semua penyakit pasti",
+        "Menggantikan nutrisi",
+        "Menjaga kesehatan jantung dan kebugaran",
+        "Menghapus kebutuhan istirahat"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menjaga kesehatan jantung dan kebugaran."
+    },
+    {
+      "id": "demo-v13-sma-11-15-01",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Seni Budaya",
+      "topic": "Kritik Seni",
+      "question": "Kritik seni yang baik seharusnya …",
+      "choices": [
+        "Hanya mengejek seniman",
+        "Mengabaikan karya",
+        "Menilai tanpa mengamati",
+        "Memberi penilaian dengan alasan dan bukti"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Memberi penilaian dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-11-15-02",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Unsur rupa yang menunjukkan perbedaan terang dan gelap adalah …",
+      "choices": [
+        "Tempo",
+        "Melodi",
+        "Nilai (value)",
+        "Irama"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Nilai (value)."
+    },
+    {
+      "id": "demo-v13-sma-11-15-03",
+      "level": "SMA",
+      "grade": 11,
+      "subject": "Seni Budaya",
+      "topic": "Musik",
+      "question": "Perpaduan beberapa nada yang dibunyikan serentak membentuk …",
+      "choices": [
+        "Dialog",
+        "Harmoni",
+        "Perspektif",
+        "Tekstur visual"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Harmoni."
+    },
+    {
+      "id": "demo-v13-sma-12-01-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Sikap menjaga kehormatan orang lain di media sosial ditunjukkan dengan …",
+      "choices": [
+        "Tidak menyebarkan aib dan fitnah",
+        "Menyebar gosip",
+        "Mengunggah data pribadi teman",
+        "Menghina dengan akun anonim"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Tidak menyebarkan aib dan fitnah."
+    },
+    {
+      "id": "demo-v13-sma-12-01-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Al-Qur’an",
+      "question": "Dalam Q.S. Ali ‘Imran 190–191, ulul albab diajak …",
+      "choices": [
+        "Mengabaikan alam",
+        "Melarang ilmu pengetahuan",
+        "Mengejek orang berbeda pendapat",
+        "Berzikir dan memikirkan ciptaan Allah"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Berzikir dan memikirkan ciptaan Allah."
+    },
+    {
+      "id": "demo-v13-sma-12-01-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PAI & Budi Pekerti",
+      "topic": "Akhlak",
+      "question": "Ikhlas dalam beramal berarti …",
+      "choices": [
+        "Memamerkan semua amal",
+        "Mengharap sanjungan",
+        "Melakukan kebaikan karena Allah",
+        "Mencari pujian manusia"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Melakukan kebaikan karena Allah."
+    },
+    {
+      "id": "demo-v13-sma-12-02-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Konstitusi",
+      "question": "Kedudukan Pancasila dalam sistem ketatanegaraan Indonesia adalah sebagai …",
+      "choices": [
+        "Lembaga legislatif",
+        "Peraturan desa",
+        "Salah satu mata uang",
+        "Dasar negara"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Dasar negara."
+    },
+    {
+      "id": "demo-v13-sma-12-02-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Pendidikan Pancasila",
+      "topic": "Demokrasi",
+      "question": "Salah satu ciri pelaksanaan demokrasi adalah …",
+      "choices": [
+        "Kekuasaan tanpa kontrol",
+        "Larangan berdiskusi",
+        "Partisipasi warga dalam pengambilan keputusan",
+        "Pembatasan semua aspirasi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Partisipasi warga dalam pengambilan keputusan."
+    },
+    {
+      "id": "demo-v13-sma-12-02-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Pendidikan Pancasila",
+      "topic": "HAM",
+      "question": "Hak asasi manusia berlaku bagi …",
+      "choices": [
+        "Hanya penduduk kota",
+        "Setiap manusia",
+        "Hanya pejabat",
+        "Hanya orang dewasa"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Setiap manusia."
+    },
+    {
+      "id": "demo-v13-sma-12-03-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Argumentasi",
+      "question": "Tujuan teks argumentasi adalah …",
+      "choices": [
+        "Menyajikan daftar istilah",
+        "Memberi petunjuk bermain",
+        "Meyakinkan pembaca dengan alasan dan bukti",
+        "Menceritakan tokoh khayalan saja"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Meyakinkan pembaca dengan alasan dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-12-03-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Indonesia",
+      "topic": "Literasi Kritis",
+      "question": "Untuk menilai kredibilitas berita, pembaca perlu …",
+      "choices": [
+        "Mengabaikan tanggal",
+        "Memeriksa sumber dan bukti",
+        "Hanya melihat judul",
+        "Langsung membagikan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Memeriksa sumber dan bukti."
+    },
+    {
+      "id": "demo-v13-sma-12-03-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Indonesia",
+      "topic": "Teks Editorial",
+      "question": "Teks editorial biasanya memuat …",
+      "choices": [
+        "Pandangan redaksi terhadap isu aktual",
+        "Daftar harga produk",
+        "Hasil praktikum tanpa pendapat",
+        "Lirik lagu"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Pandangan redaksi terhadap isu aktual."
+    },
+    {
+      "id": "demo-v13-sma-12-04-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Matematika",
+      "topic": "Fungsi",
+      "question": "Jika f(x) = 2x + 3, maka f(4) = …",
+      "choices": [
+        "14",
+        "11",
+        "8",
+        "9"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: 11."
+    },
+    {
+      "id": "demo-v13-sma-12-04-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Matematika",
+      "topic": "Persamaan Kuadrat",
+      "question": "Akar-akar dari x² − 5x + 6 = 0 adalah …",
+      "choices": [
+        "2 dan 3",
+        "1 dan 6",
+        "−2 dan −3",
+        "0 dan 6"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 2 dan 3."
+    },
+    {
+      "id": "demo-v13-sma-12-04-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Matematika",
+      "topic": "Peluang",
+      "question": "Peluang muncul angka genap pada dadu adil adalah …",
+      "choices": [
+        "1/6",
+        "1/3",
+        "2/3",
+        "1/2"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 1/2."
+    },
+    {
+      "id": "demo-v13-sma-12-05-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Kalimat pasif dari “They write the report” adalah …",
+      "choices": [
+        "The report is written by them.",
+        "The report wrote by them.",
+        "The report writes them.",
+        "They are written the report."
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: The report is written by them.."
+    },
+    {
+      "id": "demo-v13-sma-12-05-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Inggris",
+      "topic": "Vocabulary",
+      "question": "Arti kata “sustainable” dalam konteks pembangunan adalah …",
+      "choices": [
+        "Sementara saja",
+        "Berbahaya",
+        "Terbalik",
+        "Berkelanjutan"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Berkelanjutan."
+    },
+    {
+      "id": "demo-v13-sma-12-05-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Bahasa Inggris",
+      "topic": "Grammar",
+      "question": "Conditional type 1 biasanya memakai pola …",
+      "choices": [
+        "If + present, would + V2",
+        "If + future, will + past",
+        "If + present, will + verb",
+        "If + past, would have + V3"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: If + present, will + verb."
+    },
+    {
+      "id": "demo-v13-sma-12-06-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Biologi",
+      "topic": "Sel",
+      "question": "Organel tempat utama fotosintesis pada tumbuhan adalah …",
+      "choices": [
+        "Mitokondria",
+        "Ribosom",
+        "Lisosom",
+        "Kloroplas"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Kloroplas."
+    },
+    {
+      "id": "demo-v13-sma-12-06-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Biologi",
+      "topic": "Genetika",
+      "question": "Unit pewarisan sifat pada makhluk hidup adalah …",
+      "choices": [
+        "Organ",
+        "Ekosistem",
+        "Gen",
+        "Jaringan"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Gen."
+    },
+    {
+      "id": "demo-v13-sma-12-06-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Biologi",
+      "topic": "Sistem Tubuh",
+      "question": "Sel darah merah terutama mengangkut …",
+      "choices": [
+        "Antibodi",
+        "Oksigen",
+        "Hormon pertumbuhan",
+        "Enzim pencernaan"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Oksigen."
+    },
+    {
+      "id": "demo-v13-sma-12-07-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Fisika",
+      "topic": "Gerak",
+      "question": "Satuan SI untuk percepatan adalah …",
+      "choices": [
+        "kg",
+        "N/m",
+        "m/s²",
+        "m/s"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: m/s²."
+    },
+    {
+      "id": "demo-v13-sma-12-07-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Fisika",
+      "topic": "Gaya",
+      "question": "Hukum II Newton dinyatakan dengan persamaan …",
+      "choices": [
+        "v = t/s",
+        "F = ma",
+        "E = mc",
+        "P = VI²"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: F = ma."
+    },
+    {
+      "id": "demo-v13-sma-12-07-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Fisika",
+      "topic": "Energi",
+      "question": "Energi kinetik benda bergantung pada …",
+      "choices": [
+        "Massa dan kuadrat kecepatan",
+        "Warna dan suhu ruangan",
+        "Panjang nama benda",
+        "Bentuk wadah saja"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Massa dan kuadrat kecepatan."
+    },
+    {
+      "id": "demo-v13-sma-12-08-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Kimia",
+      "topic": "Struktur Atom",
+      "question": "Partikel atom yang bermuatan negatif disebut …",
+      "choices": [
+        "Nukleon",
+        "Elektron",
+        "Proton",
+        "Neutron"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Elektron."
+    },
+    {
+      "id": "demo-v13-sma-12-08-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Kimia",
+      "topic": "Tabel Periodik",
+      "question": "Nomor atom menunjukkan jumlah … dalam inti atom.",
+      "choices": [
+        "Proton",
+        "Neutron",
+        "Elektron valensi saja",
+        "Ikatan kimia"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Proton."
+    },
+    {
+      "id": "demo-v13-sma-12-08-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Kimia",
+      "topic": "Asam Basa",
+      "question": "Larutan dengan pH kurang dari 7 pada 25°C umumnya bersifat …",
+      "choices": [
+        "Basa",
+        "Netral",
+        "Logam",
+        "Asam"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Asam."
+    },
+    {
+      "id": "demo-v13-sma-12-09-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sejarah",
+      "topic": "Sejarah Indonesia",
+      "question": "Proklamasi Kemerdekaan Indonesia dibacakan pada …",
+      "choices": [
+        "17 Agustus 1945",
+        "28 Oktober 1928",
+        "1 Juni 1945",
+        "10 November 1945"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: 17 Agustus 1945."
+    },
+    {
+      "id": "demo-v13-sma-12-09-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sejarah",
+      "topic": "Pergerakan Nasional",
+      "question": "Sumpah Pemuda diperingati setiap tanggal …",
+      "choices": [
+        "17 Agustus",
+        "20 Mei",
+        "1 Juni",
+        "28 Oktober"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: 28 Oktober."
+    },
+    {
+      "id": "demo-v13-sma-12-09-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sejarah",
+      "topic": "Metodologi Sejarah",
+      "question": "Sumber primer sejarah adalah …",
+      "choices": [
+        "Film fiksi tanpa riset",
+        "Cerita yang tidak bisa diperiksa",
+        "Kesaksian atau dokumen sezaman dengan peristiwa",
+        "Ringkasan buku terbaru saja"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Kesaksian atau dokumen sezaman dengan peristiwa."
+    },
+    {
+      "id": "demo-v13-sma-12-10-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Geografi",
+      "topic": "Peta",
+      "question": "Garis lintang digunakan untuk menentukan posisi …",
+      "choices": [
+        "Timur atau barat dari Greenwich saja",
+        "Ketinggian bangunan",
+        "Kedalaman tanah",
+        "Utara atau selatan dari khatulistiwa"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Utara atau selatan dari khatulistiwa."
+    },
+    {
+      "id": "demo-v13-sma-12-10-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Geografi",
+      "topic": "Bencana",
+      "question": "Indonesia rawan gempa karena berada dekat pertemuan …",
+      "choices": [
+        "Arus udara saja",
+        "Satu sungai besar",
+        "Lempeng tektonik",
+        "Garis iklim subtropis"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Lempeng tektonik."
+    },
+    {
+      "id": "demo-v13-sma-12-10-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Geografi",
+      "topic": "Atmosfer",
+      "question": "Lapisan atmosfer tempat sebagian besar fenomena cuaca adalah …",
+      "choices": [
+        "Termosfer",
+        "Troposfer",
+        "Eksosfer",
+        "Mesosfer"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Troposfer."
+    },
+    {
+      "id": "demo-v13-sma-12-11-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Ekonomi",
+      "topic": "Kelangkaan",
+      "question": "Kelangkaan ekonomi muncul karena …",
+      "choices": [
+        "Tidak ada pilihan",
+        "Semua orang memiliki sumber daya sama",
+        "Kebutuhan tidak terbatas sedangkan sumber daya terbatas",
+        "Semua barang gratis"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Kebutuhan tidak terbatas sedangkan sumber daya terbatas."
+    },
+    {
+      "id": "demo-v13-sma-12-11-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Ekonomi",
+      "topic": "Pasar",
+      "question": "Permintaan barang umumnya menurun ketika harga naik, dengan asumsi faktor lain tetap. Ini disebut …",
+      "choices": [
+        "Depresiasi",
+        "Hukum permintaan",
+        "Hukum penawaran",
+        "Inflasi"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Hukum permintaan."
+    },
+    {
+      "id": "demo-v13-sma-12-11-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Ekonomi",
+      "topic": "Keuangan",
+      "question": "Menabung secara teratur bermanfaat untuk …",
+      "choices": [
+        "Mempersiapkan kebutuhan masa depan",
+        "Menambah utang otomatis",
+        "Menghilangkan semua risiko",
+        "Membelanjakan seluruh uang"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Mempersiapkan kebutuhan masa depan."
+    },
+    {
+      "id": "demo-v13-sma-12-12-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sosiologi",
+      "topic": "Interaksi Sosial",
+      "question": "Syarat utama terjadinya interaksi sosial meliputi …",
+      "choices": [
+        "Perbedaan warna",
+        "Kontak sosial dan komunikasi",
+        "Uang dan gedung",
+        "Peta dan cuaca"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Kontak sosial dan komunikasi."
+    },
+    {
+      "id": "demo-v13-sma-12-12-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sosiologi",
+      "topic": "Norma",
+      "question": "Norma sosial berfungsi untuk …",
+      "choices": [
+        "Mengatur perilaku dalam masyarakat",
+        "Melarang seluruh perubahan",
+        "Menghilangkan keberagaman",
+        "Menggantikan hukum alam"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Mengatur perilaku dalam masyarakat."
+    },
+    {
+      "id": "demo-v13-sma-12-12-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Sosiologi",
+      "topic": "Sosialisasi",
+      "question": "Keluarga disebut agen sosialisasi primer karena …",
+      "choices": [
+        "Selalu paling besar",
+        "Hanya ada di kota",
+        "Tidak berhubungan dengan pendidikan",
+        "Tempat awal anak belajar nilai dan norma"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Tempat awal anak belajar nilai dan norma."
+    },
+    {
+      "id": "demo-v13-sma-12-13-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Informatika",
+      "topic": "Pemrograman",
+      "question": "Perulangan dalam program digunakan untuk …",
+      "choices": [
+        "Menjalankan instruksi berulang sesuai kondisi",
+        "Menghapus seluruh data selalu",
+        "Mengubah monitor menjadi printer",
+        "Membuat kata sandi lemah"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Menjalankan instruksi berulang sesuai kondisi."
+    },
+    {
+      "id": "demo-v13-sma-12-13-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Informatika",
+      "topic": "Basis Data",
+      "question": "Kunci primer pada tabel basis data berguna untuk …",
+      "choices": [
+        "Memilih warna tabel",
+        "Mengganti nama pengguna",
+        "Membuat data berulang",
+        "Mengidentifikasi setiap baris secara unik"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Mengidentifikasi setiap baris secara unik."
+    },
+    {
+      "id": "demo-v13-sma-12-13-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Informatika",
+      "topic": "Keamanan",
+      "question": "Autentikasi dua faktor meningkatkan keamanan dengan …",
+      "choices": [
+        "Menonaktifkan semua perlindungan",
+        "Menggunakan sandi sederhana",
+        "Menambah langkah verifikasi identitas",
+        "Membagikan kata sandi"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menambah langkah verifikasi identitas."
+    },
+    {
+      "id": "demo-v13-sma-12-14-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PJOK",
+      "topic": "Kebugaran",
+      "question": "VO₂ max berkaitan dengan kemampuan tubuh dalam …",
+      "choices": [
+        "Membedakan warna",
+        "Membuat vitamin",
+        "Menyimpan air di kulit",
+        "Menggunakan oksigen saat aktivitas aerobik"
+      ],
+      "answer": 3,
+      "explanation": "Jawaban yang tepat: Menggunakan oksigen saat aktivitas aerobik."
+    },
+    {
+      "id": "demo-v13-sma-12-14-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PJOK",
+      "topic": "Kesehatan",
+      "question": "Kebiasaan aktivitas fisik teratur dapat membantu …",
+      "choices": [
+        "Mencegah semua penyakit pasti",
+        "Menggantikan nutrisi",
+        "Menjaga kesehatan jantung dan kebugaran",
+        "Menghapus kebutuhan istirahat"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Menjaga kesehatan jantung dan kebugaran."
+    },
+    {
+      "id": "demo-v13-sma-12-14-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "PJOK",
+      "topic": "Permainan",
+      "question": "Sportivitas saat bertanding ditunjukkan dengan …",
+      "choices": [
+        "Menyakiti lawan",
+        "Menghormati aturan dan lawan",
+        "Mencurangi skor",
+        "Merendahkan wasit"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Menghormati aturan dan lawan."
+    },
+    {
+      "id": "demo-v13-sma-12-15-01",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Seni Budaya",
+      "topic": "Seni Rupa",
+      "question": "Unsur rupa yang menunjukkan perbedaan terang dan gelap adalah …",
+      "choices": [
+        "Tempo",
+        "Melodi",
+        "Nilai (value)",
+        "Irama"
+      ],
+      "answer": 2,
+      "explanation": "Jawaban yang tepat: Nilai (value)."
+    },
+    {
+      "id": "demo-v13-sma-12-15-02",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Seni Budaya",
+      "topic": "Musik",
+      "question": "Perpaduan beberapa nada yang dibunyikan serentak membentuk …",
+      "choices": [
+        "Dialog",
+        "Harmoni",
+        "Perspektif",
+        "Tekstur visual"
+      ],
+      "answer": 1,
+      "explanation": "Jawaban yang tepat: Harmoni."
+    },
+    {
+      "id": "demo-v13-sma-12-15-03",
+      "level": "SMA",
+      "grade": 12,
+      "subject": "Seni Budaya",
+      "topic": "Teater",
+      "question": "Penataan tempat dan suasana panggung disebut …",
+      "choices": [
+        "Tata pentas",
+        "Tempo lagu",
+        "Kunci nada",
+        "Ilustrasi ilmiah"
+      ],
+      "answer": 0,
+      "explanation": "Jawaban yang tepat: Tata pentas."
+    }
+  ]
+}

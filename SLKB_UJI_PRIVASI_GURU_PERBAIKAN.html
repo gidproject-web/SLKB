@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uji Privasi Soal Antarguru — SLKB</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#331b4b;background:#fcf5e6}*{box-sizing:border-box}body{margin:0;line-height:1.5}main{max-width:790px;margin:24px auto;padding:15px}.hero{border-radius:20px;background:#43216b;color:white;padding:26px}.hero small{color:#ffdf88;font-weight:800;letter-spacing:.09em}.hero h1{margin:8px 0;font-size:clamp(23px,4vw,33px)}.card{border:1px solid #e8d5b5;background:#fff9ed;border-radius:18px;padding:22px;margin-top:17px}label{font-weight:750;display:block;margin:10px 0 5px}input{width:100%;padding:12px;font:inherit;border:1px solid #cdb4d7;border-radius:11px;background:white}button{font:inherit;border:0;background:#612c9a;color:#fff;border-radius:11px;font-weight:750;padding:12px 16px;cursor:pointer;margin:11px 10px 0 0}button.secondary{background:#eaddf4;color:#44216b}button:disabled{opacity:.65}.hint{color:#6e5d73;font-size:.9rem}.state{border-radius:12px;background:#f0e5fb;padding:12px;margin-top:12px}.out{border-left:5px solid #1d966e;background:#f2fbf6;border-radius:11px;padding:12px;margin:10px 0}.err{border-left-color:#d44653;background:#fff2f3}.warn{border-left-color:#d8a332;background:#fff8e4}h2{margin:0 0 12px;font-size:1.15rem}code{overflow-wrap:anywhere}
+</style></head><body><main>
+<div class="hero"><small>GID CREATIVE STUDIO · AUDIT INTERNAL</small><h1>Uji Privasi Soal Antarguru</h1><p>Pengujian API Supabase untuk membuktikan soal pribadi Guru A tidak dapat dibaca Guru B. Hanya SELECT; tidak mengedit, menghapus, atau menambahkan data.</p></div>
+<section class="card"><h2>1. Status konfigurasi</h2><div class="state" id="cfg">Memeriksa...</div><p class="hint">Letakkan file ini sejajar dengan <code>index.html</code> dan folder <code>config</code> pada game. Jangan memasukkan secret key.</p></section>
+<section class="card"><h2>2. Soal milik Guru A</h2><label for="owner">User ID pemilik soal (Guru A)</label><input id="owner" value="cac08df9-5364-4894-874a-543b5a418181" spellcheck="false" autocomplete="off"><p class="hint">ID sudah diisi dari hasil SQL yang Anda kirim. Akun Guru A mempunyai 1 soal pribadi yang ditandai TEST PRIVASI GURU 001.</p></section>
+<section class="card"><h2>3. Login akun pengujian</h2><label for="email">Email Guru A atau Guru B</label><input id="email" type="email" placeholder="alamat email akun pengujian" autocomplete="off"><label for="password">Password (tidak disimpan)</label><input id="password" type="password" placeholder="password akun pengujian" autocomplete="off"><div><button id="test">Login dan Uji Akses Pribadi</button><button id="logout" class="secondary">Keluar dari Penguji</button></div><p class="hint">Uji Guru A (pemilik) dahulu, lalu keluar dan uji akun Guru B. Jangan kirim password, token, atau URL berisi token kepada siapa pun.</p></section>
+<section class="card"><h2>4. Hasil pengujian</h2><div id="out" class="state">Belum ada pengujian.</div><div id="details" aria-live="polite"></div></section>
+<section class="card"><strong>Catatan keamanan:</strong><p class="hint">Hasil 0 saat login Guru B merupakan bukti pembatasan baca untuk akun tersebut pada jalur API yang diuji. Untuk membuktikan isolasi antar-pembeli, ulangi juga dengan akun Guru B yang sudah berlisensi Premium. Uji UPDATE/DELETE memerlukan pengujian terpisah yang aman dalam transaksi rollback.</p></section>
+</main>
+<script>
+(()=>{'use strict';
+  const $ = id=>document.getElementById(id);
+  let client=null, loading=null;
+  const cfgStatus=$('cfg');
+  const apiSource='config/cloud-config.js';
+  function htmlState(msg){cfgStatus.textContent=msg;}
+  function text(msg,type){const n=document.createElement('div');n.className='out'+(type==='bad'?' err':type==='warn'?' warn':'');n.textContent=msg;$('details').append(n)}
+  function busy(v){for(const b of document.querySelectorAll('button')) b.disabled=v}
+  function loadScript(url){return new Promise((resolve,reject)=>{
+    const s=document.createElement('script');s.src=url;s.onload=()=>resolve();s.onerror=()=>reject(new Error('Gagal memuat '+url));
+    document.head.appendChild(s);
+  })}
+  async function init(){
+    if(client) return true;
+    if(loading) return loading;
+    loading=(async()=>{
+      htmlState('Memeriksa folder konfigurasi dan SDK Supabase...');
+      if(location.protocol==='file:'){
+        htmlState('Buka melalui server http://localhost, bukan klik file HTML langsung.');
+        return false;
+      }
+      if(!window.SLCloudConfig){
+        try{await loadScript(new URL(apiSource,location.href).href)}catch(e){
+          htmlState('GAGAL: config/cloud-config.js tidak ditemukan dari alamat halaman ini. Letakkan HTML penguji di folder yang sama dengan index.html dan folder config.');
+          return false;
+        }
+      }
+      const cfg=window.SLCloudConfig;
+      if(!cfg){htmlState('GAGAL: cloud-config.js termuat, tetapi window.SLCloudConfig tidak ada. Periksa isi file konfigurasi.');return false}
+      if(!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(String(cfg.url||'')) || String(cfg.anonKey||'').length<20){
+        htmlState('GAGAL: URL atau anonKey pada config/cloud-config.js kosong/tidak valid. Pastikan memakai konfigurasi yang sama dengan game aktif.');return false;
+      }
+      if(!window.supabase?.createClient){
+        const hosts=[
+          'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js',
+          'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js'
+        ];
+        let ok=false;
+        for(const host of hosts){
+          try{await loadScript(host);if(window.supabase?.createClient){ok=true;break}}catch(_e){}
+        }
+        if(!ok){htmlState('GAGAL: SDK Supabase tidak bisa dimuat dari dua CDN. Periksa internet, pemblokir skrip, atau coba browser Chrome dengan jaringan berbeda.');return false}
+      }
+      try{client=window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:false,detectSessionInUrl:false,autoRefreshToken:false}})}
+      catch(e){htmlState('GAGAL membuat koneksi Supabase: '+String(e.message||e));return false}
+      htmlState('SIAP — konfigurasi dan SDK Supabase berhasil dimuat. Silakan login Guru A.');
+      return true;
+    })();
+    try{return await loading}finally{loading=null}
+  }
+  $('test').addEventListener('click',async()=>{
+    $('details').replaceChildren();
+    if(!client && !(await init())){$('out').textContent='Pengujian belum berjalan karena konfigurasi/SDK belum siap.';text('Baca penyebab pada bagian 1. Status konfigurasi.','bad');return}
+    const email=$('email').value.trim(),password=$('password').value,owner=$('owner').value.trim();
+    if(!email||!password||!/^\w{8}-[0-9a-f-]{27,}$/i.test(owner)){text('Lengkapi email, password, dan User ID yang valid.','bad');return}
+    busy(true);
+    try{
+      await client.auth.signOut();
+      const login=await client.auth.signInWithPassword({email,password});
+      $('password').value='';
+      if(login.error){$('out').textContent='Login gagal.';text('Login gagal: '+login.error.message,'bad');return}
+      const user=login.data?.user;
+      if(!user){text('Sesi akun tidak tersedia.','bad');return}
+      const roles=await client.from('slkb_user_roles').select('role').eq('user_id',user.id).maybeSingle();
+      const role=roles.data?.role||'tidak diketahui';
+      const ent=await client.from('slkb_entitlements').select('status').eq('user_id',user.id).maybeSingle();
+      const status=role==='admin'?'admin':ent.data?.status||'demo';
+      $('out').textContent=`Login sukses • Peran ${role} • Lisensi ${status}`;
+      const r=await client.from('slkb_questions').select('id',{head:true,count:'exact'}).eq('owner_id',owner);
+      if(r.error){text('Permintaan baca soal ditolak API: '+r.error.message,'warn');return}
+      const n=r.count??0,own=user.id.toLowerCase()===owner.toLowerCase();
+      if(own){text(`GURU A (PEMILIK): ${n} soal pribadi terlihat. Target uji = 1.`,n===1?'ok':'warn')}
+      else{
+        text(`GURU B (BUKAN PEMILIK): ${n} soal Guru A terlihat. Target uji = 0.`,n===0?'ok':'bad');
+        text(n===0?'LULUS UJI BACA: Guru B tidak dapat membaca soal pribadi Guru A.':'GAGAL: Akun lain dapat membaca soal pribadi Guru A. Jangan rilis.',n===0?'ok':'bad');
+      }
+    }catch(e){text('Kesalahan pengujian: '+String(e.message||e),'bad')}
+    finally{busy(false)}
+  });
+  $('logout').addEventListener('click',async()=>{
+    busy(true);
+    try{if(client)await client.auth.signOut();$('email').value='';$('password').value='';$('out').textContent='Sesi pengujian ditutup.';$('details').replaceChildren();text('Silakan login menggunakan akun pengujian berikutnya.')}
+    finally{busy(false)}
+  });
+  init();
+})();
+</script></body></html>

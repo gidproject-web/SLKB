@@ -1,0 +1,200 @@
+{
+  "status": "review only; decorative assets scaled and rotated; endpoints visually approximate",
+  "placements": [
+    {
+      "kind": "ladders",
+      "index": 1,
+      "start": 3,
+      "end": 22,
+      "angle": -26.6,
+      "width": 88,
+      "height": 414,
+      "center": [
+        484,
+        1654
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 2,
+      "start": 8,
+      "end": 30,
+      "angle": 45.0,
+      "width": 112,
+      "height": 524,
+      "center": [
+        1654,
+        1654
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 3,
+      "start": 20,
+      "end": 41,
+      "angle": 0.0,
+      "width": 118,
+      "height": 556,
+      "center": [
+        214,
+        1384
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 4,
+      "start": 28,
+      "end": 55,
+      "angle": -33.7,
+      "width": 125,
+      "height": 668,
+      "center": [
+        1294,
+        1204
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 5,
+      "start": 43,
+      "end": 71,
+      "angle": 66.8,
+      "width": 125,
+      "height": 1411,
+      "center": [
+        1204,
+        844
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 6,
+      "start": 57,
+      "end": 76,
+      "angle": 26.6,
+      "width": 88,
+      "height": 414,
+      "center": [
+        844,
+        754
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 7,
+      "start": 70,
+      "end": 91,
+      "angle": 0.0,
+      "width": 118,
+      "height": 556,
+      "center": [
+        1834,
+        484
+      ]
+    },
+    {
+      "kind": "ladders",
+      "index": 8,
+      "start": 80,
+      "end": 99,
+      "angle": 26.6,
+      "width": 88,
+      "height": 414,
+      "center": [
+        304,
+        394
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 1,
+      "start": 98,
+      "end": 78,
+      "angle": -0.0,
+      "width": 79,
+      "height": 370,
+      "center": [
+        574,
+        394
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 2,
+      "start": 95,
+      "end": 56,
+      "angle": 14.0,
+      "width": 125,
+      "height": 764,
+      "center": [
+        1024,
+        574
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 3,
+      "start": 88,
+      "end": 67,
+      "angle": 26.6,
+      "width": 88,
+      "height": 414,
+      "center": [
+        1384,
+        574
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 4,
+      "start": 74,
+      "end": 53,
+      "angle": -26.6,
+      "width": 88,
+      "height": 414,
+      "center": [
+        1384,
+        754
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 5,
+      "start": 62,
+      "end": 19,
+      "angle": -0.0,
+      "width": 125,
+      "height": 927,
+      "center": [
+        394,
+        1204
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 6,
+      "start": 49,
+      "end": 11,
+      "angle": -18.4,
+      "width": 125,
+      "height": 586,
+      "center": [
+        1744,
+        1384
+      ]
+    },
+    {
+      "kind": "snakes",
+      "index": 7,
+      "start": 36,
+      "end": 6,
+      "angle": -18.4,
+      "width": 125,
+      "height": 586,
+      "center": [
+        1024,
+        1564
+      ]
+    }
+  ]
+}

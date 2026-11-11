@@ -1,0 +1,36 @@
+{
+  "tambahan_soal_demo": 369,
+  "tambahan_per_jenjang": {
+    "SD": 144,
+    "SMP": 90,
+    "SMA": 135
+  },
+  "cakupan_seluruh_kelas": {
+    "SD": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "SMP": [
+      7,
+      8,
+      9
+    ],
+    "SMA": [
+      10,
+      11,
+      12
+    ]
+  },
+  "kategori_mapel_per_jenjang": {
+    "SD": 8,
+    "SMP": 10,
+    "SMA": 15
+  },
+  "jumlah_kombinasi_jenjang_kelas_mapel": 123,
+  "pertanyaan_tambahan_per_kombinasi": 3,
+  "catatan": "Soal DEMO latihan singkat untuk uji fitur, bukan paket asesmen yang tervalidasi terhadap seluruh CP/ATP. Beberapa soal dasar digunakan kembali di kelas yang berbeda; guru sebaiknya meninjau tingkat kesulitan."
+}

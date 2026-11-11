@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uji Keamanan Supabase — SLKB V1.5.9</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#351851;background:#fcf5e6}*{box-sizing:border-box}body{margin:0;line-height:1.5}.wrap{max-width:860px;margin:25px auto;padding:16px}.header{background:#42206b;color:#fff;border-radius:18px;padding:26px}.header small{letter-spacing:.08em;color:#f5cd6e;font-weight:800}.header h1{margin:6px 0;font-size:clamp(24px,4vw,36px)}.header p{margin:0;color:#f8eaff}.card{border:1px solid #e5d4b3;border-radius:18px;padding:22px;background:#fff9ed;margin-top:16px;box-shadow:0 5px 14px #2c144009}label{display:block;margin:10px 0 4px;font-weight:700}input{font:inherit;width:100%;padding:12px;border:1px solid #c7abc7;border-radius:12px;background:white}button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:12px 14px;cursor:pointer;background:#602a99;color:#fff;margin:8px 8px 0 0}button.secondary{background:#e9dcee;color:#3b2051}button:disabled{opacity:.6;cursor:not-allowed}.muted{font-size:.9rem;color:#725d78}.status{padding:12px;border-radius:10px;background:#efe6fa;margin:10px 0}.results{display:grid;gap:10px;margin-top:10px}.result{border:1px solid #e5d6e6;border-radius:12px;background:white;padding:12px}.pass{border-left:5px solid #1d8e68}.fail{border-left:5px solid #d64148}.warn{border-left:5px solid #d5a02e}.result strong{display:block}.result small{color:#675a6f}.note{font-size:.9rem;color:#5b4769}code{font-size:.9em;overflow-wrap:anywhere}h2{margin:0 0 10px;font-size:1.2rem}
+</style>
+</head><body><div class="wrap"><div class="header"><small>GID CREATIVE STUDIO · PENGUJIAN INTERNAL</small><h1>Audit Akses Bank Soal Premium</h1><p>Snake & Ladder: Knowledge Battle V1.5.9 · Pengujian langsung melalui API Supabase dengan hak pengguna sebenarnya.</p></div>
+<div class="card"><h2>1. Pastikan konfigurasi terbaca</h2><div id="configStatus" class="status">Memeriksa konfigurasi…</div><p class="muted">Salin halaman ini ke folder utama game, sejajar dengan <code>index.html</code> dan folder <code>config</code>. Jangan menambahkan secret key atau service_role.</p></div>
+<div class="card"><h2>2. Uji pengguna tanpa login</h2><button id="anonBtn">Uji Tanpa Login</button><p class="note">Harus tidak bisa mendapatkan soal Master Premium atau data lisensi.</p></div>
+<div class="card"><h2>3. Uji akun Guru Gratis, Guru Premium, dan Admin</h2><label for="email">Email akun pengujian</label><input id="email" type="email" autocomplete="off" placeholder="Email yang terdaftar di Supabase"><label for="password">Password (tidak disimpan)</label><input id="password" type="password" autocomplete="off" placeholder="Masukkan password akun pengujian"><div><button id="loginBtn">Login & Uji</button><button id="logoutBtn" class="secondary">Keluar dari Penguji</button></div><p class="note">Uji akun Guru Gratis terlebih dahulu, keluar, kemudian Guru Premium dan Admin. Password dikirim hanya ke API Supabase proyek ini saat proses login dan langsung dikosongkan dari formulir.</p></div>
+<div class="card"><h2>4. Hasil pengujian</h2><div id="phase" class="status">Belum ada pengujian.</div><div id="results" class="results" aria-live="polite"></div></div>
+<div class="card note">Penting: alat ini hanya membaca data, kecuali uji RPC khusus yang memakai ID pengajuan fiktif untuk memastikan guru tidak bisa menyetujui pembelian. Alat ini tidak memasukkan, mengubah, atau menghapus soal dan lisensi. Hasil lulus belum menggantikan uji isolasi data antarpengguna, pengujian seluruh RLS, dan uji transaksi di produksi.</div></div>
+<script src="./config/cloud-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), cfg=window.SLCloudConfig||{};
+let client=null, busy=false;
+function setPhase(s){$('phase').textContent=s}
+function result(ok,title,detail,warning=false){const div=document.createElement('div');div.className='result '+(warning?'warn':ok?'pass':'fail');const strong=document.createElement('strong');strong.textContent=(warning?'⚠️ ':ok?'✅ ':'❌ ')+title;const small=document.createElement('small');small.textContent=detail||'';div.append(strong,small);$('results').appendChild(div)}
+function clear(){ $('results').replaceChildren() }
+function errorText(e){return String(e?.message||e?.code||'Tanpa detail').slice(0,300)}
+function blocked(x){return !!x.error && (x.error.code==='42501'||/permission denied|not permitted|not authorized|forbidden/i.test(x.error.message||''))}
+async function queryCount(c,t){const r=await c.from(t).select('id',{head:true,count:'exact'});return {count:r.count,error:r.error}}
+async function inspectMaster(c,expect){const r=await c.from('slkb_master_questions').select('id,question,choices,answer',{count:'exact'}).limit(1);const n=r.count??r.data?.length??0;
+ if(expect==='blocked')result(!!r.error||n===0,'Anonim tidak dapat membaca soal Master',r.error?'Ditolak API: '+errorText(r.error):'Hasil 0 baris');
+ else if(expect==='free')result(!r.error&&n===0,'Guru Gratis tidak dapat membaca soal Master',r.error?'Kesalahan API: '+errorText(r.error):'Jumlah terbaca: '+n);
+ else result(!r.error&&n>0,'Premium/Admin dapat membaca soal Master',r.error?'Kesalahan API: '+errorText(r.error):'Jumlah terbaca: '+n+'; konten soal tidak ditampilkan di sini');
+}
+async function withBusy(fn){if(busy)return;busy=true;for(const b of document.querySelectorAll('button'))b.disabled=true;clear();try{await fn()}catch(e){result(false,'Kesalahan pengujian',errorText(e))}finally{busy=false;for(const b of document.querySelectorAll('button'))b.disabled=false}}
+function init(){if(!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(cfg.url||'')||String(cfg.anonKey||'').length<15||!window.supabase?.createClient){$('configStatus').textContent='Konfigurasi/SDK belum terbaca. Pastikan file HTML sejajar index.html, folder config lengkap, dan internet aktif.';return false}
+ const base=()=>window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+ client=base();$('configStatus').textContent='Siap — konfigurasi publik valid (kunci tidak ditampilkan).';return true;}
+$('anonBtn').addEventListener('click',()=>withBusy(async()=>{if(!client&& !init())return;const anon=window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});setPhase('Uji sebagai pengunjung tanpa login');await inspectMaster(anon,'blocked');const ent=await anon.from('slkb_entitlements').select('user_id',{head:true,count:'exact'});result(!!ent.error||ent.count===0,'Anonim tidak membaca lisensi',ent.error?'Ditolak API: '+errorText(ent.error):'Hasil 0 baris');}));
+$('loginBtn').addEventListener('click',()=>withBusy(async()=>{if(!client&& !init())return;const email=$('email').value.trim(),password=$('password').value;if(!email||!password){result(false,'Email dan password diperlukan','Isi akun uji, tanpa membagikannya ke orang lain.');return}
+ await client.auth.signOut().catch(()=>{});const logged=await client.auth.signInWithPassword({email,password});$('password').value='';if(logged.error){result(false,'Login ditolak',errorText(logged.error));return}
+ const uid=logged.data?.user?.id;if(!uid){result(false,'Tidak ada user ID','Login tidak menghasilkan sesi.');return}
+ const roleResult=await client.from('slkb_user_roles').select('role').eq('user_id',uid).maybeSingle();if(roleResult.error){result(false,'Role gagal dibaca',errorText(roleResult.error));return}
+ const role=roleResult.data?.role||'TIDAK ADA';const admin=role==='admin';const ent=await client.from('slkb_entitlements').select('status').eq('user_id',uid).maybeSingle();const premium=admin || ent.data?.status==='active';setPhase(`Akun ${email} · Peran ${role} · Lisensi ${premium?'Premium/Admin':'Demo Gratis'}`);
+ result(role==='teacher'||admin,'Peran akun dapat dibaca','Peran di tabel slkb_user_roles: '+role);
+ if(!admin && ent.error) result(false,'Status lisensi gagal diambil',errorText(ent.error));
+ else result(true,'Status lisensi diperiksa',admin?'Admin mendapat akses pengelola':'Status entitlement: '+(ent.data?.status||'tidak ada'));
+ await inspectMaster(client,premium?'premium':'free');
+ const roles=await client.from('slkb_user_roles').select('user_id',{count:'exact',head:true});result(!roles.error&&roles.count===1,'Pengguna hanya melihat role miliknya',roles.error?errorText(roles.error):'Jumlah role yang dapat dibaca: '+roles.count);
+ if(!admin){const bogus='00000000-0000-0000-0000-000000000000';const r=await client.rpc('slkb_review_activation',{p_request_id:bogus,p_decision:'approved'});result(!!r.error&&/Hanya admin|permission denied|not authorized/i.test(r.error.message||''),'Guru tidak bisa menyetujui aktivasi pembelian',r.error?'Ditolak server: '+errorText(r.error):'Berbahaya: fungsi tidak menolak permintaan');}
+ }));
+$('logoutBtn').addEventListener('click',()=>withBusy(async()=>{if(client){const r=await client.auth.signOut();if(r.error){result(false,'Logout gagal',errorText(r.error));return}}$('email').value='';$('password').value='';setPhase('Keluar dari penguji. Siap menguji akun lain.');result(true,'Sesi pengujian ditutup','Tidak menyimpan password maupun sesi di browser.')}));
+init();
+})();
+</script></body></html>
