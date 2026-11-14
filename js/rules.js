@@ -24,11 +24,11 @@
     const bottomRow = 9 - row;
     return bottomRow * 10 + (bottomRow % 2 === 0 ? col + 1 : 10 - col);
   }
-  function init(names) {
+  function init(names, mode="klasik") {
     if (!Array.isArray(names) || names.length < 2 || names.length > 6) throw new Error('Gunakan 2–6 tim');
     return {
       teams: names.map((name,i) => ({ id:i, name:String(name || NAMES[i]).trim().slice(0,32) || NAMES[i], color: COLORS[i], position:0, correct:0, wrong:0, hits:0 })),
-      current:0, turn:0, sixStreak:0, winner:null, finished:false, history:[]
+      current:0, turn:0, sixStreak:0, winner:null, finished:false, mode, history:[]
     };
   }
   // Angka 6 hanya boleh menghasilkan dua bonus berturut-turut.
@@ -72,6 +72,8 @@
       events.push({ type:'wrong', team:moving.id, from, to:from });
     } else {
       moving.correct++;
+    }
+    if (correct || state.mode === 'edukatif') {
       {
         const path=movementPath(from, roll);
         landing=path[path.length-1];
@@ -121,7 +123,8 @@
     }
     return { state, events };
   }
-  function rankTeams(teams) {
+  function rankTeams(teams, mode='klasik') {
+    if (mode === 'edukatif') return [...teams].sort((a,b) => b.correct - a.correct || b.position - a.position || a.wrong - b.wrong || a.id - b.id);
     return [...teams].sort((a,b) => b.position - a.position || b.correct - a.correct || a.id - b.id);
   }
   return { LADDERS, SNAKES, PAIRS, COLORS, NAMES, squareOf, squareAt, init, applyTurn, forfeitThirdSix, rankTeams, movementPath };

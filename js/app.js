@@ -85,6 +85,7 @@ let cloudSyncWarnings=[]; // Diagnostik sesi; tidak menyimpan kata sandi atau to
 let bankPage=1,bankPageSize=25,bankRequestSeq=0,setupCountSeq=0,setupLoadBusy=false;
 const facetCache=new Map(),facetSequence={setup:0,bank:0};
 let gameMasterFilterKey='';
+let sessionStartedAt=null;
 let activationRequests = []; 
 let cloudBusy = false;
 let authMode = 'login';
@@ -93,6 +94,7 @@ let authVerificationEmail = '';
 if (!Array.isArray(customQuestions)) customQuestions=[];
 let count=2, currentView='menu', previousView='menu', state=null, subject='SD • Semua Kelas • Semua Mata Pelajaran';
 let selectedBank={level:'SD',grade:'all',subject:'all',topic:'all'};
+let mixedModeRows=[];let sessionQuestionPool=null;let multiCatalogVersion=0;
 let editingQuestionId=null;
 let phase='idle', lastRoll=1, activeQuestion=null, activeChoices=[], choiceSelected=-1, isCorrect=false;
 let deck=[], deckIndex=0, usedQuestionKeys=new Set(), quizNumber=0, timerHandle=null, timerLeft=0, toastHandle=null;
@@ -124,7 +126,7 @@ function getLocalQuestions(){
 }
 function getAllQuestions(){return [...getLocalQuestions(),...premiumQuestions].map(fitLowGradeOptions)}
 function matches(q,f){return (f.level==='all'||q.level===f.level) && (f.grade==='all'||Number(q.grade)===Number(f.grade)) && (f.subject==='all'||canonicalSubject(q.subject)===canonicalSubject(f.subject)) && (f.topic==='all'||q.topic===f.topic)}
-function poolOf(f){return getAllQuestions().filter(q=>matches(q,f))}
+function poolOf(f){return f?.mixed && Array.isArray(sessionQuestionPool)?sessionQuestionPool:getAllQuestions().filter(q=>matches(q,f))}
 function options(select, values, current, fallback='all'){
   select.replaceChildren();for(const [val,label] of values){const o=el('option',null,label);o.value=String(val);select.append(o)}
   select.value=values.some(([v])=>String(v)===String(current))?String(current):fallback;
@@ -165,7 +167,7 @@ async function fetchFacets(prefix,level,grade,preferred={}){
     options(subjectEl,[['all','Semua Mata Pelajaran'],...subjectOptions(level,grade).map(x=>[x,x])],previousSubject);
     const requestedTopic=preferred.topic??topicEl.value;
     options(topicEl,[['all','Semua Materi'],...topicsFor(level,grade,subjectEl.value).map(t=>[t,t])],requestedTopic);
-    if(setup){selectedBank=currentFilter('setup');updatePoolInfo();}
+    if(setup){selectedBank=currentFilter('setup');updatePoolInfo();refreshMultiCatalog();}
     else{bankPage=1;renderBankList();}
   }catch(e){if(seq===facetSequence[prefix]){
     const msg='Daftar materi Cloud belum dapat dibaca: '+e.message;
@@ -182,7 +184,7 @@ function cascadeFilters(prefix,changed='level',preferred=null){
   options(subjectEl,[['all','Semua Mata Pelajaran'],...subjectOptions(lev,gradeEl.value).map(x=>[x,x])],subjectCurrent);
   const topicCurrent=preferred?.topic??(['level','grade','subject'].includes(changed)?'all':topicEl.value);
   options(topicEl,[['all','Semua Materi'],...topicsFor(lev,gradeEl.value,subjectEl.value).map(t=>[t,t])],topicCurrent);
-  if(setup){selectedBank={...currentFilter('setup'),...(preferred?.topic&&!topicsFor(lev,gradeEl.value,subjectEl.value).includes(preferred.topic)?{topic:preferred.topic}:{})};updatePoolInfo()}
+  if(setup){selectedBank={...currentFilter('setup'),...(preferred?.topic&&!topicsFor(lev,gradeEl.value,subjectEl.value).includes(preferred.topic)?{topic:preferred.topic}:{})};updatePoolInfo();refreshMultiCatalog()}
   else{if(changed!=='init')bankPage=1;renderBankList();}
   // Saat master Cloud besar, daftar materi berasal dari metadata database,
   // bukan dari seluruh pertanyaan di browser.
@@ -218,6 +220,74 @@ function showView(name){
   if(name==='cloud')showAuthForm(auth?.isRecoveryVerified?.() && auth?.user?'reset':authMode);
   window.scrollTo({top:0,behavior:'instant'});
 }
+// v1.5.17: per materi ditetapkan kuota tersendiri. Pemilihan ini hanya
+// memengaruhi paket game, tidak pernah mengubah atau menghapus Master Cloud.
+function multiEnabled(){return Boolean($('multiModeToggle')?.checked)}
+function multiSubjects(){return subjectOptions($('setupLevel').value,$('setupGrade').value)}
+function multiTopics(subjectName){return topicsFor($('setupLevel').value,$('setupGrade').value,subjectName)}
+function multiSelectedFilters(){
+  const level=$('setupLevel').value,grade=$('setupGrade').value;
+  return mixedModeRows.map(row=>({level,grade,subject:row.subject,topic:row.topic,quota:Number(row.quota)}));
+}
+function renderMultiRows(){
+  const container=$('multiMaterialRows');if(!container)return;
+  container.replaceChildren();
+  mixedModeRows.forEach((row,index)=>{
+    const wrap=el('div','multi-material-row');
+    const subjects=multiSubjects();
+    if(!subjects.includes(row.subject))row.subject=subjects[0]||'';
+    const topics=multiTopics(row.subject);
+    if(!topics.includes(row.topic))row.topic=topics[0]||'';
+    const subjectLabel=el('label',null,'Mata Pelajaran'),subjectSelect=el('select');
+    options(subjectSelect,subjects.map(v=>[v,v]),row.subject,'');subjectLabel.append(subjectSelect);
+    const topicLabel=el('label',null,'Materi / Bab'),topicSelect=el('select');
+    options(topicSelect,topics.map(v=>[v,v]),row.topic,'');topicLabel.append(topicSelect);
+    const quotaLabel=el('label',null,'Jatah Soal'),quotaInput=el('input');
+    quotaInput.type='number';quotaInput.min='1';quotaInput.max='500';quotaInput.step='1';quotaInput.value=String(row.quota||10);
+    quotaInput.setAttribute('aria-label','Jatah soal materi '+(index+1));quotaLabel.append(quotaInput);
+    const remove=el('button','multi-remove','×');remove.type='button';remove.title='Hapus pilihan materi';
+    subjectSelect.addEventListener('change',()=>{row.subject=subjectSelect.value;row.topic='';renderMultiRows();updateMultiInfo()});
+    topicSelect.addEventListener('change',()=>{row.topic=topicSelect.value;updateMultiInfo()});
+    quotaInput.addEventListener('change',()=>{row.quota=Number(quotaInput.value);updateMultiInfo()});
+    remove.addEventListener('click',()=>{mixedModeRows.splice(index,1);renderMultiRows();updateMultiInfo()});
+    wrap.append(subjectLabel,topicLabel,quotaLabel,remove);container.append(wrap);
+  });
+}
+function refreshMultiCatalog(){
+  if(!$('multiModeToggle')||!multiEnabled())return;
+  renderMultiRows();updateMultiInfo();
+}
+function addMultiRow(){
+  const subjects=multiSubjects(),subject=subjects[0]||'';
+  mixedModeRows.push({subject,topic:multiTopics(subject)[0]||'',quota:10});
+  renderMultiRows();updateMultiInfo();
+}
+async function updateMultiInfo(){
+  if(!multiEnabled())return;
+  const elInfo=$('multiPoolInfo'),v=++multiCatalogVersion;
+  const filters=multiSelectedFilters();
+  const sum=filters.reduce((a,x)=>a+x.quota,0);
+  if(!filters.length){elInfo.textContent='Tambahkan minimal satu materi untuk paket campuran.';return;}
+  if(filters.some(f=>!f.subject||!f.topic||!Number.isInteger(f.quota)||f.quota<1||f.quota>500)){
+    elInfo.textContent='⚠ Pilih mapel, materi dan jatah soal 1–500 pada setiap baris.';return;
+  }
+  if(sum>500){elInfo.textContent=`⚠ Total ${sum} soal melebihi batas 500 soal per pertandingan.`;return;}
+  const keys=filters.map(f=>filterKey(f));
+  if(new Set(keys).size!==keys.length){elInfo.textContent='⚠ Ada mapel dan materi yang dipilih dua kali. Gabungkan jatah pada satu baris.';return;}
+  elInfo.textContent=`⏳ Memeriksa ${filters.length} materi (${sum} soal) ...`;
+  try{
+    const checks=await Promise.all(filters.map(async f=>{
+      const local=getLocalQuestions().filter(q=>matches(q,f)).length;
+      const remote=canManageBank()?await window.SLCloud.countMasterQuestions(f):0;
+      return {f,available:local+remote};
+    }));
+    if(v!==multiCatalogVersion||!multiEnabled())return;
+    const short=checks.filter(x=>x.available<x.f.quota);
+    elInfo.textContent=short.length
+      ?`⚠ ${sum} soal diminta. Jatah belum mencukupi: ${short.map(x=>`${x.f.subject} / ${x.f.topic} (${x.available}/${x.f.quota})`).join('; ')}`
+      :`✅ ${filters.length} materi siap • ${sum} soal campuran (acak dan tidak berulang dalam satu putaran).`;
+  }catch(e){if(v===multiCatalogVersion)elInfo.textContent='⚠ Gagal memeriksa Supabase: '+e.message;}
+}
 function setupCount(n) {count=n;renderSetup();}
 function renderSetup() {
   const wrap=$('teamCounts');wrap.replaceChildren();
@@ -231,6 +301,7 @@ function renderSetup() {
   const saved={...selectedBank};
   $('setupLevel').value=saved.level;
   cascadeFilters('setup','init',saved);
+  refreshMultiCatalog();
 }
 function setSetupIssue(message=''){
   const notice=$('setupStartMessage');
@@ -241,6 +312,7 @@ function setSetupIssue(message=''){
 async function updatePoolInfo(){
   const seq=++setupCountSeq;
   const f=currentFilter('setup');
+  if(multiEnabled()){ $('questionPoolInfo').textContent='Paket campuran aktif: gunakan daftar mapel dan materi di atas.';setSetupIssue('');return;}
   const local=getLocalQuestions().filter(q=>matches(q,f)).length;
   $('questionPoolInfo').textContent=canManageBank()?'⏳ Menghitung soal sesuai filter di Supabase…':`${local} soal Demo tersedia.`;
   setSetupIssue('');
@@ -260,7 +332,8 @@ async function updatePoolInfo(){
 function useDemoBank(){
   // Tampilkan koleksi demo SD yang selalu dibundel pada versi publik.
   selectedBank={level:'SD',grade:'all',subject:'all',topic:'all'};
-  premiumQuestions=[];gameMasterFilterKey='';
+  premiumQuestions=[];gameMasterFilterKey='';sessionQuestionPool=null;
+  $('multiModeToggle').checked=false;$('multiModeContents').hidden=true;
   $('setupLevel').value='SD';
   cascadeFilters('setup','level');
   showToast('Bank Soal Demo dipilih. Silakan tekan Mulai Pertandingan.');
@@ -278,14 +351,42 @@ async function startGame(){
   btn.disabled=true;btn.textContent='⏳ Menyiapkan Bank Soal…';
   try{
     const names=$$('#teamInputs input').map((inp,i)=>inp.value.trim()||R.NAMES[i]);
-    const filter=currentFilter('setup');
+    const mixed=multiEnabled();
+    const filter=mixed?{level:$('setupLevel').value,grade:$('setupGrade').value,subject:'all',topic:'all',mixed:true}:currentFilter('setup');
     // Data Premium hanya ada sementara untuk sesi permainan ini.
-    premiumQuestions=[];gameMasterFilterKey='';
-    if(canManageBank()){
-      const found=await window.SLCloud.listMasterQuestions(filter,500);
-      if(currentView!=='setup')return;
-      premiumQuestions=found.map(q=>({...q,answer:q.answer,premium:true}));
-      gameMasterFilterKey=filterKey(filter);
+    premiumQuestions=[];gameMasterFilterKey='';sessionQuestionPool=null;
+    if(mixed){
+      const filters=multiSelectedFilters();
+      if(!filters.length)throw new Error('Tambahkan minimal satu materi untuk paket campuran');
+      const sum=filters.reduce((n,f)=>n+f.quota,0);
+      if(sum>500)throw new Error('Total jatah melebihi 500 soal per pertandingan');
+      const keys=filters.map(f=>filterKey(f));
+      if(new Set(keys).size!==keys.length)throw new Error('Materi yang sama dipilih dua kali; gabungkan jatahnya');
+      const chosen=[];const used=new Set();
+      for(const f of filters){
+        if(!f.subject||!f.topic||!Number.isInteger(f.quota)||f.quota<1||f.quota>500)
+          throw new Error('Lengkapi pilihan mapel, materi dan jatah soal 1–500');
+        const local=getLocalQuestions().filter(q=>matches(q,f));
+        const remote=canManageBank()?await window.SLCloud.listMasterQuestions(f,500):[];
+        if(currentView!=='setup')return;
+        const distinct=new Map();
+        for(const q of [...local,...remote]){
+          const key=RETRY.questionKey(q);
+          if(!used.has(key)&&!distinct.has(key))distinct.set(key,q);
+        }
+        if(distinct.size<f.quota)throw new Error(`${f.subject} • ${f.topic}: tersedia ${distinct.size} soal, diminta ${f.quota}. Kurangi jatah.`);
+        const taken=shuffle([...distinct.values()]).slice(0,f.quota);
+        chosen.push(...taken);taken.forEach(q=>used.add(RETRY.questionKey(q)));
+      }
+      sessionQuestionPool=shuffle(chosen);
+      subject=`Paket Campuran • ${filters.length} materi • ${chosen.length} soal`;
+    }else{
+      if(canManageBank()){
+        const found=await window.SLCloud.listMasterQuestions(filter,500);
+        if(currentView!=='setup')return;
+        premiumQuestions=found.map(q=>({...q,answer:q.answer,premium:true}));
+        gameMasterFilterKey=filterKey(filter);
+      }
     }
     const pool=poolOf(filter);
     if(!pool.length){
@@ -294,13 +395,13 @@ async function startGame(){
       showToast('Belum ada soal untuk pilihan ini. Klik Gunakan Soal Demo.');
       return;
     }
-    const freshState=R.init(names);
+    const freshState=R.init(names,$('scoringMode').value);
     const freshRetry=RETRY.createSession(names.length,2);
     clearInterval(timerHandle);timerHandle=null;
     $('quizOverlay').hidden=true;
     $('diceRevealOverlay').hidden=true;
-    state=freshState;retrySession=freshRetry;
-    selectedBank=filter;subject=bankDescription(filter);
+    state=freshState;retrySession=freshRetry;sessionStartedAt=new Date().toISOString();
+    selectedBank=filter;if(!mixed)subject=bankDescription(filter);
     phase='idle';lastRoll=1;quizNumber=0;deck=[];deckIndex=0;usedQuestionKeys.clear();
     activeQuestion=null;activeChoices=[];choiceSelected=-1;isRetryQuestion=false;
     $('diceImage').src=PATH('dice',0);$('diceNumber').textContent='?';
@@ -332,7 +433,7 @@ function renderPieces(preview={}) {
   }
 }
 function renderScoresRows(){const target=$('scoreboardRows');target.replaceChildren();if(!state)return;
-  state.teams.forEach((t,i)=>{const row=el('div','score-row'+(i===state.current&&!state.finished?' now':''));row.append(img(PATH('players',i),t.name));const label=el('span',null,t.name);label.title=t.name;row.append(label,el('span','pos',String(t.position)),el('span','right',String(t.correct)));target.append(row)})
+  state.teams.forEach((t,i)=>{const row=el('div','score-row'+(i===state.current&&!state.finished?' now':''));row.append(img(PATH('players',i),t.name));const label=el('span',null,t.name);label.title=t.name;row.append(label,el('span','pos',String(t.position)),el('span','right',String(t.correct*10)+' pt'));target.append(row)})
 }
 function renderGame(){
   if(!state)return;
@@ -427,9 +528,9 @@ function evaluateAnswer(timeout=false){
   const progress=retrySession.record(state.current,activeQuestion,isCorrect);
   const fb=$('quizFeedback');fb.hidden=false;fb.className='quiz-feedback '+(isCorrect?'good':'bad');
   if(isCorrect){
-    fb.textContent=`✅ Tepat! ${isRetryQuestion?'Soal yang tadi belum dikuasai sekarang sudah berhasil dijawab. ':''}Bidak bergerak ${lastRoll} langkah; jika melewati kotak 100, ia memantul mundur.${activeQuestion.explanation?' '+activeQuestion.explanation:''}`;
+    fb.textContent=`✅ Tepat! ${isRetryQuestion?'Soal yang tadi belum dikuasai sekarang sudah berhasil dijawab. ':''}+10 poin pengetahuan. Bidak bergerak ${lastRoll} langkah; jika melewati kotak 100, ia memantul mundur.${activeQuestion.explanation?' '+activeQuestion.explanation:''}`;
   }else{
-    fb.textContent=(timeout?'⏰ Waktu habis. ':'🌱 Belum tepat. ')+`Coba ingat kembali materi yang sudah dipelajari, ya! Bidak tetap di tempat. Pertanyaan berikutnya akan berbeda selama masih ada soal yang belum digunakan.`;
+    fb.textContent=(timeout?'⏰ Waktu habis. ':'🌱 Belum tepat. ')+`Coba ingat kembali materi yang sudah dipelajari, ya! ${state.mode==='edukatif'?'Bidak tetap berjalan sesuai dadu, termasuk akibat ular/tangga.':'Bidak tetap di tempat.'} Pertanyaan berikutnya akan berbeda selama masih ada soal yang belum digunakan.`;
   }
   $('quizSubmitBtn').hidden=true;$('quizContinueBtn').hidden=false;
   $('quizContinueBtn').textContent=isCorrect&&lastRoll===6?'▶ Jalankan Bidak & Bonus Dadu':'▶ Lanjut Giliran';
@@ -439,8 +540,9 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function commitTurn(){
   if(phase!=='feedback')return;phase='animating';$('quizOverlay').hidden=true;
   const i=state.current, t=state.teams[i],from=t.position;
-  const travel=isCorrect?R.movementPath(from,lastRoll):[];
-  $('gameStatus').textContent=isCorrect?`${t.name}: jawaban benar. Bergerak ${lastRoll} langkah${from+lastRoll>100?' dan memantul di 100':''}…`:`${t.name}: tidak bergerak. Giliran beralih.`;
+  const advances=isCorrect||state.mode==='edukatif';
+  const travel=advances?R.movementPath(from,lastRoll):[];
+  $('gameStatus').textContent=advances?`${t.name}: bergerak ${lastRoll} langkah${from+lastRoll>100?' dan memantul di 100':''}…`:`${t.name}: tidak bergerak. Giliran beralih.`;
   if(travel.length){
     for(const position of travel){
       renderPieces({[i]:position});
@@ -450,6 +552,8 @@ async function commitTurn(){
     await sleep(260);
   }
   const {state:next,events}=R.applyTurn(state,{roll:lastRoll,correct:isCorrect});state=next;
+  const record=state.history[state.history.length-1];
+  if(record && activeQuestion){record.questionId=String(activeQuestion.id||'');record.subject=String(activeQuestion.subject||'');record.topic=String(activeQuestion.topic||'');record.answeredAt=new Date().toISOString();}
   const jump=events.find(e=>e.type==='snake'||e.type==='ladder');if(jump){renderPieces();await sleep(500)}
   const messages=[];for(const e of events){if(e.type==='ladder')messages.push(`🪜 Naik tangga ${e.from} → ${e.to}`);if(e.type==='snake')messages.push(`🐍 Turun ular ${e.from} → ${e.to}`);if(e.type==='collision')messages.push(`💥 ${state.teams[e.bumped].name} tertabrak dan kembali ke START`);if(e.type==='bounce')messages.push(`↩️ Melewati 100, bidak memantul mundur ke kotak ${e.to}`);}
   $('gameStatus').textContent=messages.length?messages.join(' • '):isCorrect?`${t.name} maju ke kotak ${state.teams[i].position}.`:`${t.name} tetap di kotak ${from}.`;
@@ -462,24 +566,25 @@ async function commitTurn(){
     $('gameStatus').textContent+=` • Giliran berikut: ${next.name}.`;
     if(messages.length)showToast(messages.join(' • '));
   }
-  if(state.finished){if(state.winner!==null)window.SLAudio?.playEffect('victory');showView('results')}
+  if(state.finished){state.endedAt=new Date().toISOString();if(state.winner!==null)window.SLAudio?.playEffect('victory');showView('results')}
 }
-function scoresTable(teams){const table=el('table','score-table');const h=el('thead');const tr=el('tr');['#','Tim','Posisi','Benar','Salah','Tertabrak','Progres'].forEach(t=>tr.append(el('th',null,t)));h.append(tr);table.append(h);
-  const tbody=el('tbody');R.rankTeams(teams).forEach((t,i)=>{const row=el('tr');row.append(el('td',null,String(i+1)));const td=el('td');td.append(img(PATH('players',t.id),''),document.createTextNode(t.name));row.append(td);
-    [t.position,t.correct,t.wrong,t.hits].forEach(n=>row.append(el('td',null,String(n))));const prog=el('td');const track=el('div','progress-track');const bar=el('div','progress-fill');bar.style.width=t.position+'%';track.append(bar);prog.append(track);row.append(prog);tbody.append(row)});table.append(tbody);return table;}
+function scoresTable(teams){const table=el('table','score-table');const h=el('thead');const tr=el('tr');['#','Tim','Poin','Posisi','Benar','Salah','Tertabrak','Progres'].forEach(t=>tr.append(el('th',null,t)));h.append(tr);table.append(h);
+  const tbody=el('tbody');R.rankTeams(teams,state?.mode).forEach((t,i)=>{const row=el('tr');row.append(el('td',null,String(i+1)));const td=el('td');td.append(img(PATH('players',t.id),''),document.createTextNode(t.name));row.append(td);
+    [t.correct*10,t.position,t.correct,t.wrong,t.hits].forEach(n=>row.append(el('td',null,String(n))));const prog=el('td');const track=el('div','progress-track');const bar=el('div','progress-fill');bar.style.width=t.position+'%';track.append(bar);prog.append(track);row.append(prog);tbody.append(row)});table.append(tbody);return table;}
 function renderScores(){if(!state)return;const box=$('fullScores');box.replaceChildren(scoresTable(state.teams));}
-function renderResults(){if(!state)return;const ranking=R.rankTeams(state.teams);const winner=state.winner!=null?state.teams[state.winner]:null;
-  $('winnerBanner').textContent=winner?`🎊 Selamat! ${winner.name} berhenti tepat di kotak 100!`:'⏹ Pertandingan diakhiri sebelum ada tim mencapai 100.';
+function renderResults(){if(!state)return;const ranking=R.rankTeams(state.teams,state.mode);const winner=state.winner!=null?state.teams[state.winner]:null;
+  $('winnerBanner').textContent=state.mode==='edukatif'?`🏆 Juara Pengetahuan: ${ranking[0].name} (${ranking[0].correct*10} poin). ${winner?`${winner.name} mencapai kotak 100.`:'Pertandingan diakhiri guru.'}`:(winner?`🎊 Selamat! ${winner.name} berhenti tepat di kotak 100!`:'⏹ Pertandingan diakhiri sebelum ada tim mencapai 100.');
   $('replayVictoryBtn').hidden=!winner;
+  ['certFirstBtn','certSecondBtn','certThirdBtn'].forEach((id,i)=>$(id).disabled=i>=ranking.length);
   const pod=$('podium');pod.replaceChildren();const ranks=[ranking[1],ranking[0],ranking[2]];
-  ranks.forEach((t,i)=>{if(!t)return;const box=el('div','podium-item '+(i===1?'first':i===0?'second':'third'));box.append(el('div','podium-rank',i===1?'🥇':i===0?'🥈':'🥉'),img(PATH('players',t.id),t.name),el('b',null,t.name),el('span',null,`Kotak ${t.position}`));pod.append(box)});
+  ranks.forEach((t,i)=>{if(!t)return;const box=el('div','podium-item '+(i===1?'first':i===0?'second':'third'));box.append(el('div','podium-rank',i===1?'🥇':i===0?'🥈':'🥉'),img(PATH('players',t.id),t.name),el('b',null,t.name),el('span',null,`${t.correct*10} poin • Kotak ${t.position}`));pod.append(box)});
   $('finalScores').replaceChildren(scoresTable(state.teams));
   const review=$('retrySummary');review.replaceChildren();
   const heading=el('h3',null,'📚 Evaluasi Soal');review.append(heading);
   state.teams.forEach((t,i)=>{const st=retrySession?.stats(i);review.append(el('p',null,`${t.name}: ${st?.wrongAttempts||0} jawaban salah/perlu dipelajari kembali.`))});
   review.append(el('p','hint','Soal salah tidak menampilkan kunci jawaban. Selama bank masih memiliki soal baru, pertanyaan tidak diulang dalam pertandingan ini.'));
 }
-function endGame(){if(!state)return;if(['rolling','reveal','quiz','feedback','animating'].includes(phase)){showToast('Selesaikan soal dan giliran yang berlangsung dahulu.');return;}if(!confirm('Akhiri permainan dan lihat hasil sementara?'))return;state.finished=true;state.winner=null;showView('results')}
+function endGame(){if(!state)return;if(['rolling','reveal','quiz','feedback','animating'].includes(phase)){showToast('Selesaikan soal dan giliran yang berlangsung dahulu.');return;}if(!confirm('Akhiri permainan dan lihat hasil sementara?'))return;state.finished=true;state.winner=null;state.endedAt=new Date().toISOString();showView('results')}
 function normalQuestion(raw,id){
   const level=CAT.LEVELS.includes(raw.level)?raw.level:'Umum';
   const rawGrade=Number(raw.grade), grade=level==='Umum'?null:(levelGrades(level).includes(rawGrade)?rawGrade:null);
@@ -1234,13 +1339,22 @@ function wire(){
   [['bankLevel','level'],['bankGrade','grade'],['bankFilter','subject'],['bankTopic','topic']].forEach(([id,changed])=>$(id).addEventListener('change',()=>cascadeFilters('bank',changed)));
   $('newLevel').addEventListener('change',syncAddSubjects);$('newGrade').addEventListener('change',syncChoiceCount);$('newSubject').addEventListener('change',syncOtherSubject);$('cancelEditBtn').addEventListener('click',cancelEdit);
 
+  $('multiModeToggle').addEventListener('change',()=>{
+    const on=multiEnabled();$('multiModeContents').hidden=!on;
+    $('subjectSelect').disabled=on;$('setupTopic').disabled=on;
+    if(on&&!mixedModeRows.length)addMultiRow();
+    refreshMultiCatalog();updatePoolInfo();
+  });
+  $('addMultiMaterialBtn').addEventListener('click',addMultiRow);
   $('startGameBtn').addEventListener('click',startGame);
   $('useDemoBankBtn').addEventListener('click',useDemoBank);
   $('rollBtn').addEventListener('click',startRoll);
   $('diceRevealContinueBtn').addEventListener('click',proceedAfterDiceReveal);
   $('artToggleBtn').addEventListener('click',()=>{settings.art=!settings.art;storage.set('slkb.settings.v1',settings);renderGame()});
   $('quizSubmitBtn').addEventListener('click',()=>evaluateAnswer(false));$('quizContinueBtn').addEventListener('click',commitTurn);
-  $('endGameBtn').addEventListener('click',endGame);$('playAgainBtn').addEventListener('click',()=>{state=null;phase='idle';showView('setup')});
+  $('endGameBtn').addEventListener('click',endGame);
+  $('exportResultsXlsxBtn').addEventListener('click',()=>{try{window.SLResultsExport.downloadXlsx(state,subject,sessionStartedAt);$('resultExportStatus').textContent='Rekap Excel berhasil dibuat.';}catch(e){showToast('Gagal ekspor Excel: '+e.message)}});
+  [['certFirstBtn',0],['certSecondBtn',1],['certThirdBtn',2]].forEach(([id,rank])=>$(id).addEventListener('click',async()=>{try{await window.SLResultsExport.downloadCertificate(state,rank,subject,sessionStartedAt);$('resultExportStatus').textContent=`Sertifikat juara ${rank+1} berhasil dibuat.`;}catch(e){showToast('Gagal membuat sertifikat: '+e.message)}}));$('playAgainBtn').addEventListener('click',()=>{state=null;phase='idle';showView('setup')});
   $('questionBackBtn').addEventListener('click',()=>showView(previousView==='questions'?'menu':previousView));
   $('helpBackBtn').addEventListener('click',()=>showView(previousView==='help'?'menu':previousView));
   $('helpProceedBtn').addEventListener('click',()=>showView(previousView==='help'?'menu':previousView));
