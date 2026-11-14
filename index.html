@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#442077">
 <meta name="description" content="Snake & Ladder Knowledge Battle - game edukasi 2–6 tim karya GID Creative Studio.">
 <title>Snake & Ladder: Knowledge Battle • GID Creative Studio</title>
-<link rel="stylesheet" href="css/style.css?v=1.5.12">
+<link rel="stylesheet" href="css/style.css?v=1.5.18">
 </head>
 <body>
 <div class="app-backdrop"></div>
 <header class="topbar">
   <button class="brand" data-view="menu" aria-label="Kembali ke menu utama"><span class="brand-monogram">GID</span><span><strong>SNAKE & LADDER</strong><small>KNOWLEDGE BATTLE</small></span></button>
-  <div class="top-actions"><span class="demo-pill" title="Versi aplikasi">VERSI 1.5.14</span><button class="icon-btn" id="muteBtn" title="Aktif/nonaktif suara efek" aria-label="Suara efek">🔊</button><button class="icon-btn" id="fullscreenBtn" title="Layar penuh" aria-label="Layar penuh">⛶</button></div>
+  <div class="top-actions"><span class="demo-pill" title="Versi aplikasi">VERSI 1.5.18</span><button class="icon-btn" id="muteBtn" title="Aktif/nonaktif suara efek" aria-label="Suara efek">🔊</button><button class="icon-btn" id="fullscreenBtn" title="Layar penuh" aria-label="Layar penuh">⛶</button></div>
 </header>
 <main class="main" id="main">
   <section id="view-menu" class="view menu-view" aria-label="Menu utama">
@@ -41,7 +41,16 @@
 <label for="setupGrade">Kelas<select id="setupGrade"></select></label>
 <label for="subjectSelect">Mata Pelajaran<select id="subjectSelect"></select></label>
 <label for="setupTopic">Materi / Bab<select id="setupTopic"></select></label>
-</div><p id="questionPoolInfo" class="hint"></p></div><div><h3>4. Aturan permainan</h3><p class="rule-summary">🎲 Lempar dadu → lihat hasil → buka soal. ✅ Benar maju, ❌ salah tetap tanpa membuka kunci; 🔁 soal salah diulang untuk tim yang sama. 🎁 Angka 6 benar mendapat bonus; tiga angka 6 berturut-turut: lemparan ketiga hangus. 🐍 Ular turun • 🪜 Tangga naik • 💥 Tabrakan ke START.</p><p class="hint">Jika dadu melewati 100, pion memantul mundur; menang hanya bila berhenti tepat di 100. START adalah area bersama.</p></div></div>
+</div>
+<div class="multi-panel" id="multiMaterialPanel">
+  <label class="multi-switch"><input id="multiModeToggle" type="checkbox"> <strong>📚 Pilih beberapa mapel &amp; materi (Paket Campuran)</strong></label>
+  <p class="hint">Aktifkan untuk memilih beberapa materi sekaligus, termasuk lintas mata pelajaran dalam satu jenjang dan kelas. Tentukan jatah soal per materi; semua pertanyaan digabung lalu diacak tanpa pengulangan dalam pertandingan.</p>
+  <div id="multiModeContents" hidden>
+    <div id="multiMaterialRows" class="multi-material-rows"></div>
+    <button id="addMultiMaterialBtn" class="multi-add-btn" type="button">＋ Tambah mapel / materi</button>
+    <p id="multiPoolInfo" class="hint" aria-live="polite"></p>
+  </div>
+</div><p id="questionPoolInfo" class="hint"></p></div><div><h3>4. Mode &amp; aturan skor</h3><label class="score-mode-choice">Mode pertandingan<select id="scoringMode"><option value="edukatif" selected>🏆 Kompetisi Edukatif — benar +10, posisi sesuai dadu</option><option value="klasik">🎲 Klasik — benar baru bergerak, peringkat posisi</option></select></label><p class="hint">Mode Edukatif: salah/tidak menjawab tetap menjalankan dadu, ular dan tangga tetap berlaku. Juara diurutkan berdasarkan poin benar (+10), lalu posisi, lalu lebih sedikit jawaban salah. Permainan selesai ketika ada tim mencapai 100 atau guru mengakhiri permainan.</p><p class="rule-summary">🎲 Lempar dadu → lihat hasil → buka soal. ✅ Benar +10 poin; mode Edukatif tetap bergerak meski salah, mode Klasik hanya maju bila benar. Soal yang salah tidak diulang sebelum bank habis. 🎁 Angka 6 benar mendapat bonus; tiga angka 6 berturut-turut: lemparan ketiga hangus. 🐍 Ular turun • 🪜 Tangga naik • 💥 Tabrakan ke START.</p><p class="hint">Jika dadu melewati 100, pion memantul mundur; menang hanya bila berhenti tepat di 100. START adalah area bersama.</p></div></div>
       <div id="setupStartMessage" class="setup-start-message" role="alert" aria-live="assertive" hidden></div>
       <div class="panel-actions"><button class="glossy secondary" data-view="questions">▤ Kelola Bank Soal</button><button class="glossy secondary" id="useDemoBankBtn" type="button" hidden>↻ Gunakan Soal Demo</button><button class="glossy primary" id="startGameBtn" type="button">▶ Mulai Pertandingan</button></div>
     </div>
@@ -81,7 +90,7 @@
   </section>
 
   <section id="view-results" class="view" hidden>
-    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PERTANDINGAN SELESAI</p><h2>🏆 Hasil Permainan</h2></div></div><div id="winnerBanner"></div><div id="podium" class="podium"></div><div id="finalScores"></div><div id="retrySummary" class="retry-summary"></div><div class="panel-actions center"><button class="glossy secondary" id="replayVictoryBtn" type="button" hidden>⭐ Putar Ulang SFX Bintang</button><button class="glossy secondary" data-view="menu">⌂ Menu Utama</button><button class="glossy primary" id="playAgainBtn">↻ Main Lagi</button></div></div>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">PERTANDINGAN SELESAI</p><h2>🏆 Hasil Permainan</h2></div></div><div id="winnerBanner"></div><div id="podium" class="podium"></div><div id="finalScores"></div><div id="retrySummary" class="retry-summary"></div><div class="result-export"><h3>📋 Rekap Guru &amp; Sertifikat Juara</h3><p class="hint">Unduh file Excel (.xlsx) dengan daftar tim, perolehan poin, serta riwayat setiap giliran. Sertifikat PNG dibuat untuk peringkat 1, 2, dan 3 sesuai hasil pertandingan.</p><div class="result-export-actions"><button class="glossy primary sm" id="exportResultsXlsxBtn" type="button">📊 Unduh Rekap Excel</button><button class="glossy secondary sm" id="certFirstBtn" type="button">🥇 Sertifikat Juara 1</button><button class="glossy secondary sm" id="certSecondBtn" type="button">🥈 Sertifikat Juara 2</button><button class="glossy secondary sm" id="certThirdBtn" type="button">🥉 Sertifikat Juara 3</button></div><p id="resultExportStatus" class="hint" role="status"></p></div><div class="panel-actions center"><button class="glossy secondary" id="replayVictoryBtn" type="button" hidden>⭐ Putar Ulang SFX Bintang</button><button class="glossy secondary" data-view="menu">⌂ Menu Utama</button><button class="glossy primary" id="playAgainBtn">↻ Main Lagi</button></div></div>
   </section>
 
   <section id="view-questions" class="view" hidden>
@@ -341,6 +350,6 @@
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <footer>© 2026 GID Creative Studio • @guruupgradeid — Belajar • Berkarya • Berbagi • Menginspirasi</footer>
 <script src="config/cloud-config.js"></script><script src="config/store-config.js"></script><script src="js/cloud.js?v=1.5.12a"></script>
-<script src="js/audio.js"></script><script src="js/rules.js"></script><script src="js/retry.js"></script><script src="js/catalog.js"></script><script src="js/questions.js"></script><script src="js/questions-expanded.js"></script><script src="js/app.js?v=1.5.14-panduan-mapel"></script>
+<script src="js/audio.js?v=1.5.17-multi-materi"></script><script src="js/rules.js"></script><script src="js/retry.js"></script><script src="js/catalog.js"></script><script src="js/questions.js"></script><script src="js/questions-expanded.js"></script><script src="js/results-export.js?v=1.5.18"></script><script src="js/app.js?v=1.5.18"></script>
 </body>
 </html>
