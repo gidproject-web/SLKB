@@ -31,6 +31,54 @@
     }
   };
 
+  // Web Audio dice rattle: independent of MP3 loading/caching and plays only on a user action.
+  let diceContext = null;
+  function playDiceRattle() {
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context) return false;
+    try {
+      if (!diceContext || diceContext.state === 'closed') diceContext = new Context();
+      const ctx = diceContext;
+      if (ctx.state === 'suspended') {
+        ctx.resume().catch(err => markAudioFailure('dice', err));
+      }
+      const now = ctx.currentTime + 0.025;
+      const hitCount = 16;
+      const duration = 1.12;
+      for (let i = 0; i < hitCount; i++) {
+        const progress = i / (hitCount - 1);
+        const start = now + duration * (1 - Math.pow(1 - progress, 1.65));
+        const hitDuration = 0.032 + Math.random() * 0.017;
+        const samples = Math.ceil(ctx.sampleRate * hitDuration);
+        const buffer = ctx.createBuffer(1, samples, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let j = 0; j < samples; j++) data[j] = (Math.random() * 2 - 1);
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 700 + Math.random() * 1350;
+        filter.Q.value = 0.7;
+        const gain = ctx.createGain();
+        const velocity = 0.7 + 0.3 * (1 - progress);
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(0.28 * velocity, start + 0.004);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + hitDuration);
+        source.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+        source.start(start);
+        source.stop(start + hitDuration + 0.002);
+      }
+      const status = document.getElementById('diceAudioStatus');
+      if (status) status.textContent = 'Suara dadu Web Audio aktif (tidak memerlukan MP3).';
+      return true;
+    } catch (err) {
+      markAudioFailure('dice', err);
+      return false;
+    }
+  }
+
   let musicEnabled = false;
   let effectsEnabled = true;
   let interacted = false;
@@ -109,6 +157,12 @@
     if (!Object.hasOwn(EFFECT_LEVEL,name)) return;
     if (!effectsEnabled && !preview) return;
     if (preview) gesture();
+    // Dice uses an in-browser rattle to avoid silent MP3 playback on some devices.
+    // MP3 stays as a fallback if Web Audio is unavailable.
+    if (name === 'dice' && playDiceRattle()) {
+      duckMusic(EFFECT_DUCK_MS.dice);
+      return;
+    }
     const sound = get(name);
     if (name === 'dice') {
       const status = document.getElementById('diceAudioStatus');
