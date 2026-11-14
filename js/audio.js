@@ -42,6 +42,18 @@
       if (ctx.state === 'suspended') {
         ctx.resume().catch(err => markAudioFailure('dice', err));
       }
+      // Amplify dice only. Compressor limits peaks to avoid harsh clipping.
+      // Other SFX and background music volumes remain unchanged.
+      const diceBus = ctx.createGain();
+      const diceLimiter = ctx.createDynamicsCompressor();
+      diceLimiter.threshold.value = -14;
+      diceLimiter.knee.value = 8;
+      diceLimiter.ratio.value = 8;
+      diceLimiter.attack.value = 0.002;
+      diceLimiter.release.value = 0.12;
+      diceBus.gain.value = 2.6;
+      diceBus.connect(diceLimiter);
+      diceLimiter.connect(ctx.destination);
       const now = ctx.currentTime + 0.025;
       const hitCount = 16;
       const duration = 1.12;
@@ -66,12 +78,12 @@
         gain.gain.exponentialRampToValueAtTime(0.0001, start + hitDuration);
         source.connect(filter);
         filter.connect(gain);
-        gain.connect(ctx.destination);
+        gain.connect(diceBus);
         source.start(start);
         source.stop(start + hitDuration + 0.002);
       }
       const status = document.getElementById('diceAudioStatus');
-      if (status) status.textContent = 'Suara dadu Web Audio aktif (tidak memerlukan MP3).';
+      if (status) status.textContent = 'Suara dadu Web Audio aktif • volume diperkuat.';
       return true;
     } catch (err) {
       markAudioFailure('dice', err);
