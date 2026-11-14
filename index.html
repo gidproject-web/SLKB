@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#442077">
 <meta name="description" content="Snake & Ladder Knowledge Battle - game edukasi 2–6 tim karya GID Creative Studio.">
 <title>Snake & Ladder: Knowledge Battle • GID Creative Studio</title>
-<link rel="stylesheet" href="css/style.css?v=1.5.18">
+<link rel="stylesheet" href="css/style.css?v=1.6.0">
 </head>
 <body>
 <div class="app-backdrop"></div>
 <header class="topbar">
   <button class="brand" data-view="menu" aria-label="Kembali ke menu utama"><span class="brand-monogram">GID</span><span><strong>SNAKE & LADDER</strong><small>KNOWLEDGE BATTLE</small></span></button>
-  <div class="top-actions"><span class="demo-pill" title="Versi aplikasi">VERSI 1.5.18</span><button class="icon-btn" id="muteBtn" title="Aktif/nonaktif suara efek" aria-label="Suara efek">🔊</button><button class="icon-btn" id="fullscreenBtn" title="Layar penuh" aria-label="Layar penuh">⛶</button></div>
+  <div class="top-actions"><span class="demo-pill" title="Versi aplikasi">VERSI 1.6.0</span><button class="icon-btn" id="muteBtn" title="Aktif/nonaktif suara efek" aria-label="Suara efek">🔊</button><button class="icon-btn" id="fullscreenBtn" title="Layar penuh" aria-label="Layar penuh">⛶</button></div>
 </header>
 <main class="main" id="main">
   <section id="view-menu" class="view menu-view" aria-label="Menu utama">
@@ -22,6 +22,7 @@
       <div class="subtitle">Game Edukasi Pengetahuan • 2–6 Tim</div>
       <div class="menu-buttons">
         <button class="glossy primary xl" data-view="setup">▶ &nbsp; Mulai Bermain</button>
+        <button class="glossy blue" data-view="multiplayer">🌐 &nbsp; Mabar Online (Room &amp; Lobby)</button>
         <button class="glossy secondary" data-view="help">📖 &nbsp; Panduan</button>
         <button class="glossy secondary" data-view="settings">⚙ &nbsp; Pengaturan</button>
         <button class="glossy secondary" data-view="questions">▤ &nbsp; Bank Soal</button>
@@ -29,6 +30,22 @@
         <button class="glossy blue" data-view="about">ⓘ &nbsp; Info Pengembang</button>
       </div>
       <p class="hero-caption">Belajar • Bermain • Berkolaborasi</p>
+    </div>
+  </section>
+
+  <section id="view-multiplayer" class="view" hidden>
+    <div class="panel wide-panel"><div class="panel-head"><div><p class="eyebrow">SLKB ONLINE • TAHAP 1</p><h2>🌐 Room &amp; Lobby Multiplayer</h2></div><button class="back-btn" data-view="menu">← Menu Utama</button></div>
+      <p class="notice">Versi 1.6.0 menyediakan room online untuk 2–4 tim dengan guru sebagai host. <strong>Belum ada papan dan pertandingan mabar real-time</strong> pada tahap ini. Permainan lokal tetap tersedia seperti sebelumnya.</p>
+      <div id="mpEntry" class="mp-entry">
+        <div class="form-card"><h3>👩‍🏫 Guru — Buat Room</h3><p>Login melalui Akun Guru &amp; Cloud dahulu. Host dapat mengundang tim, melihat kesiapan, mengeluarkan tim, dan mengunci lobby.</p><button class="glossy primary" type="button" id="mpCreateBtn">＋ Buat Room Online</button></div>
+        <div class="form-card"><h3>🎒 Siswa — Gabung Room</h3><form id="mpJoinForm"><label>Kode room<input id="mpJoinCode" placeholder="GID123456" maxlength="9" pattern="GID[0-9]{6}" required></label><label>Nama tim / kelompok<input id="mpJoinName" maxlength="40" minlength="2" required placeholder="Mis. Tim Al-Fatih"></label><button class="glossy blue" type="submit">Gabung Room</button></form></div>
+      </div>
+      <div id="mpLobby" class="mp-lobby" hidden><div class="mp-lobby-head"><div><p class="eyebrow">KODE UNDANGAN</p><h2 id="mpRoomCode">GID000000</h2><p id="mpRoomState">Menunggu tim</p></div><button type="button" class="glossy secondary sm" id="mpCopyBtn">🔗 Salin Link Undangan</button></div>
+      <p class="hint" id="mpLobbyCount">0/4 tim</p><div id="mpPlayers" class="mp-player-list"></div>
+      <div id="mpGuestActions" hidden><button type="button" class="glossy primary" id="mpReadyBtn">✅ Saya Siap</button></div>
+      <div id="mpHostActions" hidden><button type="button" class="glossy primary" id="mpLockBtn">🔒 Kunci Lobby (Semua Siap)</button></div>
+      <p class="hint" id="mpLobbyNote"></p><div class="panel-actions"><button type="button" class="glossy secondary sm" id="mpRefreshBtn">↻ Segarkan</button><button type="button" class="glossy danger sm" id="mpLeaveBtn">Keluar / Tutup Room</button></div></div>
+      <p id="mpStatus" class="hint" role="status" aria-live="polite">Silakan buat atau gabung room.</p>
     </div>
   </section>
 
@@ -350,6 +367,6 @@
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <footer>© 2026 GID Creative Studio • @guruupgradeid — Belajar • Berkarya • Berbagi • Menginspirasi</footer>
 <script src="config/cloud-config.js"></script><script src="config/store-config.js"></script><script src="js/cloud.js?v=1.5.12a"></script>
-<script src="js/audio.js?v=1.5.22-dice-boost"></script><script src="js/rules.js"></script><script src="js/retry.js"></script><script src="js/catalog.js"></script><script src="js/questions.js"></script><script src="js/questions-expanded.js"></script><script src="js/results-export.js?v=1.5.21-premium"></script><script src="js/app.js?v=1.5.18"></script>
+<script src="js/audio.js?v=1.5.22-dice-boost"></script><script src="js/rules.js"></script><script src="js/retry.js"></script><script src="js/catalog.js"></script><script src="js/questions.js"></script><script src="js/questions-expanded.js"></script><script src="js/results-export.js?v=1.5.21-premium"></script><script src="js/app.js?v=1.5.18"></script><script src="js/multiplayer-lobby.js?v=1.6.0"></script>
 </body>
 </html>
