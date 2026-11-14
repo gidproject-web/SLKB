@@ -8,13 +8,29 @@
     music: 'assets/audio/bgm.mp3',
     correct: 'assets/audio/correct.mp3',
     wrong: 'assets/audio/wrong.mp3',
-    dice: 'assets/audio/dice-roll.mp3',
+    dice: 'assets/audio/dice.mp3',
     click: 'assets/audio/click.mp3',
     victory: 'assets/audio/victory.mp3'
   });
   const EFFECT_LEVEL = Object.freeze({correct:0.78, wrong:0.78, dice:0.84, click:0.86, victory:0.85});
   const EFFECT_DUCK_MS = Object.freeze({correct:1700, wrong:1700, dice:1400, click:230, victory:4300});
   const sounds = Object.create(null);
+  // Resolve audio from the deployed game's root, not the current document URL.
+  const scriptRoot = (() => {
+    const script = document.currentScript;
+    try { return new URL('../', script?.src || document.baseURI); }
+    catch { return new URL('./', document.baseURI); }
+  })();
+  const audioUrl = name => new URL(FILES[name], scriptRoot).href;
+  const markAudioFailure = (name, error) => {
+    const message = '[SLKB Audio] Gagal memuat ' + name + ': ' + audioUrl(name) + '. ' + (error?.message || error || 'Periksa unggahan file dan tab Network.');
+    console.warn(message);
+    if (name === 'dice') {
+      const status = document.getElementById('diceAudioStatus');
+      if (status) status.textContent = 'Suara dadu gagal dimuat. Pastikan assets/audio/dice.mp3 tersedia di GitHub dan muat ulang halaman.';
+    }
+  };
+
   let musicEnabled = false;
   let effectsEnabled = true;
   let interacted = false;
@@ -31,7 +47,8 @@
   function get(name) {
     if (!Object.hasOwn(FILES,name)) return null;
     if (!sounds[name]) {
-      const a = new Audio(FILES[name]);
+      const a = new Audio(audioUrl(name));
+      a.addEventListener('error', () => markAudioFailure(name, 'Media error ' + (a.error?.code || 'unknown')));
       a.preload = name === 'music' ? 'none' : 'auto';
       a.loop = name === 'music';
       a.volume = name === 'music' ? targetMusicVolume() : EFFECT_LEVEL[name];
@@ -43,7 +60,10 @@
     if (!sound) return;
     try {
       const p = sound.play();
-      if (p && typeof p.catch === 'function') p.catch(err => console.warn('[SLKB Audio] Audio tidak dapat diputar:', sound.src, err?.message || err));
+      if (p && typeof p.catch === 'function') p.catch(err => {
+        const kind = Object.keys(sounds).find(k => sounds[k] === sound);
+        if (kind) markAudioFailure(kind, err);
+      });
     } catch (err) { console.warn('[SLKB Audio] Audio tidak dapat diputar:', err?.message || err); }
   }
   function stopMusic() { sounds.music?.pause(); }
@@ -90,6 +110,10 @@
     if (!effectsEnabled && !preview) return;
     if (preview) gesture();
     const sound = get(name);
+    if (name === 'dice') {
+      const status = document.getElementById('diceAudioStatus');
+      if (status) status.textContent = '';
+    }
     try { sound.pause(); sound.currentTime=0; } catch {}
     sound.volume = EFFECT_LEVEL[name];
     // Do not duck BGM for rapid menu clicks; they are deliberately subtle.
