@@ -9,11 +9,22 @@
   const save=()=>{if(session)sessionStorage.setItem(savedKey,JSON.stringify(session));else sessionStorage.removeItem(savedKey)};
   const getClient=()=>{
     client=window.SLCloud?.client||null;
-    if(!client)throw Error('Supabase belum siap. Periksa koneksi, atau login sebagai Guru terlebih dahulu.');
+    if(!client)throw Error('Koneksi Cloud belum siap. Coba segarkan halaman; bila Bank Soal Cloud berfungsi, laporkan error Console F12.');
     return client;
   };
+  // The existing Cloud module initializes asynchronously on page load.
+  // Do not create a second Supabase client: wait for the shared one.
+  async function waitForClient(){
+    for(let i=0;i<40;i++){
+      client=window.SLCloud?.client||null;
+      if(client)return client;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+    return getClient();
+  }
   async function call(name,params){
-    const {data,error}=await getClient().rpc('slkb_mp_'+name,params);
+    const readyClient=await waitForClient();
+    const {data,error}=await readyClient.rpc('slkb_mp_'+name,params);
     if(error)throw Error(error.message||'Gagal menghubungi database multiplayer');
     return data;
   }
@@ -71,10 +82,18 @@
   function reset(){closeChannel();session=null;save();el('mpEntry').hidden=false;el('mpLobby').hidden=true;setStatus('Silakan buat atau gabung room.');}
   function wire(){
     session=loadSaved();if(session)openChannel();
+    // Show readiness after the shared Cloud client has finished loading.
+    void waitForClient().then(()=>{
+      if(!session)setStatus('Supabase terhubung. Guru dapat membuat room setelah login; siswa dapat gabung dengan kode room.');
+    }).catch(err=>{if(!session)setStatus(err.message,true)});
     const codeFromUrl=new URLSearchParams(location.search).get('room');
     if(codeFromUrl)el('mpJoinCode').value=codeFromUrl.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,9);
     el('mpCreateBtn').addEventListener('click',()=>action(async()=>{
-      if(!window.SLCloud?.user)throw Error('Guru harus login di Akun Guru & Cloud terlebih dahulu.');
+      await waitForClient();
+      if(!window.SLCloud?.user){
+        await window.SLCloud?.refreshAuth?.();
+      }
+      if(!window.SLCloud?.user)throw Error('Akun guru belum terdeteksi. Buka Akun Guru & Cloud, login, lalu kembali ke Mabar Online.');
       const r=await call('create',{});
       session={code:r.code,token:r.token,host:true};save();openChannel();
     }));
