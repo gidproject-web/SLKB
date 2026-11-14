@@ -324,6 +324,6 @@
   }
   window.SLCloud={configured,init,refreshAuth,login,register,resendVerification,requestPasswordReset,changeRecoveredPassword,finishPasswordRecovery,isRecoveryFlow,isRecoveryVerified,authReturnError,logout,listQuestions,saveQuestion,saveMany,removeQuestion,submit,review,
     listMasterQuestions,countMasterQuestions,masterPage,masterFacets,saveMasterQuestions,monitorMaster,monitorSubjects,seedMasterCatalog,addMasterCatalog,updateCatalog,removeCatalog,listActivationRequests,requestActivation,reviewActivation,
-    get user(){return user},get role(){return role},get premium(){return premium},get schemaReady(){return schemaReady},get available(){return !!client}
+    get client(){return client},get user(){return user},get role(){return role},get premium(){return premium},get schemaReady(){return schemaReady},get available(){return !!client}
   };
 })();
