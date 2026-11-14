@@ -495,3 +495,15 @@ body.game-active .board-stage .board {
 .result-export{border:2px solid #dac3ea;border-radius:16px;padding:18px;margin-top:18px;background:linear-gradient(120deg,#fffcf6,#f5edff)}
 .result-export h3{margin:0 0 8px}.result-export-actions{display:flex;flex-wrap:wrap;gap:9px}.result-export-actions button{flex:1 1 180px}
 @media(max-width:650px){.result-export{padding:12px}.result-export-actions{display:grid;grid-template-columns:1fr}.result-export-actions button{width:100%}}
+
+/* SLKB v1.6.0: lobby only */
+.mp-entry{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.mp-entry .form-card{display:flex;flex-direction:column;gap:.65rem}
+.mp-entry input{display:block;width:100%;margin-top:.4rem}
+.mp-entry button{align-self:flex-start}
+.mp-lobby-head{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:rgba(105,65,177,.10);border:1px solid rgba(131,96,191,.25);padding:1rem;border-radius:1rem}
+.mp-lobby-head h2{font-size:clamp(1.5rem,5vw,2.4rem);letter-spacing:.1em}
+.mp-player-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.mp-player{display:flex;justify-content:space-between;gap:.6rem;align-items:center;padding:1rem;border-radius:.8rem;background:rgba(119,87,180,.10);font-weight:700}
+.mp-lobby[hidden],.mp-entry[hidden]{display:none!important}
+@media(max-width:650px){.mp-entry,.mp-player-list{grid-template-columns:1fr}.mp-lobby-head{flex-direction:column;align-items:flex-start}}
